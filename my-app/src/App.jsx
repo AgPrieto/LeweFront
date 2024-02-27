@@ -1,17 +1,22 @@
+import "./App.css";
 
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Routes, Route } from "react-router-dom";
 
-import { Provider } from 'react-redux'
-import store from './store'
 
-function App() {
+//COMPONENTS
+
+import Home from "./components/home/home";
+
+
+
+const App = () => {
   return (
-    <Provider store={store}>
-     
-    </Provider>
-  )
-}
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </div>
+  );
+};
 
-export default App
-
+export default App;
