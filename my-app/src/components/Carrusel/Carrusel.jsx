@@ -5,8 +5,18 @@ import styles from "./carrusel.module.css";
 import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs';
 import {RxDotFilled} from 'react-icons/rx';
 import data from "../../App.js";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getAllCategories } from "../../redux/actions/categoriesActions";
+import { getAllArticles } from "../../redux/actions/articlesActions";
 
 const Carrusel = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getAllCategories());
+        dispatch(getAllArticles());
+      }, [dispatch]);
 
   const images = data.map((event) => (
     event.image
