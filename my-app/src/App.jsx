@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./components/home/home";
 import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer"
 
 
 
@@ -17,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

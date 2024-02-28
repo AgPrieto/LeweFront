@@ -1,0 +1,57 @@
+.footerContainer {
+    margin-top: 100px;
+  }
+
+.footer {
+    width: 100%;
+    height: 190px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #161616; /* Ajusta esto para cambiar el color de fondo del pie de página */
+    color: #fff; /* Ajusta esto para cambiar el color del texto del pie de página */
+    position: absolute;
+    bottom: 0;
+    position: fixed;
+    box-sizing: border-box;
+    left: 0
+    
+  }
+
+
+
+  
+.column {
+  flex: 1;
+}
+
+.column h3 {
+  margin-bottom: 10px;
+}
+
+.column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.column ul li {
+  margin-bottom: 5px;
+}
+
+.column ul.socials {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin-left: 100px;
+  }
+
+  .socials li svg {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+  }
+  
+  .rightContent {
+    margin-right: 40px; /* Ajusta según sea necesario */
+  }
