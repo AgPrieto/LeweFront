@@ -9,6 +9,7 @@ import Home from "./components/home/home";
 import NavBar from "./components/NavBar/NavBar";
 
 
+
 const App = () => {
   return (
     <div>

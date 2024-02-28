@@ -1,0 +1,70 @@
+.container {
+    max-width: 1200px;
+    height: 500px;
+    width: 100%;
+    margin:auto;
+    padding-top: 4rem; /* Equivalente a py-16 */
+    padding-bottom: 4rem; /* Equivalente a py-16 */
+    padding-left: 1rem; /* Equivalente a px-4 */
+    padding-right: 1rem; /* Equivalente a px-4 */
+    position: relative;
+  }
+  
+  .image {
+    width: 1200px;
+    height: 100%;
+    border-radius: 1rem; /* rounded-2xl equivale a un border-radius de 1rem */
+    background-position: center;
+    background-size: cover;
+    transition: all 0.5s; /* Equivalente a duration-500 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg equivale a este valor de sombra */
+  }
+  
+  .control {
+  font-size: 1.25rem; /* Equivalente a text-2xl */
+  cursor: pointer;
+  transition: transform 0.3s;
+  }
+  
+  .leftControl {
+    position: absolute;
+  top: 50%;
+  left: 1.25rem; /* Equivalente a left-5 */
+  transform: translateY(-50%);
+  font-size: 1.25rem; /* Equivalente a text-2xl */
+  border-radius: 9999px; /* Esto hace que el borde sea completamente redondeado */
+  padding: 0.5rem; /* Equivalente a p-2 */
+  background-color: rgba(0, 0, 0, 0.2); /* bg-black/20 */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  }
+  .leftControl:hover {
+    background-color: rgba(0, 0, 0, 0.3); /* hover:bg-black/30 */
+    transform: scale(1.1); /* hover:scale-110 */
+  }
+  
+  .rightControl {
+    position: absolute;
+    top: 50%;
+    right: 1.25rem; /* Equivalente a right-5 */
+    transform: translateY(-50%);
+    font-size: 1.25rem; /* Equivalente a text-2xl */
+    border-radius: 9999px; /* Esto hace que el borde sea completamente redondeado */
+    padding: 0.5rem; /* Equivalente a p-2 */
+    background-color: rgba(0, 0, 0, 0.2); /* bg-black/20 */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+    .rightControl:hover {
+        background-color: rgba(0, 0, 0, 0.3); /* hover:bg-black/30 */
+        transform: scale(1.1); /* hover:scale-110 */
+    }
+  
+  .dotsContainer {
+    display: flex;
+    top: 1rem; /* Equivalente a top-4 */
+    justify-content: center;
+    padding-top: 0.5rem; /* Equivalente a py-2 */
+}
