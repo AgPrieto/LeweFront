@@ -1,0 +1,26 @@
+.imagenFiltrotabla,
+.imagenFiltroaccesorio {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 1rem;
+  margin: 20px 0; 
+  transition: box-shadow 0.3s ease-in-out;
+  height: 500px;
+  margin-top: 70px;
+}
+
+.categorys {
+  display: flex;
+  flex-direction: row;
+  margin-left: 290px;
+}
+
+.category {
+  margin-left: 90px;
+  transition: transform 0.3s ease-in-out; /* Agrega una transición para hacer suavemente el cambio */
+  z-index: 0; /* Asegura que los elementos .category estén en una capa superior */
+}
+
+.category:hover {
+  transform: scale(1.1); /* Escala el elemento al 110% del tamaño original al pasar el cursor sobre él */
+}
