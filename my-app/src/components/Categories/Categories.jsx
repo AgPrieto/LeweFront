@@ -6,7 +6,7 @@ import axios from "axios";
 import style from "./categories.module.css";
 
 const Categories = () => {
-
+console.log("llegué a categories");
 const {id} = useParams();
 const [category, setCategory] = useState([]);
 
