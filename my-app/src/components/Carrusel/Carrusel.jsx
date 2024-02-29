@@ -9,9 +9,12 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getAllCategories } from "../../redux/actions/categoriesActions";
 import { getAllArticles } from "../../redux/actions/articlesActions";
+import { useSelector } from "react-redux";
 
 const Carrusel = () => {
     const dispatch = useDispatch();
+    const articles = useSelector((state) => state.articlesReducer.articles);
+    console.log(articles);
 
     useEffect(() => {
         dispatch(getAllCategories());
