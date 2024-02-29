@@ -2,15 +2,18 @@ import React from 'react';
 import styles from './Footer.module.css';
 import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
+import leweBlack from "./leweBlack.png"
 const Footer = () => {
   return (
     <div className={styles.footerContainer}>
     <div className={styles.footer}>
       <div className={styles.column}>
+        <img src={leweBlack} alt="leweBlack" />
+      </div>
+      <div className={styles.column}>
         <h3>Categorías</h3>
         <ul>
-          <li>Shorts</li>
+          <li>Indumentaria</li>
           <li>Raquetas</li>
           <li>Pelotas</li>
           <li>Accesorios</li>
@@ -32,7 +35,7 @@ const Footer = () => {
         </ul>
       </div>
       <div>
-        <p className={styles.rightContent}>© 2024 Lewe SportsClub. Todos los derechos reservados.</p>
+        <p className={styles.rightContent}>© 2024 Lewe SportsLife. Todos los derechos reservados.</p>
       </div>
     </div>
     </div>
