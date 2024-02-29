@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './NavBar.module.css'; 
-import leweIcon from "../../assets/leweIcon.png"
+import leweBlack from "../../assets/leweBlack.png"
 import { IoCart } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
@@ -41,14 +41,14 @@ const NavBar = () => {
 
   return (
     <div className={styles.navbar}>
-     <Link to="/"><img src={leweIcon} alt="Pokemon" className={styles.logo} /></Link>
+     <Link to="/"><img src={leweBlack} alt="Pokemon" className={styles.logo} /></Link>
       <div className={styles.buttonGroup}>
         <Link to="/"><button onClick={() => handleClick('HOME')} className={activeButton === 'HOME' ? styles.active : ''}>HOME</button></Link>
         <div className={styles.dropdown} ref={node}>
           <button onClick={toggleDropdown} className={activeButton === 'CATEGORIAS' ? styles.active : ''}>CATEGORIAS</button>
           {dropdownOpen && (
             <div className={styles.dropdownMenu}>
-              <button onClick={() => handleClick('Shorts')}>Shorts</button>
+              <button onClick={() => handleClick('Indumentaria')}>Indumentaria</button>
               <button onClick={() => handleClick('Raquetas')}>Raquetas</button>
               <button onClick={() => handleClick('Pelotas')}>Pelotas</button>
               <button onClick={() => handleClick('Accesorios')}>Accesorios</button>
