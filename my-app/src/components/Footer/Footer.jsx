@@ -35,7 +35,7 @@ const Footer = () => {
         </ul>
       </div>
       <div>
-        <p className={styles.rightContent}>© 2024 Lewe SportsLife. Todos los derechos reservados.</p>
+        <p className={styles.rightContent}>© 2018 Lewe SportsLife. Todos los derechos reservados.</p>
       </div>
     </div>
     </div>

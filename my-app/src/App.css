@@ -10,6 +10,8 @@
   flex-grow: 1;
   box-sizing: border-box;
   background-color: black;
+  font-family: Gotham;
+  
 }
 .mainContent {
   margin-top: 100px; 
@@ -49,4 +51,11 @@
 
 .read-the-docs {
   color: #888;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('./assets/GothamRnd-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
