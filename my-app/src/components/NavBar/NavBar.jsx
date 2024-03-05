@@ -3,15 +3,18 @@ import styles from './NavBar.module.css';
 import leweBlack from "../../assets/leweBlack.png"
 import { IoCart } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
   const [activeButton, setActiveButton] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const node = useRef();
+  const navigate = useNavigate();
 
   const handleClick = (buttonName) => {
     setActiveButton(buttonName);
-    setDropdownOpen(false); 
+    setDropdownOpen(false);
+    navigate(`category/${buttonName}`)
   }
 
   const toggleDropdown = () => {
@@ -48,8 +51,8 @@ const NavBar = () => {
           <button onClick={toggleDropdown} className={activeButton === 'CATEGORIAS' ? styles.active : ''}>CATEGORIAS</button>
           {dropdownOpen && (
             <div className={styles.dropdownMenu}>
-              <button onClick={() => handleClick('Indumentaria')}>Indumentaria</button>
-              <button onClick={() => handleClick('Raquetas')}>Raquetas</button>
+              <button onClick={() => handleClick('b04b6c5e-e00b-4299-9955-9bc897277779')}>Indumentaria</button>
+              <button onClick={() => handleClick('90d2f045-57a1-406e-b640-78f6167236ae')}>Raquetas</button>
               <button onClick={() => handleClick('Pelotas')}>Pelotas</button>
               <button onClick={() => handleClick('Accesorios')}>Accesorios</button>
             </div>
