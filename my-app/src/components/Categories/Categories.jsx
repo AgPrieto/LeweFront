@@ -12,7 +12,7 @@ const [category, setCategory] = useState([]);
 
 useEffect(() => {
     getCategory();
-}, []);
+}, [id]);
 
 const getCategory = async () => {
     try {
