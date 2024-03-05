@@ -45,7 +45,7 @@ const Home = () => {
       </div>
       <div className={styles.categorys}>
         <div className={styles.category}>
-          <Link to={"/products"}>
+          <Link to={"/category/90d2f045-57a1-406e-b640-78f6167236ae"}>
             <img
               src={paletas}
               alt="Paletas"
@@ -56,7 +56,7 @@ const Home = () => {
           </Link>
         </div>
         <div className={styles.category}>
-          <Link to={"/products"}>
+          <Link to={"/category/b04b6c5e-e00b-4299-9955-9bc897277779"}>
             <img
               src={indumentaria}
               alt="Indumentaria"
