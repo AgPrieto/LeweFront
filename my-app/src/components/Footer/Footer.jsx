@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import styles from "./Footer.module.css";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
