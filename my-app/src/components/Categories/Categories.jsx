@@ -31,6 +31,7 @@ console.log(category);
     {category.products && category.products.map(product => (
       <div key={product.id} className={style.card}>
         <img src={product.image} alt={product.name} className={style.imgCard}/>
+        {console.log(product.image)}
         <p className={style.name}>{product.name}</p>
         <p className={style.description}>{product.description}</p>
         <p className={style.price}>${product.price}</p>
