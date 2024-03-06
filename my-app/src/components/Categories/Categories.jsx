@@ -30,7 +30,7 @@ console.log(category);
     <div className={style.container}>
     {category.products && category.products.map(product => (
       <div key={product.id} className={style.card}>
-        <img src={"https://fcppxyi.stripocdn.email/content/guids/CABINET_c67048fd0acf81b47e18129166337c05/images/79021618299486570.png"} alt={product.name} className={style.imgCard}/>
+        <img src={product.image} alt={product.name} className={style.imgCard}/>
         <p className={style.name}>{product.name}</p>
         <p className={style.description}>{product.description}</p>
         <p className={style.price}>${product.price}</p>
