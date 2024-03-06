@@ -16,7 +16,7 @@ useEffect(() => {
 
 const getCategory = async () => {
     try {
-        const {data} = await axios.get(`http://localhost:3001/category/${id}`);
+        const {data} = await axios.get(`/category/${id}`);
         setCategory(data);
     } catch (error) {
         alert(error.message);
