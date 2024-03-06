@@ -51,10 +51,10 @@ const NavBar = () => {
           <button onClick={toggleDropdown} className={activeButton === 'CATEGORIAS' ? styles.active : ''}>CATEGORIAS</button>
           {dropdownOpen && (
             <div className={styles.dropdownMenu}>
-              <button onClick={() => handleClick('b04b6c5e-e00b-4299-9955-9bc897277779')}>Indumentaria</button>
-              <button onClick={() => handleClick('90d2f045-57a1-406e-b640-78f6167236ae')}>Raquetas</button>
-              <button onClick={() => handleClick('Pelotas')}>Pelotas</button>
-              <button onClick={() => handleClick('Accesorios')}>Accesorios</button>
+              <button onClick={() => handleClick('f76fc151-647c-4bd8-a97a-54034494fcf8')}>Indumentaria</button>
+              <button onClick={() => handleClick('ab178e9d-253f-4fe5-a9a0-59cac1c1cdf7')}>Raquetas</button>
+              <button onClick={() => handleClick('f75de8fb-83f7-444a-a6b9-b3f151fae7a2')}>Pelotas</button>
+              <button onClick={() => handleClick('67726fd5-b41a-4320-ba42-c9e8f484087f')}>Accesorios</button>
             </div>
           )}
         </div>
