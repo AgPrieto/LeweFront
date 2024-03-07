@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import style from './categories.module.css';
 import loader from "./loader.gif"
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Categories = () => {
   const { id } = useParams();
@@ -11,6 +13,7 @@ const Categories = () => {
 
   useEffect(() => {
     getCategory();
+    AOS.init({ duration: 1000 }); // Inicializa AOS
   }, [id]);
 
   const getCategory = async () => {
@@ -36,10 +39,12 @@ const Categories = () => {
 
   return (
     <div>
-      <h2>{category.name}</h2>
+      <div className={style.title}>
+        <h2>{category.name}</h2>
+      </div>
       <div className={style.container}>
-        {category.products && category.products.map(product => (
-          <div key={product.id} className={style.card}>
+        {category.products && category.products.map((product, index) => (
+          <div key={product.id} className={style.card} data-aos="fade-left" data-aos-delay={index * 100}>
             <img src={product.image} alt={product.name} className={style.imgCard}/>
             <p className={style.name}>{product.name}</p>
             <p className={style.description}>{product.description}</p>
