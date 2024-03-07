@@ -58,3 +58,17 @@
       max-width: calc(25% - 20px); /* Ancho máximo de cada tarjeta para mostrar 4 tarjetas por fila con un espacio de 20px entre ellas */
     }
   }
+
+  .loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .loader {
+    width: 70px;
+    height: 70px;
+  }
+  
+  
