@@ -8,30 +8,41 @@ import { useNavigate } from 'react-router-dom';
 const NavBar = () => {
   const [activeButton, setActiveButton] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [subDropdownOpen, setSubDropdownOpen] = useState(false);
   const node = useRef();
   const navigate = useNavigate();
 
   const handleClick = (buttonName) => {
     setActiveButton(buttonName);
     setDropdownOpen(false);
-    navigate(`category/${buttonName}`)
-  }
+    navigate(`category/${buttonName}`);
+  };
 
   const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  if (dropdownOpen) {
+    setActiveButton(null); // Desactiva el botón si el menú está abierto
+  } else {
     setActiveButton('CATEGORIAS'); 
   }
+  setDropdownOpen(!dropdownOpen);
+};
+
+  const toggleSubDropdown = () => {
+    setSubDropdownOpen(!subDropdownOpen);
+    setActiveButton('Indumentaria'); 
+  };
 
   const handleClickOutside = e => {
     if (node.current.contains(e.target)) {
       return;
     }
     setDropdownOpen(false);
-    setActiveButton(null); // Desactiva el botón "CATEGORIAS" cuando se hace clic fuera del menú desplegable
+    setSubDropdownOpen(false);
+    setActiveButton(null);
   };
 
   useEffect(() => {
-    if (dropdownOpen) {
+    if (dropdownOpen || subDropdownOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -40,7 +51,7 @@ const NavBar = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [dropdownOpen]);
+  }, [dropdownOpen, subDropdownOpen]);
 
   return (
     <div className={styles.navbar}>
@@ -51,9 +62,21 @@ const NavBar = () => {
           <button onClick={toggleDropdown} className={activeButton === 'CATEGORIAS' ? styles.active : ''}>CATEGORIAS</button>
           {dropdownOpen && (
             <div className={styles.dropdownMenu}>
-              <button onClick={() => handleClick('f76fc151-647c-4bd8-a97a-54034494fcf8')}>Indumentaria</button>
+              <button onClick={toggleSubDropdown}>Indumentaria</button>
+              {subDropdownOpen && (
+                <div className={styles.subDropdownMenu}>
+                  <button onClick={() => handleClick('some-category-id-1')}>Remeras</button>
+                  <button onClick={() => handleClick('some-category-id-2')}>Shorts</button>
+                  <button onClick={() => handleClick('some-category-id-2')}>Medias</button>
+                  
+                  {/* Add more subcategories as needed */}
+                </div>
+              )}
+              <hr />
               <button onClick={() => handleClick('ab178e9d-253f-4fe5-a9a0-59cac1c1cdf7')}>Raquetas</button>
+              <hr />
               <button onClick={() => handleClick('f75de8fb-83f7-444a-a6b9-b3f151fae7a2')}>Pelotas</button>
+              <hr />
               <button onClick={() => handleClick('67726fd5-b41a-4320-ba42-c9e8f484087f')}>Accesorios</button>
             </div>
           )}
@@ -68,6 +91,7 @@ const NavBar = () => {
 }
 
 export default NavBar;
+
 
 
 

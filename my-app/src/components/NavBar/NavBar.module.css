@@ -49,6 +49,10 @@
     outline: none;
     border: none; 
   }
+
+  .buttonGroup button:focus {
+    outline: none; /* Elimina el borde cuando el botón obtiene el foco */
+  }
   
   .rightButton {
     display: flex;
@@ -101,7 +105,18 @@
     font-style: normal;
   }
 
-  
+  .subDropdownMenu {
+    background-color: #161616; 
+    color: #000; 
+    z-index: 2000;
+    outline: none;
+  }
+
+  .dropdownMenu button:focus {
+    outline: none;
+  }
+
+
   
   
   
