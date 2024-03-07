@@ -31,9 +31,11 @@ const Categories = () => {
 
   return (
     <div>
-      <h2>{category.name}</h2>
+      <div className={style.title}>
+        <h2>{category.name}</h2>
+      </div>
       <div className={style.container}>
-        {category.products && category.products.map(product => (
+        {category.products && category.products.map((product, index) => (
           <div key={product.id} className={style.card}>
             <img src={product.image} alt={product.name} className={style.imgCard}/>
             <p className={style.name}>{product.name}</p>
