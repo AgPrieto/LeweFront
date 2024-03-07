@@ -1,10 +1,10 @@
 {
     "routes": [
       { "handle": "filesystem" },
-      { "src": "/category/(.*)", "dest": "/index.html" },
-      { "src": "/indumentaria/(.*)", "dest": "/indumentaria/:1" }
+      { "src": "/(.*)", "dest": "/index.html" }
     ]
   }
+  
   
   
   
