@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect } from 'react'
 import Carrusel from '../Carrusel/Carrusel.jsx'
 import { Link } from 'react-router-dom'
