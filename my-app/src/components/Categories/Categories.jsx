@@ -7,14 +7,14 @@ import loader from "./loader.gif"
 const Categories = () => {
   const { id } = useParams();
   const [category, setCategory] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Add this line
+  const [isLoading, setIsLoading] = useState(true); 
 
   useEffect(() => {
     getCategory();
   }, [id]);
 
   const getCategory = async () => {
-    setIsLoading(true); // Set loading to true when fetching starts
+    setIsLoading(true); 
     try {
       const { data } = await axios.get(`/category/${id}`);
       setCategory(data);
