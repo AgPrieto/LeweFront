@@ -65,9 +65,9 @@ const toggleSubDropdown = () => {
               <button onClick={toggleSubDropdown}>Indumentaria</button>
               {subDropdownOpen && (
                 <div className={styles.subDropdownMenu}>
-                  <button onClick={() => handleClick('some-category-id-1')}>Remeras</button>
-                  <button onClick={() => handleClick('some-category-id-2')}>Shorts</button>
-                  <button onClick={() => handleClick('some-category-id-2')}>Medias</button>
+                  <button onClick={() => handleClick('f76fc151-647c-4bd8-a97a-54034494fcf8')}>Remeras</button>
+                  <button onClick={() => handleClick('ec87db52-9ab6-44c9-95d2-8974c1289ea8')}>Shorts</button>
+                  <button onClick={() => handleClick('e8183d2d-c319-4230-a230-1b829c695422')}>Medias</button>
                   
                   {/* Add more subcategories as needed */}
                 </div>
