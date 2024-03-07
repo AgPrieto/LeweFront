@@ -21,7 +21,7 @@ const Home = () => {
       </div>
       <div className={styles.categorys}>
         <div className={styles.category}>
-          <Link to={"/products"}>
+          <Link to={"/category/67726fd5-b41a-4320-ba42-c9e8f484087f"}>
             <img
               src={accesorios}
               alt="Accesorios"
@@ -32,10 +32,10 @@ const Home = () => {
           </Link>
         </div>
         <div className={styles.category}>
-          <Link to={"/products"}>
+          <Link to={"/category/f75de8fb-83f7-444a-a6b9-b3f151fae7a2"}>
             <img
               src={raquetas}
-              alt="raquetas"
+              alt="Pelotas"
               className={`${styles.imagenFiltrotabla}`}
               data-aos="fade-left"
               data-aos-duration="1000"
@@ -48,7 +48,7 @@ const Home = () => {
           <Link to={"/category/ab178e9d-253f-4fe5-a9a0-59cac1c1cdf7"}>
             <img
               src={paletas}
-              alt="Paletas"
+              alt="Raquetas"
               className={`${styles.imagenFiltrotabla}`}
               data-aos="fade-right"
               data-aos-duration="1000"
