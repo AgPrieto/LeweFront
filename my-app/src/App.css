@@ -13,8 +13,19 @@
   font-family: Gotham;
   
 }
+
+.appContent {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 .mainContent {
+  flex: 1 0 auto;
   margin-top: 100px; 
+}
+
+footer {
+  flex-shrink: 0;
 }
 
 .logo {

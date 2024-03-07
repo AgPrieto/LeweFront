@@ -116,6 +116,14 @@ border: none;
   outline: none;
 }
 
+.subDropdownMenu button {
+  color: rgb(156, 155, 155); 
+}
+
+.subDropdownMenu button:hover {
+  color: #ff0000;
+}
+
 
   
   

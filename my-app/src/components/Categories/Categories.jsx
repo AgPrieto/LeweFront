@@ -1,45 +1,54 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import {useEffect, useState} from 'react';
-import axios from "axios";
-import style from "./categories.module.css";
+import axios from 'axios';
+import style from './categories.module.css';
+import loader from "./loader.gif"
 
 const Categories = () => {
-console.log("llegué a categories");
-const {id} = useParams();
-const [category, setCategory] = useState([]);
+  const { id } = useParams();
+  const [category, setCategory] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Add this line
 
-useEffect(() => {
+  useEffect(() => {
     getCategory();
-}, [id]);
+  }, [id]);
 
-const getCategory = async () => {
+  const getCategory = async () => {
+    setIsLoading(true); // Set loading to true when fetching starts
     try {
-        const {data} = await axios.get(`/category/${id}`);
-        setCategory(data);
+      const { data } = await axios.get(`/category/${id}`);
+      setCategory(data);
     } catch (error) {
-        alert(error.message);
+      alert(error.message);
     }
-}
-console.log(category);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  };
+
+  if (isLoading) {
+    return (
+      <div className={style.loaderContainer}>
+        <img src={loader} alt="Loading..." className={style.loader} />
+      </div>
+    );
+  }
 
   return (
     <div>
-     <h2>{category.name}</h2>
-    <div className={style.container}>
-    {category.products && category.products.map(product => (
-      <div key={product.id} className={style.card}>
-        <img src={product.image} alt={product.name} className={style.imgCard}/>
-        <p className={style.name}>{product.name}</p>
-        <p className={style.description}>{product.description}</p>
-        <p className={style.price}>${product.price}</p>
+      <h2>{category.name}</h2>
+      <div className={style.container}>
+        {category.products && category.products.map(product => (
+          <div key={product.id} className={style.card}>
+            <img src={product.image} alt={product.name} className={style.imgCard}/>
+            <p className={style.name}>{product.name}</p>
+            <p className={style.description}>{product.description}</p>
+            <p className={style.price}>${product.price}</p>
+          </div>
+        ))}
       </div>
-      
-    ))}
-  </div>
-  </div>
-  )
-}
+    </div>
+  );
+};
 
 export default Categories;
