@@ -39,7 +39,7 @@ const Indumentaria = () => {
       </div>
       <div className={style.container}>
       {articles.product && articlesFiltered.map((product, index) => (
-  <div key={product.id} className={style.card} data-aos="fade-left" data-aos-delay={index * 100}>
+  <div key={product.id} className={style.card} >
     <img src={product.image} alt={product.name} className={style.imgCard}/>
     <p className={style.name}>{product.name}</p>
     <p className={style.description}>{product.description}</p>
