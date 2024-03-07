@@ -1,0 +1,19 @@
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 50px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+button {
+    width: 30;
+    height: 50PX;
+    border: none;
+    border-radius: 5px;
+    background-color: #272640;
+    color: white;
+    cursor: pointer;
+}

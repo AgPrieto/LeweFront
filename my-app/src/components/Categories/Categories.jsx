@@ -1,33 +1,25 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import style from './categories.module.css';
-import loader from "./loader.gif"
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import loader from "./loader.gif";
+import { useSelector,useDispatch } from 'react-redux';
+import { getCategoryArticles } from '../../redux/actions/categoriesActions';
 
 const Categories = () => {
+  
   const { id } = useParams();
-  const [category, setCategory] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); 
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
+  const category = useSelector((state) => state.categoriesReducer.categoryArticles);
+  console.log(category)
 
   useEffect(() => {
-    getCategory();
-    AOS.init({ duration: 1000 }); // Inicializa AOS
-  }, [id]);
-
-  const getCategory = async () => {
-    setIsLoading(true); 
-    try {
-      const { data } = await axios.get(`/category/${id}`);
-      setCategory(data);
-    } catch (error) {
-      alert(error.message);
-    }
+    dispatch(getCategoryArticles(id));
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
-  };
+  }, [id]);
 
   if (isLoading) {
     return (

@@ -4,10 +4,9 @@ import style from "./indumentaria.module.css";
 import { getAllArticles } from '../../redux/actions/articlesActions';
 import { useDispatch, useSelector } from 'react-redux';
 import loader from "./loader.gif" // Importa la imagen del loader
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const Indumentaria = () => {
+  
   const dispatch = useDispatch();
   const {id} = useParams();
   const articles = useSelector((state) => state.articlesReducer.articles);
@@ -15,7 +14,6 @@ const Indumentaria = () => {
   const [isLoading, setIsLoading] = useState(true); 
   useEffect(() => {
     dispatch(getAllArticles());
-    AOS.init({ duration: 2000 }); // Inicializa AOS
     setTimeout(() => {
       setIsLoading(false);
     }, 1000); 
