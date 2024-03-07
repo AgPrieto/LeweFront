@@ -2,7 +2,7 @@
     "routes": [
       { "handle": "filesystem" },
       { "src": "/category/(.*)", "dest": "/index.html" },
-      { "src": "/indumentaria/(.*)", "dest": "/indumentaria/index.html" }
+      { "src": "/indumentaria/(.*)", "dest": "/index.html" }
     ]
   }
   
