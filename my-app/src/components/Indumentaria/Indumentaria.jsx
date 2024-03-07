@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Indumentaria = () => {
 const dispatch = useDispatch();
-console.log("hola")
 const {id} = useParams();
 const articles = useSelector((state) => state.articlesReducer.articles);
 console.log(articles);
