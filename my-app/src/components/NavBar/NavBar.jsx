@@ -27,10 +27,10 @@ const NavBar = () => {
   setDropdownOpen(!dropdownOpen);
 };
 
-  const toggleSubDropdown = () => {
-    setSubDropdownOpen(!subDropdownOpen);
-    setActiveButton('Indumentaria'); 
-  };
+const toggleSubDropdown = () => {
+  setSubDropdownOpen(!subDropdownOpen);
+  
+};
 
   const handleClickOutside = e => {
     if (node.current.contains(e.target)) {
