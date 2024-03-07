@@ -5,6 +5,7 @@ import style from './categories.module.css';
 import loader from "./loader.gif";
 import { useSelector,useDispatch } from 'react-redux';
 import { getCategoryArticles } from '../../redux/actions/categoriesActions';
+import SearchBar from '../SearchBar/SearchBar';
 
 const Categories = () => {
   
@@ -18,7 +19,10 @@ const Categories = () => {
     dispatch(getCategoryArticles(id));
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 1000)
+    return () => {
+      setIsLoading(true);
+    }
   }, [id]);
 
   if (isLoading) {
@@ -31,11 +35,12 @@ const Categories = () => {
 
   return (
     <div>
+      {category.products && <SearchBar />}
       <div className={style.title}>
         <h2>{category.name}</h2>
       </div>
       <div className={style.container}>
-        {category.products && category.products.map((product, index) => (
+        {category.products && category.products.map((product) => (
           <div key={product.id} className={style.card}>
             <img src={product.image} alt={product.name} className={style.imgCard}/>
             <p className={style.name}>{product.name}</p>

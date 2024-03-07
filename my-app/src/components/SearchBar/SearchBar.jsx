@@ -1,21 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import style from "./searchBar.module.css";
-import { getCategoryArticles } from '../../redux/actions/categoriesActions';
+import { getCategoryArticlesByName } from '../../redux/actions/categoriesActions';
 
 const SearchBar = () => {
   const dispatch = useDispatch();
 
   const [searchByName, setSearchByName] = useState("");
 
-  const handleChange = (e) => {
-    console.log(e.target.value)
-    setSearchByName(e.target.value);
-    console.log(searchByName)
+   const handleChange = (e) => {
+   setSearchByName(e.target.value);
   };
   const handleSearch = () => {
-    dispatch(getCategoryArticles(searchByName));
+    console.log("click")
+    dispatch(getCategoryArticlesByName(searchByName));
   };
+
+  useEffect(() => {
+    dispatch(getCategoryArticlesByName(searchByName));
+  }, [searchByName, dispatch]);
+
 
   return (
     <div className={style.searchBar}

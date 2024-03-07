@@ -31,6 +31,7 @@ export const getCategoryArticles = (id) => {
   }
 
 export const getCategoryArticlesByName = (name) => {
+  console.log(name)
     return async (dispatch) => {
       try {
         return dispatch({
