@@ -1,9 +1,14 @@
-import { GET_ALL_CATEGORIES, GET_CATEGORY_ARTICLES, GET_CATEGORY_ARTICLES_BY_NAME } from "../action-types/categoriesConstants";
+import {
+  GET_ALL_CATEGORIES,
+  GET_CATEGORY_ARTICLES,
+  GET_CATEGORY_ARTICLES_BY_NAME,
+} from "../action-types/categoriesConstants";
 
 const initialState = {
   categories: [],
+  categoriesArticlesBackup: [],
   categoryArticles: [],
-}
+};
 
 function categoriesReducer(state = initialState, action) {
   switch (action.type) {
@@ -11,18 +16,26 @@ function categoriesReducer(state = initialState, action) {
     case GET_ALL_CATEGORIES:
       return {
         ...state,
-        categories: action.payload
+        categories: action.payload,
       };
     case GET_CATEGORY_ARTICLES:
       return {
         ...state,
-        categoryArticles: action.payload
-      }
+        categoriesArticlesBackup: action.payload,
+        categoryArticles: action.payload,
+      };
     case GET_CATEGORY_ARTICLES_BY_NAME:
       return {
         ...state,
-        categoryArticles: action.payload
-      }
+        categoryArticles: 
+          {
+            products: state.categoriesArticlesBackup.products.filter(
+              (product) =>
+                product.name.toLowerCase().includes(action.payload.toLowerCase())
+            ),
+          },
+        
+      };
     default:
       return state;
   }
