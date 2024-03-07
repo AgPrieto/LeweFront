@@ -16,16 +16,24 @@ const Footer = () => {
           <ul>
             <li>
               <Link
-                to={"/category/b04b6c5e-e00b-4299-9955-9bc897277779"}
+                to={"/category/f76fc151-647c-4bd8-a97a-54034494fcf8"}
               >Indumentaria</Link>              
             </li>
             <li>
               <Link
-                to={"/category/90d2f045-57a1-406e-b640-78f6167236ae"}
+                to={"/category/ab178e9d-253f-4fe5-a9a0-59cac1c1cdf7"}
               >Raquetas</Link>             
             </li>
-            <li>Pelotas</li>
-            <li>Accesorios</li>
+            <li>
+              <Link
+                to={"/category/f75de8fb-83f7-444a-a6b9-b3f151fae7a2"}
+              >Pelotas</Link>             
+            </li>
+            <li>
+              <Link
+                to={"/category/67726fd5-b41a-4320-ba42-c9e8f484087f"}
+              >Accesorios</Link>
+            </li>
           </ul>
         </div>
         <div className={styles.column}>
