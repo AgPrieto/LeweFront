@@ -39,7 +39,7 @@ const Indumentaria = () => {
       <SearchBarIndu />
       </div>
       <div className={style.container}>
-      {articles.product && articlesFiltered.map((product, index) => (
+      {articles.product && articlesFiltered.map((product) => (
   <div key={product.id} className={style.card} >
     <img src={product.image} alt={product.name} className={style.imgCard}/>
     <p className={style.name}>{product.name}</p>

@@ -1,4 +1,4 @@
-import { GET_ALL_CATEGORIES, GET_CATEGORY_ARTICLES, GET_CATEGORY_ARTICLES_BY_NAME } from "../action-types/categoriesConstants";
+import { GET_ALL_CATEGORIES, GET_CATEGORY_ARTICLES, GET_CATEGORY_ARTICLES_BY_NAME, FILTER_BY_PRICE, ORDER_BY_PRICE, FILTER_BY_SIZE } from "../action-types/categoriesConstants";
 import axios from "axios";
 
 export const getAllCategories = () => {
@@ -43,3 +43,44 @@ export const getCategoryArticlesByName = (name) => {
       }
     };
   }
+
+export const filterByPrice = (price) => {
+  return async (dispatch) => {
+    try {
+      return dispatch({
+        type: FILTER_BY_PRICE,
+        payload: price,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+}
+
+export const orderByPrice = (order) => {
+  console.log(order)
+  return async (dispatch) => {
+    try {
+      return dispatch({
+        type: ORDER_BY_PRICE,
+        payload: order,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+}
+
+export const filterBySize = (size) => {
+  console.log(size)
+  return async (dispatch) => {
+    try {
+      return dispatch({
+        type: FILTER_BY_SIZE,
+        payload: size,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+}
