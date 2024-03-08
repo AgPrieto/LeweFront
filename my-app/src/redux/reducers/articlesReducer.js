@@ -1,7 +1,8 @@
-import { GET_ALL_ARTICLES } from "../action-types/articlesContstants";
+import { GET_ALL_ARTICLES, GET_ARTICLES_BY_NAME } from "../action-types/articlesContstants";
 
 const initialState = {
     articles: [],
+    articlesBackup: [],
     };
 
 function articlesReducer(state = initialState, action) {
@@ -10,7 +11,19 @@ function articlesReducer(state = initialState, action) {
             return {
                 ...state,
                 articles: action.payload,
+                articlesBackup: action.payload,
             };
+            case GET_ARTICLES_BY_NAME:
+                return {
+                  ...state,
+                  articles: 
+                    {
+                      product: state.articlesBackup.product.filter(
+                        (product) =>
+                          product.name.toLowerCase().includes(action.payload.toLowerCase())
+                      ),
+                    },
+                };
         default:
             return state;
     }

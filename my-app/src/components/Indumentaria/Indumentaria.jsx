@@ -1,15 +1,18 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react'; // Asegúrate de importar useState
 import { useParams } from 'react-router-dom';
 import style from "./indumentaria.module.css";
 import { getAllArticles } from '../../redux/actions/articlesActions';
 import { useDispatch, useSelector } from 'react-redux';
-import loader from "./loader.gif" // Importa la imagen del loader
+import loader from "./loader.gif" // Importa la imagen del loader;
+import SearchBarIndu from '../SearchBar/SearchBarIndu';
 
 const Indumentaria = () => {
   
   const dispatch = useDispatch();
   const {id} = useParams();
   const articles = useSelector((state) => state.articlesReducer.articles);
+
   const [isLoading, setIsLoading] = useState(true); 
   useEffect(() => {
     dispatch(getAllArticles());
@@ -33,6 +36,7 @@ const Indumentaria = () => {
     <div>
       <div className={style.title}>
         <h2>Indumentaria</h2>
+      <SearchBarIndu />
       </div>
       <div className={style.container}>
       {articles.product && articlesFiltered.map((product, index) => (

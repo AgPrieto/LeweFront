@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import style from "./searchBar.module.css";
-import { getCategoryArticlesByName } from '../../redux/actions/categoriesActions';
+import { getArticlesByName } from '../../redux/actions/articlesActions';
 
-const SearchBar = () => {
+const SearchBarIndu = () => {
   const dispatch = useDispatch();
 
   const [searchByName, setSearchByName] = useState("");
@@ -13,7 +13,7 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    dispatch(getCategoryArticlesByName(searchByName));
+    dispatch(getArticlesByName(searchByName));
   }, [searchByName, dispatch]);
 
 
@@ -33,4 +33,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default SearchBarIndu;
