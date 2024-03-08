@@ -5,6 +5,7 @@ import leweBlack from "../../assets/leweBlack.png"
 import { IoCart } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { SlArrowDown } from "react-icons/sl";
 
 const NavBar = () => {
   const [activeButton, setActiveButton] = useState(null);
@@ -61,10 +62,10 @@ const toggleSubDropdown = () => {
       <div className={styles.buttonGroup}>
         <Link to="/"><button onClick={() => handleClick('HOME')} className={activeButton === 'HOME' ? styles.active : ''}>HOME</button></Link>
         <div className={styles.dropdown} ref={node}>
-          <button onClick={toggleDropdown} className={activeButton === 'CATEGORIAS' ? styles.active : ''}>CATEGORIAS</button>
+          <button onClick={toggleDropdown} className={activeButton === 'CATEGORIAS' ? styles.active : ''}>CATEGORIAS <SlArrowDown /> </button>
           {dropdownOpen && (
             <div className={styles.dropdownMenu}>
-              <button onClick={toggleSubDropdown}>Indumentaria</button>
+              <button onClick={toggleSubDropdown}>Indumentaria </button>
               {subDropdownOpen && (
                 <div className={styles.subDropdownMenu}>
                   <button onClick={() => handleClick('f76fc151-647c-4bd8-a97a-54034494fcf8')}>Remeras</button>

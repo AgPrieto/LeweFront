@@ -1,19 +1,43 @@
+.searchContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .searchBar {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 60%; /* Aumenté el ancho para que se vea mejor */
+    max-width: 400px; /* Limité el ancho máximo para que no se expanda demasiado en pantallas grandes */
     height: 50px;
-    border-radius: 5px;
+    border-radius: 25px; /* Aumenté el radio para hacerla más redondeada */
     margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añadí una sombra para dar profundidad */
+    border: 1px solid #2D2926;
 }
-button {
-    width: 30;
-    height: 50PX;
+
+.searchBar:hover{
+    border: 1px solid #F93822;
+}
+.searchBar:focus-within {
+    border: 1px solid #F93822;
+}
+
+
+
+input {
+    flex: 1; /* El campo de entrada de texto ocupará todo el espacio disponible */
+    height: 100%;
     border: none;
-    border-radius: 5px;
-    background-color: #272640;
-    color: white;
-    cursor: pointer;
+    border-radius: 25px; /* Mismo radio que el de la barra */
+    padding: 0 15px; /* Añadí un espacio interior para que el texto no esté tan pegado al borde */
+    font-size: 16px; /* Tamaño de fuente más grande */
+    background-color: transparent;
+    color: #7e7e7e;
+    outline: none;
+}
+
+.input:focus {
+    border: 1px solid #F93822;
 }
