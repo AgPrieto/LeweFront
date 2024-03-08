@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import style from "./searchBar.module.css";
 import { getCategoryArticlesByName } from '../../redux/actions/categoriesActions';
+import { GrPowerReset } from "react-icons/gr";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -22,15 +23,17 @@ const SearchBar = () => {
 
 
   return (
+    <div class={style.searchContainer}>
     <div className={style.searchBar}
     >
       <input
         type="search"
-        placeholder="Search by Name"
+        placeholder="Busca un articulo por nombre.."
         onChange={handleChange}
         value={searchByName}
       />
-      <button onClick={handleSearch}>🔎</button>
+    </div>
+      
     </div>
   );
 };
