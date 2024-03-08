@@ -18,12 +18,16 @@ function categoriesReducer(state = initialState, action) {
         ...state,
         categories: action.payload,
       };
-    case GET_CATEGORY_ARTICLES:
-      return {
-        ...state,
-        categoriesArticlesBackup: action.payload,
-        categoryArticles: action.payload,
-      };
+      case GET_CATEGORY_ARTICLES:
+        return {
+          ...state,
+          categoriesArticlesBackup: action.payload,
+          categoryArticles: {
+            name: state.categoryArticles.name || action.payload.name,
+            products: action.payload.products,
+          },
+        };
+      
     case GET_CATEGORY_ARTICLES_BY_NAME:
       return {
         ...state,
