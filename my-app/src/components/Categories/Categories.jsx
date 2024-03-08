@@ -6,12 +6,14 @@ import loader from "./loader.gif";
 import { useSelector,useDispatch } from 'react-redux';
 import { getCategoryArticles } from '../../redux/actions/categoriesActions';
 import SearchBar from '../SearchBar/SearchBar';
+import { MdOutlineError } from "react-icons/md";
 
 const Categories = () => {
   
   const { id } = useParams();
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
+  const [categoryName, setCategoryName] = useState('');
   const category = useSelector((state) => state.categoriesReducer.categoryArticles);
   console.log(category)
 
@@ -25,6 +27,12 @@ const Categories = () => {
     }
   }, [id]);
 
+  useEffect(() => {
+    if (category.name && !categoryName) {
+      setCategoryName(category.name);
+    }
+  }, [category]);
+
   if (isLoading) {
     return (
       <div className={style.loaderContainer}>
@@ -35,20 +43,27 @@ const Categories = () => {
 
   return (
     <div>
-      {category.products && <SearchBar />}
       <div className={style.title}>
-        <h2>{category.name}</h2>
+        <h2>{categoryName}</h2>
+        <SearchBar />  
       </div>
-      <div className={style.container}>
-        {category.products && category.products.map((product) => (
-          <div key={product.id} className={style.card}>
-            <img src={product.image} alt={product.name} className={style.imgCard}/>
-            <p className={style.name}>{product.name}</p>
-            <p className={style.description}>{product.description}</p>
-            <p className={style.price}>${product.price}</p>
-          </div>
-        ))}
-      </div>
+      {(!category || !category.products || category.products.length === 0) ? (
+        <div className={style.errorContainer}>
+          <MdOutlineError />
+          <p>No se encontraron productos para esta categoría.</p>
+        </div>
+      ) : (
+        <div className={style.container}>
+          {category.products.map((product) => (
+            <div key={product.id} className={style.card}>
+              <img src={product.image} alt={product.name} className={style.imgCard}/>
+              <p className={style.name}>{product.name}</p>
+              <p className={style.description}>{product.description}</p>
+              <p className={style.price}>${product.price}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

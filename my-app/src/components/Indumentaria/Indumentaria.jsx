@@ -10,7 +10,6 @@ const Indumentaria = () => {
   const dispatch = useDispatch();
   const {id} = useParams();
   const articles = useSelector((state) => state.articlesReducer.articles);
-  
   const [isLoading, setIsLoading] = useState(true); 
   useEffect(() => {
     dispatch(getAllArticles());
