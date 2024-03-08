@@ -6,6 +6,9 @@ import loader from "./loader.gif";
 import { useSelector,useDispatch } from 'react-redux';
 import { getCategoryArticles } from '../../redux/actions/categoriesActions';
 import SearchBar from '../SearchBar/SearchBar';
+import FilterPrice from '../Filtres/filterPrice';
+import OrderByPrice from '../Filtres/orderByPrice';
+import FilterBySize from '../Filtres/filterBySize';
 
 const Categories = () => {
   
@@ -36,6 +39,10 @@ const Categories = () => {
   return (
     <div>
       {category.products && <SearchBar />}
+      {category.products && <FilterPrice />}
+      {category.products && <OrderByPrice />}
+      {category.products && <FilterBySize />}
+
       <div className={style.title}>
         <h2>{category.name}</h2>
       </div>
