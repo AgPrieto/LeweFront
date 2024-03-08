@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import style from './categories.module.css';
 import loader from "./loader.gif";
 import { useSelector,useDispatch } from 'react-redux';
-import { getCategoryArticles } from '../../redux/actions/categoriesActions';
+import { getCategoryArticles, resetFilters } from '../../redux/actions/categoriesActions';
 import SearchBar from '../SearchBar/SearchBar';
 
 import FilterPrice from '../Filtres/filterPrice';
@@ -21,7 +21,12 @@ const Categories = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [categoryName, setCategoryName] = useState('');
   const category = useSelector((state) => state.categoriesReducer.categoryArticles);
-  console.log(category)
+  const filteredByPrice = useSelector((state) => state.categoriesReducer.filteredByPrice);
+  const filteredBySize = useSelector((state) => state.categoriesReducer.filteredBySize);
+
+  const filteredProducts = filteredByPrice.filter(product => filteredBySize.includes(product));
+  
+  console.log(filteredProducts)
 
   useEffect(() => {
     dispatch(getCategoryArticles(id));
@@ -47,26 +52,26 @@ const Categories = () => {
     );
   }
 
+ 
   return (
     <div>
-      {category.products && <SearchBar />}
-      {category.products && <FilterPrice />}
-      {category.products && <OrderByPrice />}
-      {category.products && <FilterBySize />}
-
-
+      {filteredProducts && <FilterPrice />}
+      {filteredProducts && <OrderByPrice />}
+      {filteredProducts && <FilterBySize />}
+      
+  
       <div className={style.title}>
         <h2>{categoryName}</h2>
         <SearchBar />  
       </div>
-      {(!category || !category.products || category.products.length === 0) ? (
+      {(!category || !filteredProducts || filteredProducts.length === 0) ? (
         <div className={style.errorContainer}>
           <MdOutlineError />
           <p>No se encontraron productos para esta categoría.</p>
         </div>
       ) : (
         <div className={style.container}>
-          {category.products.map((product) => (
+          {filteredProducts.map((product) => (
             <div key={product.id} className={style.card}>
               <img src={product.image} alt={product.name} className={style.imgCard}/>
               <p className={style.name}>{product.name}</p>
