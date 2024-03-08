@@ -1,4 +1,4 @@
-import { GET_ALL_ARTICLES } from "../action-types/articlesContstants";
+import { GET_ALL_ARTICLES, GET_ARTICLES_BY_NAME } from "../action-types/articlesContstants";
 import axios from "axios";
 
 export const getAllArticles = () => {
@@ -14,3 +14,16 @@ export const getAllArticles = () => {
         }
     };
     }
+    export const getArticlesByName = (name) => {
+        console.log(name)
+          return async (dispatch) => {
+            try {
+              return dispatch({
+                type: GET_ARTICLES_BY_NAME,
+                payload: name,
+              });
+            } catch (error) {
+              throw new Error(error.message);
+            }
+          };
+        }
