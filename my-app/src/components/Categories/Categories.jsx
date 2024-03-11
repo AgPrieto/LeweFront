@@ -55,34 +55,35 @@ const Categories = () => {
  
   return (
     <div>
-      
-  
       <div className={style.title}>
         <h2>{categoryName}</h2>
         <SearchBar />  
       </div>
-      {(!category || !filteredProducts || filteredProducts.length === 0) ? (
-        <div className={style.errorContainer}>
-          <MdOutlineError />
-          <p>No se encontraron productos para esta categoría.</p>
-        </div>
-      ) : (
-        <div className={style.container}>
+      <div className={style.container}>
+        <div className={style.filters}>
           {filteredProducts && <FilterPrice />}
           {filteredProducts && <OrderByPrice />}
           {filteredProducts && <FilterBySize />}
-          {filteredProducts.map((product) => (
+        </div>
+        {(!category || !filteredProducts || filteredProducts.length === 0) ? (
+          <div className={style.errorContainer}>
+            <MdOutlineError />
+            <p>No se encontraron productos para esta categoría.</p>
+          </div>
+        ) : (
+          filteredProducts.map((product) => (
             <div key={product.id} className={style.card}>
               <img src={product.image} alt={product.name} className={style.imgCard}/>
               <p className={style.name}>{product.name}</p>
               <p className={style.description}>{product.description}</p>
               <p className={style.price}>${product.price}</p>
             </div>
-          ))}
-        </div>
-      )}
+          ))
+        )}
+      </div>
     </div>
   );
+  
 };
 
 export default Categories;
