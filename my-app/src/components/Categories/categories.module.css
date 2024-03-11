@@ -1,6 +1,7 @@
 .container {
   display: flex;
   align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+  overflow-x: hidden;
 }
 
 
