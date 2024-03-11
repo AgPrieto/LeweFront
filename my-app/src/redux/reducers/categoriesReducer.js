@@ -15,7 +15,8 @@ const initialState = {
   categoryArticles: [],
   filteredByPrice: [],
   filteredBySize: [],
-  filteredProducts: []
+  filteredProducts: [],
+  lastOrder: "ASC"
 };
 
 function categoriesReducer(state = initialState, action) {
@@ -45,25 +46,37 @@ function categoriesReducer(state = initialState, action) {
             product.name.toLowerCase().includes(action.payload.toLowerCase())
           ),
         };
-      case FILTER_BY_PRICE:
-        return {
-          ...state,
-          filteredByPrice: state.categoriesArticlesBackup.products.filter(
-            (product) =>
-              product.price >= action.payload[0] &&
-              product.price <= action.payload[1]
-          ),
-        };
-        case ORDER_BY_PRICE:
-          return {
-            ...state,
-            filteredByPrice: [...state.filteredByPrice].sort((a, b) => {
-              if (action.payload === "ASC") {
-                return a.price - b.price;
-              }
-              return b.price - a.price;
-            }),
-          };
+        case FILTER_BY_PRICE:
+  const filteredProducts = state.categoriesArticlesBackup.products.filter(
+    (product) =>
+      product.price >= action.payload[0] &&
+      product.price <= action.payload[1]
+  );
+
+  // Ordena los productos filtrados según el último ordenamiento
+  const sortedFilteredProducts = [...filteredProducts].sort((a, b) => {
+    if (state.lastOrder === "ASC") {
+      return a.price - b.price;
+    }
+    return b.price - a.price;
+  });
+
+  return {
+    ...state,
+    filteredByPrice: sortedFilteredProducts,
+  };
+
+  case ORDER_BY_PRICE:
+    return {
+      ...state,
+      lastOrder: action.payload, // Almacena el último ordenamiento
+      filteredByPrice: [...state.filteredByPrice].sort((a, b) => {
+        if (action.payload === "ASC") {
+          return a.price - b.price;
+        }
+        return b.price - a.price;
+      }),
+    };
         
         case FILTER_BY_SIZE:
       // eslint-disable-next-line no-case-declarations
