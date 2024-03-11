@@ -31,7 +31,7 @@ function categoriesReducer(state = initialState, action) {
         ...state,
         categoriesArticlesBackup: action.payload,
         categoryArticles: {
-          name: state.categoryArticles.name || action.payload.name,
+          name: action.payload.name,
           products: action.payload.products,
         },
         filteredByPrice: action.payload.products,

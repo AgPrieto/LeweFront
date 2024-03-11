@@ -23,27 +23,20 @@ const Categories = () => {
   const category = useSelector((state) => state.categoriesReducer.categoryArticles);
   const filteredByPrice = useSelector((state) => state.categoriesReducer.filteredByPrice);
   const filteredBySize = useSelector((state) => state.categoriesReducer.filteredBySize);
-
   const filteredProducts = useSelector((state) => state.categoriesReducer.filteredProducts);
 
-  console.log(category);
-  console.log(filteredProducts)
-
   useEffect(() => {
-    dispatch(getCategoryArticles(id));
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000)
-    return () => {
-      setIsLoading(true);
-    }
-  }, [id]);
+    setIsLoading(true); // Muestra la imagen de carga al iniciar la carga de la categoría
+    dispatch(getCategoryArticles(id)).then(() => {
+      setIsLoading(false); // Oculta la imagen de carga después de cargar la categoría
+    });
+  }, [id, dispatch]);
 
   useEffect(() => {
     if (category.name) {
       setCategoryName(category.name);
     }
-  }, [category]);
+  }, [category.name]);
 
   useEffect(() => {
     const updatedFilteredProducts = filteredByPrice.filter(product => filteredBySize.includes(product));
