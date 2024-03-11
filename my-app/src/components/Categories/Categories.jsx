@@ -24,8 +24,9 @@ const Categories = () => {
   const filteredByPrice = useSelector((state) => state.categoriesReducer.filteredByPrice);
   const filteredBySize = useSelector((state) => state.categoriesReducer.filteredBySize);
 
-  const filteredProducts = filteredByPrice.filter(product => filteredBySize.includes(product));
-  
+  const filteredProducts = useSelector((state) => state.categoriesReducer.filteredProducts);
+
+  console.log(category);
   console.log(filteredProducts)
 
   useEffect(() => {

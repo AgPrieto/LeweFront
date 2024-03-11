@@ -14,6 +14,7 @@ const initialState = {
   categoryArticles: [],
   filteredByPrice: [],
   filteredBySize: [],
+  filteredProducts: []
 };
 
 function categoriesReducer(state = initialState, action) {
@@ -36,15 +37,13 @@ function categoriesReducer(state = initialState, action) {
         filteredBySize: action.payload.products,
       };
       
-    case GET_CATEGORY_ARTICLES_BY_NAME:
-      return {
-        ...state,
-        categoryArticles: {
-          products: state.categoriesArticlesBackup.products.filter((product) =>
+      case GET_CATEGORY_ARTICLES_BY_NAME:
+        return {
+          ...state,
+          filteredProducts: state.filteredByPrice.filter((product) =>
             product.name.toLowerCase().includes(action.payload.toLowerCase())
           ),
-        },
-      };
+        };
       case FILTER_BY_PRICE:
         return {
           ...state,
