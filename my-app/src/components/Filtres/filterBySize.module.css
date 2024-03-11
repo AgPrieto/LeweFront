@@ -1,0 +1,12 @@
+.checkboxContainer {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: x-large;
+    text-align: left;
+  }
+
+  .checkboxStyle {
+    color: #fff; /* Cambia el color del texto a blanco */
+    margin-top: 20px;
+  }

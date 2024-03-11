@@ -1,27 +1,21 @@
-.container{
-  padding: 20px;
+.container {
   display: flex;
-  flex-direction: row;
-  border-radius: 15px;
-  flex-wrap: wrap;
-  gap:2em;
-  justify-content: center; /* Centra las tarjetas horizontalmente */
-  align-items: center; /* Centra las tarjetas verticalmente */
-  justify-content: flex-start;
+  align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
 }
 
 
 .card {
   color: white;
-  height: 550px; 
-  width: 350px; 
-  padding: 15px;
+  height: 100%; 
+  width: 700px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
   overflow: hidden; 
   text-overflow: ellipsis;
   transition: box-shadow 0.3s ease, transform 0.3s ease; 
   border: 1px solid #444; 
-  border-radius: 10px;
+  flex-basis: calc(33.333% - 20px); /* Establecer el ancho base de las tarjetas */
+  margin-right: 20px;
+  margin-top: 1.5em;
 }
 
 
@@ -30,10 +24,21 @@
   transform: scale(1.03);  
 }
 
+
+
 .name{
   font-size: 20px;
   font-weight: bold;
   text-align: center;
+}
+
+.cardContainer {
+  display: flex; 
+  flex-wrap: wrap;
+  margin-right: 2em;
+  margin-left: 20px; /* Agrega margen a la izquierda de las tarjetas */
+  margin-top: 20px;
+  flex-grow: 1;
 }
 
 .description{
@@ -54,6 +59,7 @@
   object-position: top; /* Alinea la imagen a la parte superior del contenedor */
   margin: 0; /* Asegura que no haya margen alrededor de la imagen */
   padding: 0; /* Asegura que no haya relleno alrededor de la imagen */
+  
 }
 
 
@@ -79,6 +85,7 @@
 
 .title {
   color: white;
+  margin-left: 20px;
 }
 
 .errorContainer {
@@ -89,11 +96,21 @@
   height: 100vh;
   font-size: 1.5em;
   color: white;
+  margin-left: 250px;
+  
 }
 
+
 .filters {
-  order: -1;
-  margin-right: 105px;
+  
+  padding: 20px;
+  margin-right: 190px; /* Agrega margen a la derecha de los filtros */
+  
 }
+
+
+
+
+
 
   
