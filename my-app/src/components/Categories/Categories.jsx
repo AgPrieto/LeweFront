@@ -51,11 +51,13 @@ const Categories = () => {
     );
   }
 
+  const categoryLength = category.products.length;
  
   return (
     <div>
       <div className={style.title}>
         <h1>{categoryName}</h1>
+        <h3 className={style.catLength}>{`(${categoryLength})`}</h3>
         <SearchBar />  
       </div>
       <div className={style.container}>

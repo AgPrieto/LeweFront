@@ -31,7 +31,12 @@
   transform: scale(1.03);  
 }
 
-
+.catLength{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #F93822;;
+}
 
 .name{
   font-size: 20px;
