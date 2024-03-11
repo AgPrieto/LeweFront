@@ -60,8 +60,8 @@ const Categories = () => {
       </div>
       <div className={style.container}>
         <div className={style.filters}>
-          {filteredProducts && <OrderByPrice />}
           {filteredProducts && <FilterPrice />}
+          {filteredProducts && <OrderByPrice />}
           {filteredProducts && <FilterBySize />}
         </div>
         {(!category || !filteredProducts || filteredProducts.length === 0) ? (
@@ -70,20 +70,18 @@ const Categories = () => {
             <p>No se encontraron productos para esta categoría.</p>
           </div>
         ) : (
-        <div className={style.cardContainer}> 
-          {filteredProducts.map((product) => (
+          filteredProducts.map((product) => (
             <div key={product.id} className={style.card}>
               <img src={product.image} alt={product.name} className={style.imgCard}/>
               <p className={style.name}>{product.name}</p>
               <p className={style.description}>{product.description}</p>
               <p className={style.price}>${product.price}</p>
             </div>
-          ))}
-        </div> 
-      )}
+          ))
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
   
 };
 
