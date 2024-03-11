@@ -5,7 +5,8 @@ import {
   FILTER_BY_PRICE,
   ORDER_BY_PRICE,
   FILTER_BY_SIZE,
-  RESET_FILTERS
+  RESET_FILTERS,
+  UPDATE_FILTERED_PRODUCTS
 } from "../action-types/categoriesConstants";
 
 const initialState = {
@@ -95,9 +96,15 @@ function categoriesReducer(state = initialState, action) {
           filteredByPrice: [...state.categoriesArticlesBackup.products],
           filteredBySize: [...state.categoriesArticlesBackup.products],
         };
+        case UPDATE_FILTERED_PRODUCTS:
+  return {
+    ...state,
+    filteredProducts: action.payload,
+  };
       default:
         return state;
     }
   }
+  
   
   export default categoriesReducer;
