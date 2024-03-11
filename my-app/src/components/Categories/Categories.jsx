@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import style from './categories.module.css';
 import loader from "./loader.gif";
 import { useSelector,useDispatch } from 'react-redux';
-import { getCategoryArticles, resetFilters } from '../../redux/actions/categoriesActions';
+import { getCategoryArticles, updateFilteredProducts } from '../../redux/actions/categoriesActions';
 import SearchBar from '../SearchBar/SearchBar';
 
 import FilterPrice from '../Filtres/filterPrice';
@@ -44,6 +44,11 @@ const Categories = () => {
       setCategoryName(category.name);
     }
   }, [category]);
+
+  useEffect(() => {
+    const updatedFilteredProducts = filteredByPrice.filter(product => filteredBySize.includes(product));
+    dispatch(updateFilteredProducts(updatedFilteredProducts)); // Esta acción debería actualizar el estado de filteredProducts con los productos filtrados
+  }, [filteredByPrice, filteredBySize, dispatch])
 
   if (isLoading) {
     return (

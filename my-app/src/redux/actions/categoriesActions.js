@@ -1,4 +1,4 @@
-import { GET_ALL_CATEGORIES, GET_CATEGORY_ARTICLES, GET_CATEGORY_ARTICLES_BY_NAME, FILTER_BY_PRICE, ORDER_BY_PRICE, FILTER_BY_SIZE, RESET_FILTERS } from "../action-types/categoriesConstants";
+import { GET_ALL_CATEGORIES, GET_CATEGORY_ARTICLES, GET_CATEGORY_ARTICLES_BY_NAME, FILTER_BY_PRICE, ORDER_BY_PRICE, FILTER_BY_SIZE, RESET_FILTERS, UPDATE_FILTERED_PRODUCTS } from "../action-types/categoriesConstants";
 import axios from "axios";
 
 export const getAllCategories = () => {
@@ -89,5 +89,12 @@ export const filterBySize = (size) => {
 export const resetFilters = () => {
   return {
     type: RESET_FILTERS,
+  };
+};
+
+export const updateFilteredProducts = (products) => {
+  return {
+    type: UPDATE_FILTERED_PRODUCTS,
+    payload: products,
   };
 };
