@@ -48,12 +48,12 @@ const Footer = () => {
         <div className={styles.column}>
           <ul className={styles.socials}>
             <li>
-              <Link to="https://www.instagram.com/leweargentina?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+              <Link to="https://www.instagram.com/leweargentina?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
                 <FaInstagram style={{ color: "white" }} size={30} />
               </Link>
             </li>
             <li>
-              <Link to="https://wa.me/+5493517658536">
+              <Link to="https://wa.me/+5493517658536" target="_blank">
                 <FaWhatsapp style={{ color: "white" }} size={30} />
               </Link>
             </li>
