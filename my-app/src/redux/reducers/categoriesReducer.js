@@ -66,6 +66,7 @@ function categoriesReducer(state = initialState, action) {
           };
         
         case FILTER_BY_SIZE:
+      // eslint-disable-next-line no-case-declarations
       const selectedSizes = action.payload;
       if (selectedSizes.length === 0) {
         return {
