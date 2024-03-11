@@ -55,7 +55,7 @@ const Categories = () => {
   return (
     <div>
       <div className={style.title}>
-        <h2>{categoryName}</h2>
+        <h1>{categoryName}</h1>
         <SearchBar />  
       </div>
       <div className={style.container}>
