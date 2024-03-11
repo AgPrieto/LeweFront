@@ -39,7 +39,7 @@ const Categories = () => {
   }, [id]);
 
   useEffect(() => {
-    if (category.name && !categoryName) {
+    if (category.name) {
       setCategoryName(category.name);
     }
   }, [category]);
@@ -55,9 +55,6 @@ const Categories = () => {
  
   return (
     <div>
-      {filteredProducts && <FilterPrice />}
-      {filteredProducts && <OrderByPrice />}
-      {filteredProducts && <FilterBySize />}
       
   
       <div className={style.title}>
@@ -71,6 +68,9 @@ const Categories = () => {
         </div>
       ) : (
         <div className={style.container}>
+          {filteredProducts && <FilterPrice />}
+          {filteredProducts && <OrderByPrice />}
+          {filteredProducts && <FilterBySize />}
           {filteredProducts.map((product) => (
             <div key={product.id} className={style.card}>
               <img src={product.image} alt={product.name} className={style.imgCard}/>
