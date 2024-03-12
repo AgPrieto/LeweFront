@@ -17,7 +17,6 @@ const NavBar = () => {
   const handleClick = (buttonName) => {
     setActiveButton(buttonName);
     setDropdownOpen(false);
-    buttonName === 'indumentaria' ? navigate('indumentaria') :
     navigate(`category/${buttonName}`);
   };
 
