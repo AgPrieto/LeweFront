@@ -1,4 +1,4 @@
-import { GET_ALL_ARTICLES, GET_ARTICLES_BY_NAME } from "../action-types/articlesContstants";
+import { GET_ALL_ARTICLES, GET_ARTICLES_BY_NAME, GET_ARTICLES_BY_ID } from "../action-types/articlesContstants";
 import axios from "axios";
 
 export const getAllArticles = () => {
@@ -27,3 +27,19 @@ export const getAllArticles = () => {
             }
           };
         }
+        export const getArticlesById = (id) => {
+          return async (dispatch) => {
+            try {
+              const response = await axios.get(`/product/${id}`);
+              const product = response.data;
+        
+              return dispatch({
+                type: GET_ARTICLES_BY_ID,
+                payload: product,
+              });
+            } catch (error) {
+              throw new Error(error.message);
+            }
+          };
+        };
+    
