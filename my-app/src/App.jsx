@@ -5,7 +5,6 @@ import Home from "./components/home/home";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer"
 import Categories from "./components/Categories/Categories";
-import Indumentaria from "./components/Indumentaria/Indumentaria";
 import Detail from "./components/Detail/detail";
 
 
@@ -22,7 +21,6 @@ const App = () => {
        <div className="mainContent"></div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/indumentaria" element={<Indumentaria/>} />
         <Route path="/category/:id" element={<Categories/>} />
         <Route path="/details/:id" element={<Detail />} />
       </Routes>
