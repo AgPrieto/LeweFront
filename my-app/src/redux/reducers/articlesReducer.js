@@ -1,8 +1,9 @@
-import { GET_ALL_ARTICLES, GET_ARTICLES_BY_NAME } from "../action-types/articlesContstants";
+import { GET_ALL_ARTICLES, GET_ARTICLES_BY_NAME, GET_ARTICLES_BY_ID } from "../action-types/articlesContstants";
 
 const initialState = {
     articles: [],
     articlesBackup: [],
+    detail: []
     };
 
 function articlesReducer(state = initialState, action) {
@@ -24,6 +25,11 @@ function articlesReducer(state = initialState, action) {
                       ),
                     },
                 };
+                case GET_ARTICLES_BY_ID:
+                  return {
+                    ...state,
+                    detail: action.payload, 
+                  };
         default:
             return state;
     }

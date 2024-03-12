@@ -1,0 +1,81 @@
+.detailsContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    text-align: left;
+    width: 70%;
+    padding-bottom: 20px;
+    text-align: left;
+    margin-left: 350px;
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-top:16px;
+    width: 500px;
+   margin-right: 130px;
+   margin-left: 50px;
+  }
+
+  .infoContainer h2 {
+    margin-bottom: 0px; /* Ajusta este valor según tus necesidades */
+  }
+
+  .infoContainer h3 {
+    margin-top: 40px;
+    margin-bottom: 0px;
+  }
+
+  .imgContainer {
+  position: relative;
+  margin-top: 40px;
+  width: 67%;
+  height: 700px;
+  overflow: hidden;
+  z-index: 0;
+  border-right: 2.5px solid;
+  border-left: 2.5px solid;
+  border-top: 2.5px solid;
+  border-bottom: 2.5px solid;
+  border-color: rgb(66, 66, 66);
+  
+
+}
+
+.imgContainer img {
+  width: 700px;
+  height: 700px;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+  
+}
+
+.imgContainer img:hover {
+    transform: scale(1);
+  }
+
+  .imgContainer p{
+    color: white;
+
+  }
+
+  .cartButton  {
+    
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    border: 2px solid red;
+    cursor: pointer;
+    margin-top: 50px;
+    font-size: medium;
+  }
+  
+  .cartButton:hover {
+    outline: none;
+    border: 2px solid rgb(195, 68, 68); /* Cambia el color del borde en lugar de eliminarlo */
+    background-color: rgb(195, 68, 68);
+  }
+
+  
