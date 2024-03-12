@@ -32,7 +32,7 @@
   position: relative;
   margin-top: 40px;
   width: 67%;
-  height: 700px;
+  height: 720px;
   overflow: hidden;
   z-index: 0;
   border-right: 2.5px solid;
@@ -46,7 +46,7 @@
 
 .imgContainer img {
   width: 700px;
-  height: 700px;
+  height: 740px;
   transition: transform 0.3s ease;
   cursor: zoom-in;
   

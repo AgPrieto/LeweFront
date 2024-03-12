@@ -86,14 +86,15 @@ useEffect(() => {
         const { left, top, width, height } = e.target.getBoundingClientRect();
         const x = ((e.pageX - left) / width) * 100;
         const y = ((e.pageY - top) / height) * 100;
-
-        const scaleFactor = 1.4;
-        img.style.transformOrigin = `${x}% ${y}%`;
-        img.style.transform = `scale(${scaleFactor})`;
+  
+        // Solo aplica el zoom si el cursor está en la parte superior de la imagen
+        if (y < 110) { // Ajusta este valor para cambiar la región donde se aplica el zoom
+          const scaleFactor = 1.4;
+          img.style.transformOrigin = `${x}% ${y}%`;
+          img.style.transform = `scale(${scaleFactor})`;
+        }
       };
       
-      
-
       const handleMouseOut = () => {
         img.style.transformOrigin = "center center";
         img.style.transform = "scale(1)";
@@ -111,7 +112,7 @@ useEffect(() => {
   
   return (
     <div className={style.detailsContainer}>
-         <div className={style.imgContainer}>
+         <div className={style.imgContainer} style={{ overflow: 'hidden' }}>
          <img
             ref={imgRef}
             src={detail.image}
