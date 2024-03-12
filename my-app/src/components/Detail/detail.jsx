@@ -88,7 +88,7 @@ useEffect(() => {
         const y = ((e.pageY - top) / height) * 100;
   
         // Solo aplica el zoom si el cursor está en la parte superior de la imagen
-        if (y < 110) { // Ajusta este valor para cambiar la región donde se aplica el zoom
+        if (y < 118) { // Ajusta este valor para cambiar la región donde se aplica el zoom
           const scaleFactor = 1.4;
           img.style.transformOrigin = `${x}% ${y}%`;
           img.style.transform = `scale(${scaleFactor})`;
