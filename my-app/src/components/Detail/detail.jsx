@@ -91,6 +91,8 @@ useEffect(() => {
         img.style.transformOrigin = `${x}% ${y}%`;
         img.style.transform = `scale(${scaleFactor})`;
       };
+      
+      
 
       const handleMouseOut = () => {
         img.style.transformOrigin = "center center";
@@ -114,7 +116,7 @@ useEffect(() => {
             ref={imgRef}
             src={detail.image}
             alt="ej"
-            style={{ transform: "scale(1.2)" }}
+            style={{ transform: "scale(1)" }}
           />
       </div>
         <div className={style.infoContainer}>
