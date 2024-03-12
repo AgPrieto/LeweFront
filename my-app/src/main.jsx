@@ -10,8 +10,8 @@ import {Provider} from 'react-redux';
 import store from './redux/store.js';
 
 
-axios.defaults.baseURL = 'https://lewe-backend-yv3c.onrender.com';
 //axios.defaults.baseURL = 'https://lewe-backend-yv3c.onrender.com';
+axios.defaults.baseURL = 'http://localhost:3001';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
