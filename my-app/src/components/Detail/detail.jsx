@@ -5,16 +5,22 @@ import { useParams } from "react-router-dom";
 import { getArticlesById } from '../../redux/actions/articlesActions';
 import style from "./detail.module.css";
 import { InputNumber } from 'antd';
+import { addToCart } from '../../redux/actions/cartActions';
 
-const SizeButtons = ({ detail }) => {
+const SizeButtons = ({ detail, quantity, setQuantity, selectedSize, setSelectedSize }) => {
   const sizes = ['XS','S', 'M', 'L', 'XL', 'XXL'];
-  const [selectedSize, setSelectedSize] = useState(null);
-  const [quantity, setQuantity] = useState(0);
+  
+ 
   const detail1 = useSelector((state) => state.articlesReducer.detail);
-
+  
   const handleSizeClick = (size) => {
-    setSelectedSize(size);
-    setQuantity(0); // reset quantity when size is changed
+    if (selectedSize === size) {
+      setSelectedSize(null); // Deselecciona el tamaño si se vuelve a hacer clic en el mismo
+      setQuantity(0); // reset quantity when size is deselected
+    } else {
+      setSelectedSize(size);
+      setQuantity(0); // reset quantity when size is changed
+    }
   };
 
   const handleQuantityChange = (event) => {
@@ -86,7 +92,10 @@ const detail = () => {
 const dispatch = useDispatch();
 const { id } = useParams();
 const detail = useSelector((state) => state.articlesReducer.detail);
-console.log(detail);
+const cart = useSelector((state) => state.cartReducer.cart);
+const [quantity, setQuantity] = useState(0);
+const [selectedSize, setSelectedSize] = useState(null);
+console.log(cart);
 const imgRef = useRef(null);
 
 useEffect(() => {
@@ -123,7 +132,26 @@ useEffect(() => {
       };
     }
   }, [imgRef.current]);
+
+  const handleAddToCart = () => {
+    if (quantity > 0 && selectedSize) {
+      const productToAdd = {
+        id: detail.id,
+        name: detail.name,
+        image: detail.image,
+        quantity: quantity,
+        size: selectedSize,
+        price: detail.price,
+      };
+
+      dispatch(addToCart(productToAdd));
+    } else {
+      alert("Por favor, selecciona un tamaño y una cantidad antes de agregar al carrito.");
+    }
+  };
   
+  const isButtonDisabled = quantity === 0 || !selectedSize;
+
   return (
     <div className={style.detailsContainer}>
          <div className={style.imgContainer} style={{ overflow: 'hidden' }}>
@@ -138,12 +166,24 @@ useEffect(() => {
       <h2>{detail.name}</h2>
       <h2>${detail.price}</h2>
       <div className={style.sizeButtons}>
-      <SizeButtons stock={detail} />
+      <SizeButtons stock={detail} quantity={quantity} setQuantity={setQuantity} selectedSize={selectedSize} setSelectedSize={setSelectedSize} />
       </div>
       <h3>DESCRIPCION</h3>
 
       <p>{detail.description}</p>
-      <button className={style.cartButton}>AGREGAR AL CARRITO</button>
+      <button 
+        className={style.cartButton} 
+        onClick={handleAddToCart} 
+        disabled={isButtonDisabled}
+        style={{
+          backgroundColor: isButtonDisabled ? 'gray' : 'red', // Cambia el color de fondo a gris si el botón está deshabilitado
+          borderColor: isButtonDisabled ? 'gray' : 'red', // Cambia el color del borde a gris si el botón está deshabilitado
+          cursor: isButtonDisabled ? 'not-allowed' : 'pointer', // Cambia el cursor a "prohibido" si el botón está deshabilitado
+        }}
+      >
+        AGREGAR AL CARRITO
+      </button>
+      {isButtonDisabled && <p style={{ color: 'red', marginLeft: "75px" }}>Debes seleccionar Talle y cantidad</p>} {/* Muestra el mensaje de error si el botón está deshabilitado */}
       </div>
     </div>
   )
