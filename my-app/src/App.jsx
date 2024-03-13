@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer"
 import Categories from "./components/Categories/Categories";
 import Detail from "./components/Detail/detail";
+import Cart from "./components/Cart/cart";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/category/:id" element={<Categories/>} />
         <Route path="/details/:id" element={<Detail />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </div>

@@ -1,0 +1,74 @@
+.productListContainer {
+    width: 100%;
+    margin-top: 20px;
+    overflow-y: auto; /* Agrega desplazamiento vertical cuando la lista de productos excede el tamaño del contenedor */
+    max-height: calc(100vh - 200px); /* Establece una altura máxima para la lista para permitir que el contenedor de precios permanezca visible */
+  }
+  
+  .productList {
+    list-style: none; /* Eliminar viñetas de la lista */
+    padding: 0; /* Eliminar relleno de la lista */
+    margin: 0; /* Eliminar margen de la lista */
+  }
+
+.productItem {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto; 
+    align-items: center;
+    padding: 10px;
+    width: 1300px;
+   
+    border-bottom: 1px solid grey;
+  }
+  
+  .productImage {
+    width: 110px; 
+    height: 110px; 
+  }
+  
+  .productInfo {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr; 
+    gap: 280px;
+  }
+  
+  .productName,
+  .productPrice,
+  .productQuantity,
+  .productSize {
+    margin: 0px;
+    color: rgb(159, 159, 159);
+    text-align: left;
+  }
+  
+  
+ .productName {
+  font-weight: bold;
+  color: rgb(159, 159, 159);
+  margin-left: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: small;
+}
+  
+  .productPrice {
+    font-weight: bold;
+    color: rgb(159, 159, 159);
+  }
+  
+  .productQuantity {
+    color: rgb(159, 159, 159);
+  }
+  
+  .productSize {
+    color: rgb(159, 159, 159);
+  }
+
+
+  
+  
+  
+  
+  
+  
