@@ -88,7 +88,9 @@ const toggleSubDropdown = () => {
         <button onClick={() => handleClick('CONTACTANOS')} className={activeButton === 'CONTACTANOS' ? styles.active : ''}>CONTACTANOS</button>
       </div>
       <div className={styles.rightButton}>
+        <Link to="/cart">
         <button><IoCart /></button>
+        </Link>
       </div>
     </div>
   );

@@ -134,7 +134,8 @@ useEffect(() => {
   }, [imgRef.current]);
 
   const handleAddToCart = () => {
-    if (quantity > 0 && selectedSize) {
+    const hasSizes = detail.sizes && detail.sizes.length > 0;
+    if (quantity > 0 && (!hasSizes || selectedSize)) {
       const productToAdd = {
         id: detail.id,
         name: detail.name,
