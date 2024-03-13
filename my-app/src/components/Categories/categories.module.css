@@ -121,6 +121,15 @@
   
 }
 
+.link {
+  color: white; /* Establece el color del texto en blanco */
+  text-decoration: none; /* Elimina el subrayado predeterminado del enlace */
+}
+
+.link:hover {
+  color: white;
+}
+
 
 
 
