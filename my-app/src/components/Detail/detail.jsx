@@ -146,11 +146,11 @@ useEffect(() => {
 
       dispatch(addToCart(productToAdd));
     } else {
-      alert("Por favor, selecciona un tamaño y una cantidad antes de agregar al carrito.");
+      alert("Por favor, ingresa una cantidad antes de agregar al carrito.");
     }
   };
   
-  const isButtonDisabled = quantity === 0 || !selectedSize;
+  const isButtonDisabled = quantity === 0;
 
   return (
     <div className={style.detailsContainer}>
@@ -183,7 +183,7 @@ useEffect(() => {
       >
         AGREGAR AL CARRITO
       </button>
-      {isButtonDisabled && <p style={{ color: 'red', marginLeft: "75px" }}>Debes seleccionar Talle y cantidad</p>} {/* Muestra el mensaje de error si el botón está deshabilitado */}
+      {isButtonDisabled && <p style={{ color: 'red', marginLeft: "100px" }}>Debes ingresar una cantidad</p>} {/* Muestra el mensaje de error si el botón está deshabilitado */}
       </div>
     </div>
   )
