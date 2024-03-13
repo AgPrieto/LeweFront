@@ -6,66 +6,80 @@ import { getArticlesById } from '../../redux/actions/articlesActions';
 import style from "./detail.module.css";
 import { InputNumber } from 'antd';
 
-const SizeButtons = ({ stock }) => {
-    const sizes = ['XS','S', 'M', 'L', 'XL', 'XXL'];
-    const [selectedSize, setSelectedSize] = useState(null);
-    const [quantity, setQuantity] = useState(0);
+const SizeButtons = ({ detail }) => {
+  const sizes = ['XS','S', 'M', 'L', 'XL', 'XXL'];
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [quantity, setQuantity] = useState(0);
+  const detail1 = useSelector((state) => state.articlesReducer.detail);
 
-    const handleSizeClick = (size) => {
-      setSelectedSize(size);
-      setQuantity(0); // reset quantity when size is changed
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+    setQuantity(0); // reset quantity when size is changed
+  };
+
+  const handleQuantityChange = (event) => {
+      const value = event.target.value;
+      const stockKey = `stock${selectedSize}`;
+      if (value <= detail1[stockKey]) {
+        setQuantity(value);
+      } else {
+        alert(`Only ${detail1[stockKey]} items in stock for size ${selectedSize}`);
+      }
     };
 
-    const handleQuantityChange = (event) => {
-        const value = event.target.value;
-        const stockKey = `stock${selectedSize}`;
-        if (value <= stock[stockKey]) {
-          setQuantity(value);
-        } else {
-          alert(`Only ${stock[stockKey]} items in stock for size ${selectedSize}`);
-        }
-      };
+  const noSizeCategories = ['ab178e9d-253f-4fe5-a9a0-59cac1c1cdf7', 'f75de8fb-83f7-444a-a6b9-b3f151fae7a2', '67726fd5-b41a-4320-ba42-c9e8f484087f'];
 
-      
-  
-    return (
-      <div>
-        {sizes.map((size) => {
-          const stockKey = `stock${size}`;
-          if (stock[stockKey] > 0) {
-            return <button key={size} style={{ 
-                marginLeft: '10px',
-                width: '15%',
-                textAlign: "center",
-                borderRadius: "0px",
-                marginTop: '40px',
-                outline: 'none',
-                backgroundColor: selectedSize === size ? 'red' : 'white',
-                color: selectedSize === size ? 'white' : 'initial',
-              }} 
-              onClick={() => handleSizeClick(size)}
-              >{size}</button>;
-          }
-          return null;
-            })}
-            {selectedSize && (
-            <div>    
-                <label>Cantidad</label>
-                
-    <InputNumber 
-    
-        min={1} 
-        max={stock[`stock${selectedSize}`]} 
-        value={quantity} 
-        onChange={value => setQuantity(value)} 
-        style={{ marginLeft: '10px', height: '40px', width: '100px', fontSize: '20px', borderRadius: "0px", marginTop: "10px", }}
-    />
-    </div>
-    )}
-        </div>
+  if (noSizeCategories.includes(detail1.CategoryId)) {
+      return (
+          <div>
+              <label>Cantidad</label>
+              <InputNumber 
+                  min={1} 
+                  max={detail1[`stock${selectedSize}`]} 
+                  value={quantity} 
+                  onChange={value => setQuantity(value)} 
+                  style={{ marginLeft: '10px', height: '40px', width: '100px', fontSize: '20px', borderRadius: "0px", marginTop: "10px", }}
+              />
+          </div>
+      );
+  } else {
+      return (
+          <div>
+              {sizes.map((size) => {
+                  const stockKey = `stock${size}`;
+                  if (detail1[stockKey] > 0) {
+                      return <button key={size} style={{ 
+                          marginLeft: '10px',
+                          width: '15%',
+                          textAlign: "center",
+                          borderRadius: "0px",
+                          marginTop: '40px',
+                          outline: 'none',
+                          backgroundColor: selectedSize === size ? 'red' : 'white',
+                          color: selectedSize === size ? 'white' : 'initial',
+                      }} 
+                      onClick={() => handleSizeClick(size)}
+                      >{size}</button>;
+                  }
+                  return null;
+              })}
+              {selectedSize && (
+                  <div>    
+                      <label>Cantidad</label>
+                      <InputNumber 
+                          min={1} 
+                          max={detail1[`stock${selectedSize}`]} 
+                          value={quantity} 
+                          onChange={value => setQuantity(value)} 
+                          style={{ marginLeft: '10px', height: '40px', width: '100px', fontSize: '20px', borderRadius: "0px", marginTop: "10px", }}
+                      />
+                  </div>
+              )}
+          </div>
+      );
+  }
+};
 
-        );
-    };
 
 const detail = () => {
 

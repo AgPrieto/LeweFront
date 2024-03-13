@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import style from './categories.module.css';
 import loader from "./loader.gif";
 import { useSelector,useDispatch } from 'react-redux';
@@ -75,10 +75,12 @@ const Categories = () => {
           <div className={style.cardContainer}> 
           {filteredProducts.map((product) => (
             <div key={product.id} className={style.card}>
+              <Link to={`/details/${product.id}`} className={style.link}>
               <img src={product.image} alt={product.name} className={style.imgCard}/>
               <p className={style.name}>{product.name}</p>
               <p className={style.description}>{product.description}</p>
               <p className={style.price}>${product.price}</p>
+            </Link>
             </div>
             ))}
             </div> 
