@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer"
 import Categories from "./components/Categories/Categories";
 import Detail from "./components/Detail/detail";
 import Cart from "./components/Cart/cart";
+import UpdateArticleForm from "./components/UpdateForm/UpdateForm";
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/category/:id" element={<Categories/>} />
         <Route path="/details/:id" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/admin/update/:id" element={<UpdateArticleForm />} />
       </Routes>
       <Footer />
     </div>
