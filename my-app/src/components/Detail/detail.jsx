@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getArticlesById } from '../../redux/actions/articlesActions';
 import style from "./detail.module.css";
 import { InputNumber } from 'antd';
@@ -172,6 +172,7 @@ useEffect(() => {
       <h3>DESCRIPCION</h3>
 
       <p>{detail.description}</p>
+      <Link to="/cart">
       <button 
         className={style.cartButton} 
         onClick={handleAddToCart} 
@@ -184,7 +185,8 @@ useEffect(() => {
       >
         AGREGAR AL CARRITO
       </button>
-      {isButtonDisabled && <p style={{ color: 'red', marginLeft: "100px" }}>Debes ingresar una cantidad</p>} {/* Muestra el mensaje de error si el botón está deshabilitado */}
+      </Link>
+      {isButtonDisabled && <p style={{ color: 'red', marginLeft: "5px" }}>Debes ingresar una cantidad</p>} {/* Muestra el mensaje de error si el botón está deshabilitado */}
       </div>
     </div>
   )
