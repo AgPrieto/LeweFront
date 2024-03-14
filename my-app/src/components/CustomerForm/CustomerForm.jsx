@@ -39,7 +39,7 @@ order: customer,
 articles: [{
 	id:"854ab5c4-44e2-4401-899e-82f498fd021b",
 	name:"Remera Blanca",
-    image:"https://fcppxyi.stripocdn.email/content/guids/CABINET_c67048fd0acf81b47e18129166337c05/images/79021618299486570.png",
+  image:"https://fcppxyi.stripocdn.email/content/guids/CABINET_c67048fd0acf81b47e18129166337c05/images/79021618299486570.png",
 	quantity:2,
 	size:"XXL",
 	price:"2000"
