@@ -12,7 +12,8 @@ import OrderByPrice from '../Filtres/orderByPrice';
 import FilterBySize from '../Filtres/filterBySize';
 
 import { MdOutlineError } from "react-icons/md";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Categories = () => {
   
@@ -42,6 +43,12 @@ const Categories = () => {
     const updatedFilteredProducts = filteredByPrice.filter(product => filteredBySize.includes(product));
     dispatch(updateFilteredProducts(updatedFilteredProducts)); // Esta acción debería actualizar el estado de filteredProducts con los productos filtrados
   }, [filteredByPrice, filteredBySize, dispatch])
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duración de la animación en milisegundos
+    });
+  }, []);
 
   if (isLoading) {
     return (
@@ -75,12 +82,14 @@ const Categories = () => {
           <div className={style.cardContainer}> 
           {filteredProducts.map((product) => (
             <div key={product.id} className={style.card}>
+              <div data-aos="fade-left">
               <Link to={`/details/${product.id}`} className={style.link}>
               <img src={product.image} alt={product.name} className={style.imgCard}/>
               <p className={style.name}>{product.name}</p>
               <p className={style.description}>{product.description}</p>
               <p className={style.price}>${product.price}</p>
             </Link>
+            </div>
             </div>
             ))}
             </div> 
