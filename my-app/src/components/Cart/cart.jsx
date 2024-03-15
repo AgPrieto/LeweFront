@@ -10,6 +10,8 @@ import { useState, useEffect } from 'react';
 import CustomerForm from '../CustomerForm/CustomerForm';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { IoMdClose } from "react-icons/io";
+
 
 const Cart = () => {
 
@@ -33,11 +35,13 @@ const Cart = () => {
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
-  }
-
+    document.body.style.overflow = 'hidden'; // Evita el scroll
+  };
+  
   const handleCloseModal = () => {
     setIsModalOpen(false);
-  }
+    document.body.style.overflow = 'auto'; // Permite el scroll
+  };
 
   const availableProducts = articlesBackup.product.filter(
     (product) => !cart.some((cartItem) => cartItem.id === product.id)
@@ -84,12 +88,40 @@ const Cart = () => {
             <h2>Total: ${totalPrice}</h2> 
             <button className={`${styles.buyButton} hvr-sweep-to-right`} onClick={handleOpenModal}>INICIAR COMPRA</button>
             {isModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
+  <div data-aos="fade-down" className="modal" style={{
+    position: 'fixed',
+    width: '2000px',
+    height: "1000px",
+    marginLeft: '0px',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    color: "black",
+    zIndex: 0,
+    backdropFilter: 'blur(4px)'
+  }}>
+          <div className="modal-content" style={{
+      backgroundColor: '#161616',
+      padding: '20px',
+      borderRadius: '4px',
+      color: "white",
+      height: "650px",
+      width: "600px",
+      border: "1px solid",
+      
+
+    }}>
             {/* Contenido del modal, en este caso el componente CustomerForm */}
+            <button className={`${styles.formButton} hvr-icon-spin`} onClick={handleCloseModal}>
+  <IoMdClose className="hvr-icon" />
+</button>
             <CustomerForm cart={cart} />
             {/* Botón para cerrar el modal */}
-            <button onClick={handleCloseModal}>Cerrar</button>
           </div>
           {/* Fondo oscurecido que cubre el contenido detrás del modal */}
           <div className="modal-overlay" onClick={handleCloseModal}></div>
