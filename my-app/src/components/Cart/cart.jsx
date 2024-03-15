@@ -6,10 +6,19 @@ import 'hover.css/css/hover-min.css'; // Importa hover.css directamente
 import { MdOutlineError, MdDelete } from "react-icons/md";
 import {removeFromCart} from '../../redux/actions/cartActions'
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CustomerForm from '../CustomerForm/CustomerForm';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Cart = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duración de la animación en milisegundos
+    });
+  }, []);
+
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
   const savedArticlesBackup = localStorage.getItem('articlesBackup');
@@ -91,6 +100,7 @@ const Cart = () => {
             <h2>TAMBIEN TE PUEDE INTERESAR</h2>
             <ul className={styles.recommendedProductsList}>
               {recommendedProducts.map((item) => (
+                  <div data-aos="fade-up">
                 <li key={item.id} className={styles.recommendedProductItem}>
                   <Link to={`/details/${item.id}`} className={styles.recommendedLink}>
                     <img src={item.image} alt={item.name} className={styles.recommendedImage} />
@@ -98,6 +108,7 @@ const Cart = () => {
                     <p className={styles.recommendedPrice}>Precio: ${item.price}</p>
                   </Link>
                 </li>
+                </div>
               ))}
             </ul>
           </div>
