@@ -9,52 +9,73 @@ import { Link } from 'react-router-dom';
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
-
+  const savedArticlesBackup = localStorage.getItem('articlesBackup');
+  const articlesBackup = JSON.parse(savedArticlesBackup)
+  console.log(articlesBackup);
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   const handleRemoveFromCart = (product) => {
     dispatch(removeFromCart(product));
   };
 
+  const availableProducts = articlesBackup.product.filter(
+    (product) => !cart.some((cartItem) => cartItem.id === product.id)
+  );
+
+  const recommendedProducts = availableProducts.sort(() => 0.5 - Math.random()).slice(0, 4);
   return (
     <div className={styles.cartContainer}>
       <h1>CARRITO</h1>
       {cart.length === 0 ? (
         <div className={styles.errorContainer}>
-        <MdOutlineError />
-        <p>No hay productos en el carrito.</p>
-      </div>
+          <MdOutlineError />
+          <p>No hay productos en el carrito.</p>
+        </div>
       ) : (
         <>
           <div className={styles.productListContainer}>
             <ul className={styles.productList}>
-            {cart.map((item, index) => (
-  <li key={item.id} className={styles.productItem}>
-    <Link to={`/details/${item.id}`} className={styles.productLink}>
-    <img src={item.image} alt={item.name} className={styles.productImage} />
-    </Link>
-    <div className={styles.productInfo}>
-    <Link to={`/details/${item.id}`} className={styles.productLink}>
-      <h2 className={styles.productName}>{item.name}</h2>
-      </Link>
-      <p className={styles.productPrice}>Precio: ${item.price}</p>
-      <p className={styles.productQuantity}>Cantidad: {item.quantity}</p>
-      {item.size ? (
-        <p className={styles.productSize}>Tamaño: {item.size}</p>
-      ) : (
-        <p className={styles.productSize}>&nbsp;</p>  // Espacio reservado para 'size' cuando no está presente
-      )}
-      <button className={`${styles.deleteButton} hvr-icon-float`} onClick={() => handleRemoveFromCart(item)}>
-        <MdDelete className="hvr-icon" />
-      </button>
-    </div>
-  </li>
-))}
+              {cart.map((item, index) => (
+                <li key={item.id} className={styles.productItem}>
+                  <Link to={`/details/${item.id}`} className={styles.productLink}>
+                    <img src={item.image} alt={item.name} className={styles.productImage} />
+                  </Link>
+                  <div className={styles.productInfo}>
+                    <Link to={`/details/${item.id}`} className={styles.productLink}>
+                      <h2 className={styles.productName}>{item.name}</h2>
+                    </Link>
+                    <p className={styles.productPrice}>Precio: ${item.price}</p>
+                    <p className={styles.productQuantity}>Cantidad: {item.quantity}</p>
+                    {item.size ? (
+                      <p className={styles.productSize}>Tamaño: {item.size}</p>
+                    ) : (
+                      <p className={styles.productSize}>&nbsp;</p>  // Espacio reservado para 'size' cuando no está presente
+                    )}
+                    <button className={`${styles.deleteButton} hvr-icon-float`} onClick={() => handleRemoveFromCart(item)}>
+                      <MdDelete className="hvr-icon" />
+                    </button>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
           <div className={styles.totalPriceContainer}>
             <h2>Total: ${totalPrice}</h2> 
             <button className={`${styles.buyButton} hvr-sweep-to-right`}>INICIAR COMPRA</button> 
+          </div>
+          <div className={styles.recommendedProductsContainer}>
+            <h2>TAMBIEN TE PUEDE INTERESAR</h2>
+            <ul className={styles.recommendedProductsList}>
+              {recommendedProducts.map((item, index) => (
+                <li key={item.id} className={styles.recommendedProductItem}>
+                  <Link to={`/details/${item.id}`} className={styles.recommendedLink}>
+                    <img src={item.image} alt={item.name} className={styles.recommendedImage} />
+                    <h2 className={styles.recommendedName}>{item.name}</h2>
+                    <p className={styles.recommendedPrice}>Precio: ${item.price}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </>
       )}
