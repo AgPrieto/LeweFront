@@ -1,7 +1,7 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from "../action-types/cartConstants";
-import axios from "axios";
 
 export const addToCart = (product) => {
+  console.log(product)
     return {
       type: ADD_TO_CART,
       payload: product,

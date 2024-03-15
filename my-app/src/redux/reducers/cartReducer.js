@@ -10,6 +10,21 @@ const initialState = {
         let updatedCart;
         switch (action.type) {
             case ADD_TO_CART:
+                // eslint-disable-next-line no-case-declarations
+                const existingItem = state.cart.findIndex(item => item.id === action.payload.id && item.size === action.payload.size);
+                if (existingItem !== -1) {
+                    updatedCart = state.cart.map(item => {
+                        if (item.id === action.payload.id && item.size === action.payload.size) {
+                            item.quantity += action.payload.quantity;
+                        }
+                        return item;
+                    });
+                    localStorage.setItem('cart', JSON.stringify(updatedCart)); // Guarda el carrito actualizado en el localStorage
+                    return {
+                        ...state,
+                        cart: updatedCart,
+                    };
+                }
                 updatedCart = [...state.cart, action.payload];
                 localStorage.setItem('cart', JSON.stringify(updatedCart)); // Guarda el carrito actualizado en el localStorage
                 return {
