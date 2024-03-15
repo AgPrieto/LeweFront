@@ -9,6 +9,7 @@ const initialState = {
 function articlesReducer(state = initialState, action) {
     switch (action.type) {
         case GET_ALL_ARTICLES:
+          localStorage.setItem('articlesBackup', JSON.stringify(action.payload));
             return {
                 ...state,
                 articles: action.payload,

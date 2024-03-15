@@ -126,6 +126,53 @@
   border: none;
 }
 
+.recommendedProductsContainer {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.recommendedProductsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.recommendedProductItem {
+  flex: 0 0 calc(20% - 10px);
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease; 
+}
+
+.recommendedProductItem:hover{
+  transform: scale(1.03);
+}
+
+.recommendedLink {
+  color: black;
+  text-decoration: none;
+}
+
+.recommendedImage {
+  width: 350px;
+  height: 350px;
+  margin-top: 20px;
+}
+
+
+.recommendedName {
+  margin: 10px 0;
+}
+
+.recommendedPrice {
+  color: #888;
+}
+
+.recommendedProductsContainer h2 {
+  color: white;
+}
+
 
 
 
