@@ -4,6 +4,7 @@ import styles from './cart.module.css';
 import 'hover.css/css/hover-min.css'; // Importa hover.css directamente
 import { MdOutlineError, MdDelete } from "react-icons/md";
 import {removeFromCart} from '../../redux/actions/cartActions'
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -29,9 +30,13 @@ const Cart = () => {
             <ul className={styles.productList}>
             {cart.map((item, index) => (
   <li key={item.id} className={styles.productItem}>
+    <Link to={`/details/${item.id}`} className={styles.productLink}>
     <img src={item.image} alt={item.name} className={styles.productImage} />
+    </Link>
     <div className={styles.productInfo}>
+    <Link to={`/details/${item.id}`} className={styles.productLink}>
       <h2 className={styles.productName}>{item.name}</h2>
+      </Link>
       <p className={styles.productPrice}>Precio: ${item.price}</p>
       <p className={styles.productQuantity}>Cantidad: {item.quantity}</p>
       {item.size ? (

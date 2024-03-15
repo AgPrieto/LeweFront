@@ -6,13 +6,17 @@ import { IoCart } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { SlArrowDown } from "react-icons/sl";
+import { Badge } from 'antd';
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
   const [activeButton, setActiveButton] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [subDropdownOpen, setSubDropdownOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const node = useRef();
   const navigate = useNavigate();
+  const cart = useSelector((state) => state.cartReducer.cart);
 
   const handleClick = (buttonName) => {
     setActiveButton(buttonName);
@@ -89,7 +93,25 @@ const toggleSubDropdown = () => {
       </div>
       <div className={styles.rightButton}>
         <Link to="/cart">
-        <button><IoCart /></button>
+        <button>
+        <Badge count={cart.length} style={{ marginTop: "10px", marginRight: "12px" }}>
+            <IoCart
+  style={{
+    marginLeft: '10px',
+    padding: '8px 16px',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    fontSize: '30px',
+    outline: 'none',
+    background: 'transparent',
+    color: isHovered ? 'red' : 'white'
+  }}
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}
+/>
+            </Badge>
+            </button>
         </Link>
       </div>
     </div>
