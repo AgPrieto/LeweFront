@@ -6,6 +6,7 @@ import { getArticlesById } from '../../redux/actions/articlesActions';
 import style from "./detail.module.css";
 import { InputNumber } from 'antd';
 import { addToCart } from '../../redux/actions/cartActions';
+import loader from "./loader.gif";
 
 const SizeButtons = ({ detail, quantity, setQuantity, selectedSize, setSelectedSize }) => {
   const sizes = ['XS','S', 'M', 'L', 'XL', 'XXL'];
@@ -91,16 +92,25 @@ const detail = () => {
 
 const dispatch = useDispatch();
 const { id } = useParams();
-const detail = useSelector((state) => state.articlesReducer.detail);
+const detailArticle = useSelector((state) => state.articlesReducer.detail);
+const [detail, setDetail] = useState({});
 const cart = useSelector((state) => state.cartReducer.cart);
 const [quantity, setQuantity] = useState(0);
 const [selectedSize, setSelectedSize] = useState(null);
-console.log(cart);
 const imgRef = useRef(null);
+const [isLoading, setIsLoading] = useState(true);
+
 
 useEffect(() => {
-    dispatch(getArticlesById(id));
-  }, [id]);
+    setIsLoading(true); // Muestra la imagen de carga al iniciar la carga de la categoría
+    dispatch(getArticlesById(id)).then(() => {
+      setIsLoading(false); // Oculta la imagen de carga después de cargar la categoría
+    })
+    setDetail(detailArticle);
+     return () => {
+      setDetail({});
+    };
+  }, [detailArticle, dispatch, id]);
 
   useEffect(() => {
     if (imgRef.current) {
@@ -129,6 +139,7 @@ useEffect(() => {
       return () => {
         img.removeEventListener("mousemove", handleMouseMove);
         img.removeEventListener("mouseout", handleMouseOut);
+        setDetail({});
       };
     }
   }, [imgRef.current]);
@@ -152,6 +163,13 @@ useEffect(() => {
   };
   
   const isButtonDisabled = quantity === 0;
+  if (isLoading) {
+    return (
+      <div className={style.loaderContainer}>
+        <img src={loader} alt="Loading..." className={style.loader} />
+      </div>
+    );
+  }
 
   return (
     <div className={style.detailsContainer}>
