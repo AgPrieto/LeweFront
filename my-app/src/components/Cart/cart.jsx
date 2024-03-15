@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import styles from './cart.module.css'; 
@@ -5,18 +6,29 @@ import 'hover.css/css/hover-min.css'; // Importa hover.css directamente
 import { MdOutlineError, MdDelete } from "react-icons/md";
 import {removeFromCart} from '../../redux/actions/cartActions'
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import CustomerForm from '../CustomerForm/CustomerForm';
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer.cart);
   const savedArticlesBackup = localStorage.getItem('articlesBackup');
   const articlesBackup = JSON.parse(savedArticlesBackup)
-  console.log(articlesBackup);
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const handleRemoveFromCart = (product) => {
     dispatch(removeFromCart(product));
   };
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  }
 
   const availableProducts = articlesBackup.product.filter(
     (product) => !cart.some((cartItem) => cartItem.id === product.id)
@@ -35,7 +47,7 @@ const Cart = () => {
         <>
           <div className={styles.productListContainer}>
             <ul className={styles.productList}>
-              {cart.map((item, index) => (
+              {cart.map((item) => (
                 <li key={item.id} className={styles.productItem}>
                   <Link to={`/details/${item.id}`} className={styles.productLink}>
                     <img src={item.image} alt={item.name} className={styles.productImage} />
@@ -61,12 +73,24 @@ const Cart = () => {
           </div>
           <div className={styles.totalPriceContainer}>
             <h2>Total: ${totalPrice}</h2> 
-            <button className={`${styles.buyButton} hvr-sweep-to-right`}>INICIAR COMPRA</button> 
+            <button className={`${styles.buyButton} hvr-sweep-to-right`} onClick={handleOpenModal}>INICIAR COMPRA</button>
+            {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            {/* Contenido del modal, en este caso el componente CustomerForm */}
+            <CustomerForm cart={cart} />
+            {/* Botón para cerrar el modal */}
+            <button onClick={handleCloseModal}>Cerrar</button>
+          </div>
+          {/* Fondo oscurecido que cubre el contenido detrás del modal */}
+          <div className="modal-overlay" onClick={handleCloseModal}></div>
+        </div>
+      )}
           </div>
           <div className={styles.recommendedProductsContainer}>
             <h2>TAMBIEN TE PUEDE INTERESAR</h2>
             <ul className={styles.recommendedProductsList}>
-              {recommendedProducts.map((item, index) => (
+              {recommendedProducts.map((item) => (
                 <li key={item.id} className={styles.recommendedProductItem}>
                   <Link to={`/details/${item.id}`} className={styles.recommendedLink}>
                     <img src={item.image} alt={item.name} className={styles.recommendedImage} />
