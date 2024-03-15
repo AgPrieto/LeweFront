@@ -1,5 +1,6 @@
 .cartContainer h1 {
   color: rgb(159, 159, 159);
+
 }
 
 
@@ -11,7 +12,7 @@
   width: fit-content;
   margin-top: 80px;
   overflow-y: auto;
-  height: 700px;
+  height: 500px;
 
 
 }
@@ -132,6 +133,10 @@
   border-top: 1px solid #ccc;
 }
 
+.recommendedProductsContainer h2 {
+  font-weight: bold;
+}
+
 .recommendedProductsList {
   display: flex;
   flex-wrap: wrap;
@@ -194,17 +199,7 @@ font-size: x-large;
   border: none;
 }
 
-.modal::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  filter: blur(5px);
-  z-index: -1;
-}
+
 
 
 
