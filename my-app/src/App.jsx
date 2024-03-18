@@ -8,8 +8,7 @@ import Categories from "./components/Categories/Categories";
 import Detail from "./components/Detail/detail";
 import Cart from "./components/Cart/cart";
 import UpdateArticleForm from "./components/UpdateForm/UpdateForm";
-import AdminDashboard from "./adminComponents/features/AdminDashboard/roots/AdminDashboard"
-
+import AdminDashboard from "./adminComponents/Dashboard/AdminDashboard";
 
 const App = () => {
   const { pathname } = useLocation();

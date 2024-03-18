@@ -4,6 +4,9 @@ import { useState } from "react";
 import { validateArticle } from "../../utils/articleValidations";
 import { useDispatch, useSelector } from "react-redux";
 import { createArticle } from "../../redux/actions/articlesActions";
+import style from "./articleForm.module.css";
+import { useEffect } from "react";
+import { getAllCategories } from "../../redux/actions/categoriesActions";
 
 const ArticleForm = () => {
   const dispatch = useDispatch();
@@ -23,6 +26,10 @@ const ArticleForm = () => {
     size: "",
     CategoryId: "",
   });
+
+  useEffect(() => {
+    dispatch(getAllCategories());
+  }, [dispatch]);
 
   const [errors, setErrors] = useState({});
 
@@ -69,10 +76,10 @@ const ArticleForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className={style.formContainer}>
         <h1>Crear Artículo</h1>
       </div>
-      <div>
+      <div className={style.inputContainer}>
         <label>Nombre</label>
         <input
           type="text"
@@ -115,6 +122,7 @@ const ArticleForm = () => {
           onChange={handleChange}
           name="CategoryId"
         >
+          <option value="">Seleccione una categoría</option>
           {categories.map((category) => (
             <option key={category.id} value={category.id}>
               {category.name}
@@ -179,7 +187,7 @@ const ArticleForm = () => {
         />
         {errors.stockXXL && <p>{errors.stockXXL}</p>}
 
-        <button type="submit">Crear</button>
+        <button className={`${style.formButton} hvr-sweep-to-right`} type="submit">Crear</button>
       </div>
     </form>
   );
