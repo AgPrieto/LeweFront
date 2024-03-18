@@ -8,6 +8,7 @@ import loader from "./loader.gif";
 import { useState } from "react";
 import { FaPencilAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import SearchBarIndu from "../../components/SearchBar/SearchBarIndu";
 
 const HandleArticles = () => {
   const dispatch = useDispatch();
@@ -36,7 +37,11 @@ const HandleArticles = () => {
   }
 
   return (
+  
     <div>
+      <div>
+        <SearchBarIndu />
+        </div>
       {articles.product.map((item) => (
         <div key={item.id} className={styles.productItem}>
           <img
