@@ -1,48 +1,71 @@
 .formContainer h1 {
-    color: white;
-    font-size: x-large;
-    margin-bottom: 35px;
-  }
+  color: white;
+  font-size: x-large;
+  margin-bottom: 35px;
+}
 
-  .formContainer img{
-    width: 70px;
-    height: 60px;
-  }
+.formContainer img{
+  width: 70px;
+  height: 60px;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: space-between; /* Cambia la dirección de los elementos a una fila */
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%; /* Divide el espacio disponible en dos */
+}
+
+.column input {
+ 
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 0;
+  background-color: white;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  max-height: 40px;
   
-  .inputContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+}
 
-  input {
-    width: 300px; /* Hace que los inputs ocupen todo el ancho disponible */
-    padding: 10px; /* Agrega un poco de espacio alrededor del texto en los inputs */
-    font-size: 16px; /* Hace que el texto en los inputs sea un poco más grande */
-    border-radius: 0; /* Elimina el borde redondeado de los inputs */
-    background-color: white;
-    margin-bottom: 20px;
-    margin-top: 10px;
-  }
+.column select {
+ 
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 0;
+  background-color: white;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  max-height: 40px;
+  
+}
 
-  input:focus {
-    border: 1px solid red;
-  }
+input:focus {
+  border: 1px solid red;
+}
 
-  .formButton {
-    margin-bottom: 20px;
-    margin-top: 10px;
-    height: 50px;
+.formButton {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  height: 50px;
   border-radius: 0px;
   width: 200px;
   margin-top: 20px;
   background-color: red;
   color: white;
-  }
+}
 
-  .formButton:hover{
-    border: none;
-    outline: none   ;
-  }
+.formButton:hover{
+  border: none;
+  outline: none;
+}
+
   
