@@ -1,7 +1,8 @@
-import { SEND_ORDER } from "../action-types/orderContstants";
+import { SEND_ORDER, GET_ORDERS} from "../action-types/orderContstants";
 
 const initialState = {
     order: [],
+    orders:[],
     };
 
 function orderReducer(state = initialState, action) {
@@ -10,6 +11,11 @@ function orderReducer(state = initialState, action) {
             return {
                 ...state,
                 order: action.payload,
+            };
+        case GET_ORDERS:
+            return {
+                ...state,
+                orders: action.payload,
             };
         default:
             return state;

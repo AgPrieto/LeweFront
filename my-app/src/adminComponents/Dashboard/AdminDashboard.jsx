@@ -12,11 +12,12 @@ import {
 import styles from "./AdminDashboard.module.css";
 import ArticleForm from "../../components/ArticleForm/ArticleForm";
 import HandleArticles from "../HandleArticles/HandleArticles";
+import Orders from "../Orders/Orders";
 
 const { Sider, Content } = Layout;
 
 const AdminDashboard = () => {
-  const [selectedKey, setSelectedKey] = useState("1");
+  const [selectedKey, setSelectedKey] = useState("productos");
 
   const handleMenuClick = (key) => {
     setSelectedKey(key);
@@ -24,11 +25,11 @@ const AdminDashboard = () => {
 
   const renderContent = () => {
     switch (selectedKey) {
-      case "1":
+      case "productos":
         return <HandleArticles/>;
-      case "2":
-        return "hola2"
-      case "3":
+      case "ordenes":
+        return <Orders />;
+      case "crearProducto":
         return <ArticleForm />
       case "4":
         return "hola4"
@@ -57,13 +58,13 @@ const AdminDashboard = () => {
         style={{ marginTop: "10px", background: "black" }}
       >
           
-          <Menu.Item key="1" icon={<AppstoreOutlined />} title="Gestionar Productos" style={{ marginBottom: '30px', color: selectedKey === "1" ? "red" : "white", background: "black"   }}>
+          <Menu.Item key="productos" icon={<AppstoreOutlined />} title="Gestionar Productos" style={{ marginBottom: '30px', color: selectedKey === "productos" ? "red" : "white", background: "black"   }}>
             Gestionar Productos
           </Menu.Item>
-          <Menu.Item key="2" icon={<LineChartOutlined />} title="Registro de Ventas" style={{ marginBottom: '30px', color: selectedKey === "2" ? "red" : "white", background: "black"   }}>
+          <Menu.Item key="ordenes" icon={<LineChartOutlined />} title="Registro de Ventas" style={{ marginBottom: '30px', color: selectedKey === "ordenes" ? "red" : "white", background: "black"   }}>
             Registro de Ventas
           </Menu.Item>
-          <Menu.Item key="3" icon={<PlusOutlined />} title="Agregar Nuevo Producto" style={{ marginBottom: '30px', color: selectedKey === "3" ? "red" : "white", background: "black"   }}>
+          <Menu.Item key="crearProducto" icon={<PlusOutlined />} title="Agregar Nuevo Producto" style={{ marginBottom: '30px', color: selectedKey === "crearProducto" ? "red" : "white", background: "black"   }}>
             Agregar Nuevo Producto
           </Menu.Item>
           <Menu.Item key="4" icon={<BarsOutlined />} title="Gestionar Categorías" style={{ marginBottom: '30px', color: selectedKey === "4" ? "red" : "white", background: "black"   }}>
