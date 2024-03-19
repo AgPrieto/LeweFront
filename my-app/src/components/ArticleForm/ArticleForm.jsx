@@ -77,120 +77,125 @@ const ArticleForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className={style.formContainer}>
-        <h1>Crear Artículo</h1>
+        <h1>CREAR ARTICULO</h1>
       </div>
       <div className={style.inputContainer}>
-        <label>Nombre</label>
-        <input
-          type="text"
-          name="name"
-          value={article.name}
-          onChange={handleChange}
-        />
-        {errors.name && <p>{errors.name}</p>}
-
-        <label>Descripción Breve</label>
-        <input
-          type="text"
-          name="description"
-          value={article.description}
-          onChange={handleChange}
-        />
-        {errors.description && <p>{errors.description}</p>}
-
-        <label>Precio</label>
-        <input
-          type="number"
-          name="price"
-          value={article.price}
-          onChange={handleChange}
-        />
-        {errors.price && <p>{errors.price}</p>}
-
-        <label>Imagen</label>
-        <input
-          type="text"
-          name="image"
-          value={article.image}
-          onChange={handleChange}
-        />
-        {errors.image && <p>{errors.image}</p>}
-
-        <label>Categoría</label>
-        <select
-          value={article.CategoryId}
-          onChange={handleChange}
-          name="CategoryId"
-        >
-          <option value="">Seleccione una categoría</option>
-          {categories.map((category) => (
-            <option key={category.id} value={category.id}>
-              {category.name}
-            </option>
-          ))}
-        </select>
-        {errors.CategoryId && <p>{errors.CategoryId}</p>}
-
-        <h3>Stock:</h3>
-
-        <label>XS</label>
-        <input
-          type="number"
-          name="stockXS"
-          value={article.stockXS}
-          onChange={handleChange}
-        />
-        {errors.stockXS && <p>{errors.stockXS}</p>}
-
-        <label>S</label>
-        <input
-          type="number"
-          name="stockS"
-          value={article.stockS}
-          onChange={handleChange}
-        />
-        {errors.stockS && <p>{errors.stockS}</p>}
-
-        <label>M</label>
-        <input
-          type="number"
-          name="stockM"
-          value={article.stockM}
-          onChange={handleChange}
-        />
-        {errors.stockM && <p>{errors.stockM}</p>}
-
-        <label>L</label>
-        <input
-          type="number"
-          name="stockL"
-          value={article.stockL}
-          onChange={handleChange}
-        />
-        {errors.stockL && <p>{errors.stockL}</p>}
-
-        <label>XL</label>
-        <input
-          type="number"
-          name="stockXL"
-          value={article.stockXL}
-          onChange={handleChange}
-        />
-        {errors.stockXl && <p>{errors.stockXL}</p>}
-
-        <label>XXL</label>
-        <input
-          type="number"
-          name="stockXXL"
-          value={article.stockXXL}
-          onChange={handleChange}
-        />
-        {errors.stockXXL && <p>{errors.stockXXL}</p>}
-
-        <button className={`${style.formButton} hvr-sweep-to-right`} type="submit">Crear</button>
+        <div className={style.column}>
+          <label>Nombre</label>
+          <input
+            
+            type="text"
+            name="name"
+            value={article.name}
+            onChange={handleChange}
+          />
+          {errors.name && <p>{errors.name}</p>}
+  
+          <label>Descripción Breve</label>
+          <input
+            type="text"
+            name="description"
+            value={article.description}
+            onChange={handleChange}
+          />
+          {errors.description && <p>{errors.description}</p>}
+  
+          <label>Precio</label>
+          <input
+            type="number"
+            name="price"
+            value={article.price}
+            onChange={handleChange}
+          />
+          {errors.price && <p>{errors.price}</p>}
+  
+          <label>Imagen</label>
+          <input
+            type="file"
+            name="image"
+            value={article.image}
+            onChange={handleChange}
+          />
+          {errors.image && <p>{errors.image}</p>}
+  
+          <label>Categoría</label>
+          <select
+            value={article.CategoryId}
+            onChange={handleChange}
+            name="CategoryId"
+          >
+            <option value="">Seleccione una categoría</option>
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+          {errors.CategoryId && <p>{errors.CategoryId}</p>}
+        </div>
+  
+        <div className={style.column}>
+          <h3>Stock:</h3>
+  
+          <label>XS</label>
+          <input
+            type="number"
+            name="stockXS"
+            value={article.stockXS}
+            onChange={handleChange}
+          />
+          {errors.stockXS && <p>{errors.stockXS}</p>}
+  
+          <label>S</label>
+          <input
+            type="number"
+            name="stockS"
+            value={article.stockS}
+            onChange={handleChange}
+          />
+          {errors.stockS && <p>{errors.stockS}</p>}
+  
+          <label>M</label>
+          <input
+            type="number"
+            name="stockM"
+            value={article.stockM}
+            onChange={handleChange}
+          />
+          {errors.stockM && <p>{errors.stockM}</p>}
+  
+          <label>L</label>
+          <input
+            type="number"
+            name="stockL"
+            value={article.stockL}
+            onChange={handleChange}
+          />
+          {errors.stockL && <p>{errors.stockL}</p>}
+  
+          <label>XL</label>
+          <input
+            type="number"
+            name="stockXL"
+            value={article.stockXL}
+            onChange={handleChange}
+          />
+          {errors.stockXl && <p>{errors.stockXL}</p>}
+  
+          <label>XXL</label>
+          <input
+            type="number"
+            name="stockXXL"
+            value={article.stockXXL}
+            onChange={handleChange}
+          />
+          {errors.stockXXL && <p>{errors.stockXXL}</p>}
+        </div>
       </div>
+      <button className={`${style.formButton} hvr-sweep-to-right`} type="submit">Crear</button>
     </form>
   );
+  
 };
 
 export default ArticleForm;
