@@ -70,3 +70,23 @@ footer {
   font-weight: normal;
   font-style: normal;
 }
+
+/* Estilo para la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Estilo para el track (la parte "barra" de la barra de desplazamiento) */
+::-webkit-scrollbar-track {
+  background: #161616;
+}
+
+/* Estilo para el handle (la parte "móvil" de la barra de desplazamiento) */
+::-webkit-scrollbar-thumb {
+  background: red;
+}
+
+/* Estilo para el handle al pasar el mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

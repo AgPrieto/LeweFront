@@ -1,7 +1,10 @@
+
+
 .formContainer h1 {
   color: white;
   font-size: x-large;
   margin-bottom: 35px;
+  margin-left: 0px;
 }
 
 .formContainer img{
@@ -12,6 +15,7 @@
 .inputContainer {
   display: flex;
   justify-content: space-between; /* Cambia la dirección de los elementos a una fila */
+  margin-left: 100px;
 }
 
 .column {

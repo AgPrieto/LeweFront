@@ -65,7 +65,7 @@ const toggleSubDropdown = () => {
       <div className={styles.buttonGroup}>
         <Link to="/"><button onClick={() => handleClick('HOME')} className={activeButton === 'HOME' ? styles.active : ''}>HOME</button></Link>
         <div className={styles.dropdown} ref={node}>
-          <button onClick={toggleDropdown} className={activeButton === 'CATEGORIAS' ? styles.active : ''}>CATEGORIAS <SlArrowDown /> </button>
+          <button onClick={toggleDropdown} className={activeButton === 'CATEGORIAS' ? styles.active : ''}>PRODUCTOS <SlArrowDown /> </button>
           {dropdownOpen && (
             <div className={styles.dropdownMenu}>
               <button onClick={toggleSubDropdown}>Indumentaria </button>

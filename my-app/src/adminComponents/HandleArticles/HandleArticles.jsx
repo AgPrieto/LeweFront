@@ -39,9 +39,12 @@ const HandleArticles = () => {
   return (
   
     <div>
-      <div>
+      <div className={styles.searchBar}>
+      <h2>GESTIONAR PRODUCTOS</h2>
         <SearchBarIndu />
         </div>
+
+        <div className={styles.productContainer}>
       {articles.product.map((item) => (
         <div key={item.id} className={styles.productItem}>
           <img
@@ -52,10 +55,14 @@ const HandleArticles = () => {
           <div className={styles.productInfo}>
             <h2 className={styles.productName}>{item.name}</h2>
             <p className={styles.productPrice}>Precio: ${item.price}</p>
-            <button onClick={() => handleClick(item.id)}><FaPencilAlt /></button>
+            <button className={`${styles.editButton} hvr-icon-float`} onClick={() => handleClick(item.id)}>
+  <FaPencilAlt className="hvr-icon" />
+</button>
+
           </div>
         </div>
       ))}
+      </div>
     </div>
   );
 };
