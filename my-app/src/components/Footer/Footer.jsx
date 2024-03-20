@@ -39,10 +39,9 @@ const Footer = () => {
         <div className={styles.column}>
           <h3>Información</h3>
           <ul>
-            <li>Sobre nosotros</li>
+            
             <li>Contacto</li>
-            <li>Política de privacidad</li>
-            <li>Términos y condiciones</li>
+            
           </ul>
         </div>
         <div className={styles.column}>
