@@ -6,12 +6,14 @@ import categoriesReducer from "./reducers/categoriesReducer";
 import articlesReducer from "./reducers/articlesReducer";
 import cartReducer from "./reducers/cartReducer";
 import orderReducer from "./reducers/orderReducer";
+import loginReducer from "./reducers/loginReducer";
 
 const rootReducer = combineReducers({
 categoriesReducer,
 articlesReducer,
 cartReducer,
-orderReducer
+orderReducer,
+loginReducer,
 },);
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
