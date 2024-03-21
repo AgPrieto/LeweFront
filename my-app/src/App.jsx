@@ -11,6 +11,7 @@ import UpdateArticleForm from "./components/UpdateForm/UpdateForm";
 import AdminDashboard from "./adminComponents/Dashboard/AdminDashboard";
 import Login from "./components/Login/Login";
 import PrivateRoute from "./components/PrivateRoute/privateRoute";
+import Invoice from "./components/Invoice/Invoice";
 
 const App = () => {
   const { pathname } = useLocation();
@@ -35,6 +36,7 @@ const App = () => {
             <AdminDashboard />
           </PrivateRoute>
         } />
+        <Route path="/invoice" element={<Invoice />} />
       </Routes>
       <Footer />
     </div>
