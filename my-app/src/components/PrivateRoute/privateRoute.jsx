@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
 
   useEffect(() => {
     if (!isLoggedIn) {
-      navigate('/');
+      navigate('/login');
     }
   }, [isLoggedIn, navigate]);
 

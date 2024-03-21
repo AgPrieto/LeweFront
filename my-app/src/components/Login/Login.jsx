@@ -13,6 +13,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLoggedIn = useSelector(state => state.loginReducer.isLoggedIn);
+  console.log(isLoggedIn);
   const [user, setUser] = useState({
     email: "",
     password: "",

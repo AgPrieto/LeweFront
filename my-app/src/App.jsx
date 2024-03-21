@@ -29,7 +29,6 @@ const App = () => {
         <Route path="/details/:id" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/admin/update/:id" element={<UpdateArticleForm />} />
-        <Route path="/admin" element={<AdminDashboard/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={
           <PrivateRoute>
