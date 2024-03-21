@@ -10,6 +10,7 @@ import Cart from "./components/Cart/cart";
 import UpdateArticleForm from "./components/UpdateForm/UpdateForm";
 import AdminDashboard from "./adminComponents/Dashboard/AdminDashboard";
 import Login from "./components/Login/Login";
+import PrivateRoute from "./components/PrivateRoute/privateRoute";
 
 const App = () => {
   const { pathname } = useLocation();
@@ -30,6 +31,11 @@ const App = () => {
         <Route path="/admin/update/:id" element={<UpdateArticleForm />} />
         <Route path="/admin" element={<AdminDashboard/>} />
         <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={
+          <PrivateRoute>
+            <AdminDashboard />
+          </PrivateRoute>
+        } />
       </Routes>
       <Footer />
     </div>

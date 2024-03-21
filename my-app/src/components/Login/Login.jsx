@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { loginRequest } from "../../redux/actions/loginActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import style from "./login.module.css";
@@ -12,7 +12,7 @@ import 'hover.css/css/hover-min.css';
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const isLoggedIn = useSelector(state => state.loginReducer.isLoggedIn);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -29,19 +29,21 @@ const Login = () => {
     setErrors(validateUser({ ...user, [name]: value }));
   };
 
-  const handleSubmit =  (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-         dispatch(loginRequest(user))
-        .then(() => {
+    dispatch(loginRequest(user))
+      .then(() => {
+        // Verifica si el usuario está autenticado
+        if (isLoggedIn) {
           // Redirige a la página de administrador después de que se haya completado el inicio de sesión
           navigate("/admin");
-        })
-    } catch (error) {
-        alert(error.message)
-    }
-
+        }
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
+  
 
   return (
     <div className={style.form}>
