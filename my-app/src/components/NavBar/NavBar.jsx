@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { SlArrowDown } from "react-icons/sl";
 import { Badge } from 'antd';
 import { useSelector } from "react-redux";
+import { FaUserTie } from "react-icons/fa";
 
 const NavBar = () => {
   const [activeButton, setActiveButton] = useState(null);
@@ -113,7 +114,12 @@ const toggleSubDropdown = () => {
             </Badge>
             </button>
         </Link>
-      </div>
+        <Link to="/login">
+        <button className={styles.adminButton}><FaUserTie /></button>
+        </Link>
+      </div> 
+      
+      
     </div>
   );
 }
