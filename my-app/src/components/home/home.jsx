@@ -9,6 +9,7 @@ import indumentaria from "./indumentaria.png"
 import accesorios from "./accesorios.png"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Login from '../Login/Login.jsx'
 
 const Home = () => {
   useEffect(() => {
@@ -17,6 +18,9 @@ const Home = () => {
 
   return (
     <div>
+      <div>
+      <Login />
+      </div>
       <div>
         <Carrusel />
       </div>
