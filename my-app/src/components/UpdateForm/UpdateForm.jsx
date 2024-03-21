@@ -78,11 +78,12 @@ const UpdateArticleForm = () => {
     );
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={style.formContainer}>
       <div>
         <h1>Editar Artículo</h1>
       </div>
       <div className={style.form}>
+      <div className={style.inputContainer}>
         <div >
           <img src={loader} alt="lewe" className={style.lewe} />
         </div>
@@ -207,9 +208,10 @@ const UpdateArticleForm = () => {
         />
         {errors.stockXXL && <p>{errors.stockXXL}</p>}
 
-        <button type="submit" className={style.create}>
+        <button type="submit" className={`${style.create} hvr-sweep-to-right`}>
           Confirmar
         </button>
+        </div>
       </div>
     </form>
   );
