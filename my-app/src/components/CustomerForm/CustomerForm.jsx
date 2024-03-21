@@ -8,6 +8,7 @@ import { formatDate } from "../../utils/formatDate";
 import style from "./customerForm.module.css";
 import leweIcon from './lewe.png'
 import 'hover.css/css/hover-min.css';
+import Invoice from "../Invoice/Invoice";
 
 const CustomerForm = (cartArticles) => {
 
@@ -49,10 +50,15 @@ articles: cartArticles.cart.map((article) => {
   };}),
 }]
 
-  const handleSubmit = (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
     setErrors(validateCustomer(customer));
-    dispatch(sendOrder(whatsappOrder));
+    Invoice(whatsappOrder);
+    try {
+      dispatch(sendOrder(whatsappOrder));
+    } catch (error) {
+      alert(error.message)
+    }
     };
 
     return (

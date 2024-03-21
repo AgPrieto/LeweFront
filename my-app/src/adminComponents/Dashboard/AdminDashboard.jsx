@@ -8,12 +8,13 @@ import {
   BarsOutlined,
   LeftOutlined,
   RightOutlined,
+  FileTextOutlined
 } from "@ant-design/icons";
-
 
 import styles from "./AdminDashboard.module.css";
 import ArticleForm from "../../components/ArticleForm/ArticleForm";
 import HandleArticles from "../HandleArticles/HandleArticles";
+import Invoice from "../../components/Invoice/Invoice";
 import Orders from "../Orders/Orders";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -46,8 +47,8 @@ const AdminDashboard = () => {
         return <Orders />;
       case "crearProducto":
         return <ArticleForm />
-      case "4":
-        return "hola4"
+      case "invoice":
+        return <Invoice />;
     
       default:
         return null;
@@ -108,8 +109,9 @@ const AdminDashboard = () => {
           <Menu.Item key="crearProducto" icon={<PlusOutlined />} title="Agregar Nuevo Producto" style={{ marginBottom: '30px', color: selectedKey === "crearProducto" ? "red" : "white", background: "#161616"   }}>
             Agregar Nuevo Producto
           </Menu.Item>
-          
-        
+          <Menu.Item key="invoice" icon={<FileTextOutlined />} title="Generar Comprobante" style={{ marginBottom: '30px', color: selectedKey === "invoice" ? "red" : "white", background: "#161616"   }}>
+            Generar Comprobante
+          </Menu.Item>
         </Menu>
       </Sider>
       <Layout>

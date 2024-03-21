@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import style from "./login.module.css";
 import { validateUser } from "../../utils/userValidation";
+import leweIcon from './lewe.png'
+import 'hover.css/css/hover-min.css';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -44,10 +46,15 @@ const Login = () => {
   
 
   return (
-    <div>
+    <div className={style.form}>
       <form onSubmit={handleSubmit}>
         <div>
-          <label className={style.label}>Email</label>
+        <div className={style.formContainer}>
+          <img src={leweIcon} alt="leweIcon" />
+          <h1>ADMIN LOGIN</h1>
+        </div>
+        <div className={style.inputContainer}>
+          <label>Email</label>
           <input
             type="text"
             name="email"
@@ -57,9 +64,9 @@ const Login = () => {
           />
           {errors.email && <p>{errors.email}</p>}
 
-          <label className={style.label}>Contraseña</label>
+          <label>Contraseña</label>
           <input
-            type="text"
+            type="password"
             name="password"
             value={user.password}
             onChange={handleChange}
@@ -67,9 +74,10 @@ const Login = () => {
           />
           {errors.password && <p>{errors.password}</p>}
 
-          <button type="submit" className={style.button}>
+          <button type="submit" className={`${style.formButton} hvr-sweep-to-right`}>
             Ingresar
           </button>
+        </div>
         </div>
       </form>
     </div>
