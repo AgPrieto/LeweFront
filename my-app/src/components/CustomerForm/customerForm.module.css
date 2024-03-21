@@ -16,7 +16,7 @@
     align-items: center;
   }
 
-  input {
+  .inputContainer input {
     width: 300px; /* Hace que los inputs ocupen todo el ancho disponible */
     padding: 10px; /* Agrega un poco de espacio alrededor del texto en los inputs */
     font-size: 16px; /* Hace que el texto en los inputs sea un poco más grande */
@@ -26,7 +26,7 @@
     margin-top: 10px;
   }
 
-  input:focus {
+  .inputContainer input:focus {
     border: 1px solid red;
   }
 
