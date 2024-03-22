@@ -1,38 +1,13 @@
-.ordersContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .orderItem {
-    background-color: #F93822;
-    color: #2D2926;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .orderTitle {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .articleDetails {
-    margin-top: 15px;
-  }
-  
-  .articleDetails p {
-    margin: 5px 0;
-  }
-  .errorContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-size: 1.5em;
-    color: white;
-    margin-left: 250px;
-    
-  }
+.customCollapse .antCollapseItem > .antCollapseHeader .antCollapseArrow {
+  color: white;
+}
+
+
+.loader {
+  width: 70px;
+  height: 70px;
+  margin-top: 330px;
+}
+
+
   
