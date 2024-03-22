@@ -37,14 +37,18 @@ const Orders = () => {
           <Collapse accordion expandIcon={({ isActive }) => <span style={{ color: 'white', fontSize: '20px'}}>{isActive ? '-' : '+'}</span>}>
             {orders.map((orderGroup) => (
               <Panel header={<span style={{ color: 'white' }}>Orden N° {orderGroup.OrderId}</span>} key={orderGroup.OrderId}>
+              <div className={styles.articleContainer}>
                 {orderGroup.articles.map((article) => (
-                  <div key={article.ArticleId}>
-                    <p><strong>Artículo:</strong> {article.ArticleId}</p>
+                  <div key={article.ArticleId} className={styles.article}>
+                    <p><strong>Artículo:</strong> {article.name}</p>
                     <p><strong>Cantidad:</strong> {article.quantity}</p>
                     <p><strong>Talle:</strong> {article.size}</p>
+                    <img className={styles.articleimg} src={article.image} alt="" />
                   </div>
                 ))}
-              </Panel>
+              </div>
+            </Panel>
+            
             ))}
           </Collapse>
         )}
