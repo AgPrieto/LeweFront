@@ -1,0 +1,48 @@
+.formContainer h1 {
+    color: white;
+    font-size: x-large;
+    margin-bottom: 35px;
+  }
+
+  .formContainer img{
+    width: 70px;
+    height: 60px;
+  }
+  
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inputContainer input {
+    width: 300px; /* Hace que los inputs ocupen todo el ancho disponible */
+    padding: 10px; /* Agrega un poco de espacio alrededor del texto en los inputs */
+    font-size: 16px; /* Hace que el texto en los inputs sea un poco más grande */
+    border-radius: 0; /* Elimina el borde redondeado de los inputs */
+    background-color: white;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+
+  .inputContainer input:focus {
+    border: 1px solid red;
+  }
+
+  .formButton {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    height: 50px;
+  border-radius: 0px;
+  width: 200px;
+  margin-top: 20px;
+  background-color: red;
+  color: white;
+  }
+
+  .formButton:hover{
+    border: none;
+    outline: none   ;
+  }
+  

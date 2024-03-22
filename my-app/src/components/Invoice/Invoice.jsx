@@ -6,7 +6,8 @@ import { formatDate } from "../../utils/formatDate";
 import { getAllArticles } from "../../redux/actions/articlesActions";
 import loader from "./loader.gif";
 import style from "./invoice.module.css";
-
+import { sendInvoice } from "../../redux/actions/invoice";
+import leweIcon from './lewe.png'
 
 const Invoice = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const Invoice = () => {
     customerAddress: "",
     customerPhone: "",
     date: formatDate(),
-    price: "",
+    price: 0,
   });
 
   console.log(articles)
@@ -43,10 +44,21 @@ const Invoice = () => {
   const [invoice, setInvoice] = useState({ order: {}, articles: [] });
 
   const handleOrderChange = (e) => {
+    // Actualiza orderData
     setOrderData({
       ...orderData,
       [e.target.name]: e.target.value,
     });
+    // Actualiza invoice con la versión más reciente de orderData
+    setInvoice({
+      ...invoice,
+      order: {
+        ...orderData,
+        [e.target.name]: e.target.value,
+      },
+    });
+    console.log(invoice)
+
   };
 
   const handleSelector = (e) => {
@@ -71,23 +83,38 @@ const Invoice = () => {
     });
   };
 
-  const addArticle = (e) => {
-    e.preventDefault();
-    setInvoice((prevInvoice) => ({
-      ...prevInvoice,
-      articles: [...prevInvoice.articles, articleData],
-    }));
-    setArticleData({
-      id: "",
-      name: "",
-      image: "",
-      quantity: 0,
-      size: "",
-      price: 0,
-    });
-    console.log(invoice);
-  };
+const addArticle = (e) => {
+  e.preventDefault();
+  setInvoice((prevInvoice) => ({
+    ...prevInvoice,
+    articles: [...prevInvoice.articles, articleData],
+  }));
+  setArticleData({
+    id: "",
+    name: "",
+    image: "",
+    quantity: 0,
+    size: "",
+    price: 0,
+  });
+};
 
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log(invoice)
+  dispatch(sendInvoice(invoice)).then(() => {
+    alert("Comprobante enviado");
+  });
+  setInvoice({ order: {}, articles: [] });
+  setOrderData({
+    customerMail: "",
+    customerName: "",
+    customerAddress: "",
+    customerPhone: "",
+    date: formatDate(),
+    price: 0,
+  });
+};
 
   if (isLoading) {
     return (
@@ -100,10 +127,12 @@ const Invoice = () => {
   return (
     <form>
       <div>
-        <h1>Comprobante de Compra</h1>
-        <br />
+      <div className={style.formContainer}>
+          <img src={leweIcon} alt="leweIcon" />
+          <h1>COMPROBANTE DE COMPRA</h1>
+        </div>
         <h2>Datos del Cliente</h2>
-
+        <div className={style.inputContainer}>
         <label>Email</label>
         <input
           type="text"
@@ -144,18 +173,12 @@ const Invoice = () => {
           onChange={handleOrderChange}
         />
 
-        <label>Price</label>
-        <input
-          type="text"
-          name="price"
-          value={orderData.price}
-          onChange={handleOrderChange}
-        />
       </div>
-
+</div>
       <h2>ARTÍCULOS</h2>
 
       <h3>Artículo Seleccionado</h3>
+      <div className={style.inputContainer}>
       <select
         value={articleData.id}
         onChange={handleSelector}
@@ -197,7 +220,9 @@ const Invoice = () => {
       <label>Precio</label>
       <input type="text" name="price" value={articleData.price} readOnly />
 
-      <button onClick={addArticle}>Agregar</button>
+      <button onClick={addArticle} className={style.formButton}>Agregar</button>
+      <button onClick={handleSubmit} className={`${style.formButton} hvr-sweep-to-right`}>Enviar Comprobante</button>
+      </div>
     </form>
   );
 };
