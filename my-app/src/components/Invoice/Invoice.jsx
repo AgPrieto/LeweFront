@@ -30,7 +30,7 @@ const Invoice = () => {
     price: 0,
   });
 
-  console.log(articles)
+  
 
   const [articleData, setArticleData] = useState({
     id: "",
@@ -42,7 +42,7 @@ const Invoice = () => {
   });
   
   const [invoice, setInvoice] = useState({ order: {}, articles: [] });
-
+console.log(invoice);
   const handleOrderChange = (e) => {
     // Actualiza orderData
     setOrderData({
@@ -224,6 +224,8 @@ const handleSubmit = (e) => {
       <button onClick={handleSubmit} className={`${style.formButton} hvr-sweep-to-right`}>Enviar Comprobante</button>
       </div>
     </form>
+    
+    
   );
 };
 
