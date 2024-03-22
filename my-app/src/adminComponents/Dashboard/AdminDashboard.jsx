@@ -69,7 +69,7 @@ const AdminDashboard = () => {
           height: "1100px", 
           background: "#161616", 
           margin: 0,
-          position: "absolute",
+          position: "fixed",
           top: 0,
           left: 0,
         }}
