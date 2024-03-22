@@ -28,7 +28,7 @@ const Invoice = () => {
     date: formatDate(),
     price: 0,
   });
-
+  
   const [articleData, setArticleData] = useState({
     id: "",
     name: "",
@@ -39,14 +39,12 @@ const Invoice = () => {
   });
 
   const [invoice, setInvoice] = useState({ order: {}, articles: [] });
-  console.log(invoice);
+  
   const handleOrderChange = (e) => {
-    // Actualiza orderData
     setOrderData({
       ...orderData,
       [e.target.name]: e.target.value,
     });
-    // Actualiza invoice con la versión más reciente de orderData
     setInvoice({
       ...invoice,
       order: {
@@ -260,6 +258,8 @@ const Invoice = () => {
         </button>
       </div>
     </form>
+    
+    
   );
 };
 
