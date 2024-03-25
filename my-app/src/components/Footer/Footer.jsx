@@ -39,9 +39,9 @@ const Footer = () => {
         <div className={styles.column}>
           <h3>Información</h3>
           <ul>
-            
+            <Link to={"/contact"}>
             <li>Contacto</li>
-            
+            </Link>
           </ul>
         </div>
         <div className={styles.column}>

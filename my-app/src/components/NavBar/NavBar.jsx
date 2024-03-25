@@ -22,6 +22,7 @@ const NavBar = () => {
   const handleClick = (buttonName) => {
     setActiveButton(buttonName);
     setDropdownOpen(false);
+    buttonName === "contact" ? navigate("/contact") :
     navigate(`category/${buttonName}`);
   };
 
@@ -90,7 +91,7 @@ const toggleSubDropdown = () => {
             </div>
           )}
         </div>
-        <button onClick={() => handleClick('CONTACTANOS')} className={activeButton === 'CONTACTANOS' ? styles.active : ''}>CONTACTANOS</button>
+        <button onClick={() => handleClick("contact")} className={activeButton === 'CONTACTANOS' ? styles.active : ''}>CONTACTANOS</button>
       </div>
       <div className={styles.rightButton}>
         <Link to="/cart">

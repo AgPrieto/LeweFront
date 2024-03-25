@@ -12,6 +12,7 @@ import AdminDashboard from "./adminComponents/Dashboard/AdminDashboard";
 import Login from "./components/Login/Login";
 import PrivateRoute from "./components/PrivateRoute/privateRoute";
 import Invoice from "./components/Invoice/Invoice";
+import Contact from "./components/Contact/Contact";
 
 const App = () => {
   const { pathname } = useLocation();
@@ -37,6 +38,7 @@ const App = () => {
           </PrivateRoute>
         } />
         <Route path="/invoice" element={<Invoice />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </div>

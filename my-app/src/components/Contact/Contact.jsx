@@ -1,0 +1,64 @@
+// Contact.js
+// eslint-disable-next-line no-unused-vars
+import React from "react";
+import styles from "./contact.module.css";
+import leweIcon from "./lewe.png";
+import { FaInstagram, FaWhatsapp, FaLocationDot } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+
+
+const Contact = () => {
+    return (
+      <div className={styles.contactContainer}>
+        <div className={styles.contactHeader}>
+            <img src={leweIcon} alt="Lewe Icon" />
+            <h1>Contact Us</h1>
+        </div>
+        <div className={styles.contactInfo}>
+          <p>
+            <a href="mailto:facurimini@gmail.com">facurimini@gmail.com</a>
+            <br />
+            (012) 345 67 89
+          </p>
+          <FaLocationDot style={{color: "red"}}/>
+          <p>
+          Pje. Félix Olmedo 6664 B°,
+            <br />
+          X5009 Córdoba, Argentina
+          </p>
+          <ul className={styles.socialLinks}>
+            <li>
+            <Link to="https://wa.me/+5493517658536" target="_blank">
+                <FaWhatsapp style={{ color: "white" }} size={30} />
+            </Link>
+            </li>
+            <li>
+            <Link to="https://www.instagram.com/leweargentina?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                <FaInstagram style={{ color: "white" }} size={30} />
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className={styles.contactForm}>
+          <form>
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit">Send</button>
+          </form>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.489016850996!2d-64.24572122351857!3d-31.34548209282887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94329f2118e2866b%3A0x79039e33a3a991d8!2sLewe%20Squash!5e0!3m2!1sen!2sar!4v1711387823296!5m2!1sen!2sar"
+            width="1200"
+            height="600"
+            style={{ border: '0' }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    );
+  };
+  
+
+export default Contact;
