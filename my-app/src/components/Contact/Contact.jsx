@@ -5,9 +5,21 @@ import styles from "./contact.module.css";
 import leweIcon from "./lewe.png";
 import { FaInstagram, FaWhatsapp, FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
+import {useDispatch} from 'react-redux';
+import { contactMail } from "../../redux/actions/contactActions";
 
 const Contact = () => {
+    const dispatch = useDispatch();
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const contactData = {
+        name: e.target.name.value,
+        email: e.target.email.value,
+        message: e.target.message.value,
+      };
+      dispatch(contactMail(contactData));
+        e.target.reset();
+    };
     return (
       <div className={styles.contactContainer}>
         <div className={styles.contactHeader}>
@@ -18,7 +30,7 @@ const Contact = () => {
         <div className={styles.containerInfoForm}>
         
         <div className={styles.contactForm}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <input type="text" name="name" placeholder="Nombre" required />
             <input type="email" name="email" placeholder="Correo Electronico" required />
             <textarea name="message" placeholder="Mensaje.." required></textarea>

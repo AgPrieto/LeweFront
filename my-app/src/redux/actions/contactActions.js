@@ -5,7 +5,7 @@ export const contactMail = (contactData) => {
     return async (dispatch) => {
       try {
         const { data } = await axios.post("/contact", contactData);
-        alert(data.data.message)
+        alert(data.message)
         return dispatch({
           type: CONTACT_MAIL,
           payload: data,
