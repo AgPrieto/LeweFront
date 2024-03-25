@@ -12,9 +12,19 @@ const Contact = () => {
       <div className={styles.contactContainer}>
         <div className={styles.contactHeader}>
             <img src={leweIcon} alt="Lewe Icon" />
-            <h1>Contact Us</h1>
+            <h2>Lewe Sportlife ©</h2>
         </div>
-        <div className={styles.contactInfo}>
+        
+        <div className={styles.containerInfoForm}>
+        
+        <div className={styles.contactForm}>
+          <form>
+            <input type="text" name="name" placeholder="Nombre" required />
+            <input type="email" name="email" placeholder="Correo Electronico" required />
+            <textarea name="message" placeholder="Mensaje.." required></textarea>
+            <button type="submit">Enviar</button>
+          </form>
+          <div className={styles.contactInfo}>
           <p>
             <a href="mailto:facurimini@gmail.com">facurimini@gmail.com</a>
             <br />
@@ -39,23 +49,23 @@ const Contact = () => {
             </li>
           </ul>
         </div>
-        <div className={styles.contactForm}>
-          <form>
-            <input type="text" name="name" placeholder="Name" required />
-            <input type="email" name="email" placeholder="Email" required />
-            <textarea name="message" placeholder="Message" required></textarea>
-            <button type="submit">Send</button>
-          </form>
+          </div>
+          <div className={styles.frame}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.489016850996!2d-64.24572122351857!3d-31.34548209282887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94329f2118e2866b%3A0x79039e33a3a991d8!2sLewe%20Squash!5e0!3m2!1sen!2sar!4v1711387823296!5m2!1sen!2sar"
-            width="1200"
+            width="800"
             height="600"
             style={{ border: '0' }}
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            
           ></iframe>
+          </div>
         </div>
+
+        
+        
       </div>
     );
   };
