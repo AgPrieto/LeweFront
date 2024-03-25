@@ -39,14 +39,12 @@ const Invoice = () => {
   });
 
   const [invoice, setInvoice] = useState({ order: {}, articles: [] });
-  console.log(invoice);
+
   const handleOrderChange = (e) => {
-    // Actualiza orderData
     setOrderData({
       ...orderData,
       [e.target.name]: e.target.value,
     });
-    // Actualiza invoice con la versión más reciente de orderData
     setInvoice({
       ...invoice,
       order: {
@@ -116,8 +114,10 @@ const Invoice = () => {
 
   const deleteArticle = (e) => {
     e.preventDefault();
-    const articleToDelete = e.target.parentElement.firstChild.nextSibling
-      .textContent;
+
+    const articleToDelete =
+      e.target.parentElement.firstChild.nextSibling.textContent;
+    
     const newArticles = invoice.articles.filter(
       (article) => article.name !== articleToDelete
     );
@@ -127,7 +127,6 @@ const Invoice = () => {
     });
   };
 
-  console.log(invoice);
   if (isLoading) {
     return (
       <div className={style.loaderContainer}>
