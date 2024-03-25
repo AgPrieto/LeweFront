@@ -1,0 +1,69 @@
+/* Contact.module.css */
+
+.contactContainer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .contactInfo {
+    width: 50%;
+  }
+  
+  .contactInfo p {
+    margin-bottom: 10px;
+  }
+  
+  .socialLinks {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .socialLinks li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .socialLinks li a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  .contactForm {
+    width: 50%;
+    justify-content: center;
+  }
+  
+  .contactForm form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contactForm input,
+  .contactForm textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .contactForm input[type="text"],
+  .contactForm input[type="email"],
+  .contactForm textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .contactForm button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .contactForm button:hover {
+    background-color: #555;
+  }

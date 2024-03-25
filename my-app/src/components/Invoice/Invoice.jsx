@@ -28,7 +28,7 @@ const Invoice = () => {
     date: formatDate(),
     price: 0,
   });
-  
+
   const [articleData, setArticleData] = useState({
     id: "",
     name: "",
@@ -39,7 +39,7 @@ const Invoice = () => {
   });
 
   const [invoice, setInvoice] = useState({ order: {}, articles: [] });
-  
+
   const handleOrderChange = (e) => {
     setOrderData({
       ...orderData,
@@ -114,8 +114,10 @@ const Invoice = () => {
 
   const deleteArticle = (e) => {
     e.preventDefault();
+
     const articleToDelete =
       e.target.parentElement.firstChild.nextSibling.textContent;
+    
     const newArticles = invoice.articles.filter(
       (article) => article.name !== articleToDelete
     );
@@ -125,7 +127,6 @@ const Invoice = () => {
     });
   };
 
-  console.log(invoice);
   if (isLoading) {
     return (
       <div className={style.loaderContainer}>
@@ -233,22 +234,18 @@ const Invoice = () => {
           Agregar
         </button>
 
-        {invoice.articles.length > 0 && <h2>Artículos Agregados</h2>}
-
-        {invoice.articles.map((article) => (
-          <div key={article.id}>
-            <button onClick={deleteArticle}>X</button>
-            <p>{article.name}</p>
-            <img
-              src={article.image}
-              alt={article.name}
-              className={style.articleimg}
-            />
-            <p>{`Cantidad: ${article.quantity}`}</p>
-            <p>{`Talle: ${article.size}`}</p>
-            <p>{`$ ${article.price}`}</p>
-          </div>
-        ))}
+        {invoice.articles.length > 0 &&  <h2>Artículos Agregados</h2> }
+        
+          {invoice.articles.map((article) => (
+            <div key={article.id}>
+              <button onClick={deleteArticle}>X</button>
+              <p>{article.name}</p>
+              <img src={article.image} alt={article.name} className={style.articleimg}/>
+              <p>{`Cantidad: ${article.quantity}`}</p>
+              <p>{`Talle: ${article.size}`}</p>
+              <p>{`$ ${article.price}`}</p>
+            </div>
+          ))}
 
         <button
           onClick={handleSubmit}
@@ -258,8 +255,6 @@ const Invoice = () => {
         </button>
       </div>
     </form>
-    
-    
   );
 };
 
