@@ -4,6 +4,8 @@ import {
   GET_ARTICLES_BY_ID,
   CREATE_ARTICLE,
   UPDATE_ARTICLE,
+  GET_ADMIN_ARTICLES,
+  DISABLE_ARTICLE,
 } from "../action-types/articlesContstants";
 import axios from "axios";
 
@@ -150,3 +152,30 @@ export const updateArticle = (article) => {
   };
 }
 
+export const disAbleArticle = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.put(`/product/${id}`);
+      return dispatch({
+        type: DISABLE_ARTICLE,
+        payload: data,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+};
+
+export const getAdminArticles = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`/product/admin`);
+      return dispatch({
+        type: GET_ADMIN_ARTICLES,
+        payload: data,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+};
