@@ -131,6 +131,7 @@
   margin-top: 20px;
   padding: 10px;
   border-top: 1px solid #ccc;
+  
 }
 
 .recommendedProductsContainer h2 {
@@ -148,6 +149,7 @@
   flex: 0 0 calc(20% - 10px);
   margin-bottom: 20px;
   transition: box-shadow 0.3s ease, transform 0.3s ease; 
+  list-style-type: none;
 }
 
 .recommendedProductItem:hover{

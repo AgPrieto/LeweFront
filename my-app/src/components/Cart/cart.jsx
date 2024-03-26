@@ -132,8 +132,8 @@ const Cart = () => {
             <h2>TAMBIEN TE PUEDE INTERESAR</h2>
             <ul className={styles.recommendedProductsList}>
               {recommendedProducts.map((item) => (
-                  <div data-aos="fade-up">
-                <li key={item.id} className={styles.recommendedProductItem}>
+                  <div data-aos="fade-up" key={item.id}>
+                <li className={styles.recommendedProductItem}>
                   <Link to={`/details/${item.id}`} className={styles.recommendedLink}>
                     <img src={item.image} alt={item.name} className={styles.recommendedImage} />
                     <h2 className={styles.recommendedName}>{item.name}</h2>
