@@ -73,9 +73,9 @@ const toggleSubDropdown = () => {
               <button onClick={toggleSubDropdown}>Indumentaria </button>
               {subDropdownOpen && (
                 <div className={styles.subDropdownMenu}>
-                  <button onClick={() => handleClick('f76fc151-647c-4bd8-a97a-54034494fcf8')}>Remeras</button>
-                  <button onClick={() => handleClick('ec87db52-9ab6-44c9-95d2-8974c1289ea8')}>Shorts</button>
-                  <button onClick={() => handleClick('e8183d2d-c319-4230-a230-1b829c695422')}>Medias</button>
+                  <button onClick={() => handleClick('e65ee595-cbbb-458f-b346-af6146000097')}>Remeras</button>
+                  <button onClick={() => handleClick('19cd0321-e2fa-4d82-b120-f1d9e55ee468')}>Shorts</button>
+                  <button onClick={() => handleClick('b9e6a10d-a0a1-4469-b2f3-0759e9984520')}>Medias</button>
                   <button onClick={() => handleClick('indumentaria')}>Ver todo</button>
 
                   
@@ -83,11 +83,11 @@ const toggleSubDropdown = () => {
                 </div>
               )}
               <hr />
-              <button onClick={() => handleClick('ab178e9d-253f-4fe5-a9a0-59cac1c1cdf7')}>Raquetas</button>
+              <button onClick={() => handleClick('4567773c-ab96-41aa-b9fa-ffa331fe4d7f')}>Raquetas</button>
               <hr />
-              <button onClick={() => handleClick('f75de8fb-83f7-444a-a6b9-b3f151fae7a2')}>Pelotas</button>
+              <button onClick={() => handleClick('d5033fd4-8d56-4e02-b816-78b4f65ee660')}>Pelotas</button>
               <hr />
-              <button onClick={() => handleClick('67726fd5-b41a-4320-ba42-c9e8f484087f')}>Accesorios</button>
+              <button onClick={() => handleClick('108312e1-bed1-4468-aaed-657307fb2267')}>Accesorios</button>
             </div>
           )}
         </div>
