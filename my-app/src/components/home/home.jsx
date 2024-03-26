@@ -22,7 +22,7 @@ const Home = () => {
       </div>
       <div className={styles.categorys}>
         <div className={styles.category}>
-          <Link to={"/category/67726fd5-b41a-4320-ba42-c9e8f484087f"}>
+          <Link to={"/category/108312e1-bed1-4468-aaed-657307fb2267"}>
             <img
               src={accesorios}
               alt="Accesorios"
@@ -33,7 +33,7 @@ const Home = () => {
           </Link>
         </div>
         <div className={styles.category}>
-          <Link to={"/category/f75de8fb-83f7-444a-a6b9-b3f151fae7a2"}>
+          <Link to={"/category/d5033fd4-8d56-4e02-b816-78b4f65ee660"}>
             <img
               src={raquetas}
               alt="Pelotas"
@@ -46,7 +46,7 @@ const Home = () => {
       </div>
       <div className={styles.categorys}>
         <div className={styles.category}>
-          <Link to={"/category/ab178e9d-253f-4fe5-a9a0-59cac1c1cdf7"}>
+          <Link to={"/category/4567773c-ab96-41aa-b9fa-ffa331fe4d7f"}>
             <img
               src={paletas}
               alt="Raquetas"
@@ -57,7 +57,7 @@ const Home = () => {
           </Link>
         </div>
         <div className={styles.category}>
-          <Link to={"/category/f76fc151-647c-4bd8-a97a-54034494fcf8"}>
+          <Link to={"/category/indumentaria"}>
             <img
               src={indumentaria}
               alt="Indumentaria"

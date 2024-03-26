@@ -11,10 +11,12 @@ import { getAllCategories } from "../../redux/actions/categoriesActions";
 const ArticleForm = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categoriesReducer.categories);
+  console.log(categories);
 
   const [article, setArticle] = useState({
     name: "",
     description: "",
+    descriptionDetail: "",
     price: 0,
     stockXS: 0,
     stockS: 0,
@@ -34,9 +36,13 @@ const ArticleForm = () => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    const newValue = isNaN(parseFloat(e.target.value))
-      ? e.target.value
-      : parseFloat(e.target.value); // Convertir a número si es posible
+    const value = e.target.value;
+  
+    // Verificar si el valor contiene solo dígitos y puntos decimales
+    const isNumeric = /^\d+(\.\d+)?$/.test(value);
+  
+    const newValue = isNumeric ? parseFloat(value) : value;
+  
     setArticle(
       (prevArticle) => ({
         ...prevArticle,
@@ -56,11 +62,13 @@ const ArticleForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(article)
     dispatch(createArticle(article));
     setErrors(validateArticle(article));
     setArticle({
       name: "",
       description: "",
+      descriptionDetail: "",
       price: 0,
       stockXS: 0,
       stockS: 0,
@@ -99,6 +107,14 @@ const ArticleForm = () => {
             onChange={handleChange}
           />
           {errors.description && <p>{errors.description}</p>}
+
+          <label>Descripción Detallada</label>
+          <input
+            type="text"
+            name="descriptionDetail"
+            value={article.descriptionDetail}
+            onChange={handleChange}
+          />
   
           <label>Precio</label>
           <input

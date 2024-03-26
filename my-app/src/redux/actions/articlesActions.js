@@ -54,6 +54,7 @@ export const createArticle = (article) => {
       let {
         name,
         description,
+        descriptionDetail,
         price,
         stockXS,
         stockS,
@@ -75,6 +76,7 @@ export const createArticle = (article) => {
       const structuredArticle = {
         name,
         description,
+        descriptionDetail,
         price,
         stockXS,
         stockS,
@@ -86,6 +88,7 @@ export const createArticle = (article) => {
         size,
         CategoryId,
       };
+      console.log(structuredArticle)
       const { data } = await axios.post(`/product`, structuredArticle);
       return dispatch({
         type: CREATE_ARTICLE,
