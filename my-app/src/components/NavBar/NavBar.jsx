@@ -9,7 +9,9 @@ import { SlArrowDown } from "react-icons/sl";
 import { Badge } from 'antd';
 import { useSelector } from "react-redux";
 import { FaUserTie } from "react-icons/fa";
-
+import { useDispatch } from 'react-redux';
+import {logoutRequest} from "../../redux/actions/loginActions"
+import { IoLogOutOutline } from "react-icons/io5";
 const NavBar = () => {
   const [activeButton, setActiveButton] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -18,6 +20,12 @@ const NavBar = () => {
   const node = useRef();
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cartReducer.cart);
+  const isLoggedIn = useSelector(state => state.loginReducer.isLoggedIn);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logoutRequest());
+  };
 
   const handleClick = (buttonName) => {
     setActiveButton(buttonName);
@@ -115,9 +123,13 @@ const toggleSubDropdown = () => {
             </Badge>
             </button>
         </Link>
-        <Link to="/login">
-        <button className={styles.adminButton}><FaUserTie /></button>
-        </Link>
+        {isLoggedIn ? (
+          <button onClick={handleLogout} className={styles.logoutButton} title="Cerrar sesión"><IoLogOutOutline /></button>
+        ) : (
+          <Link to="/login">
+            <button className={styles.adminButton}title="Inicio Administrador" ><FaUserTie /></button>
+          </Link>
+        )}
       </div> 
       
       
