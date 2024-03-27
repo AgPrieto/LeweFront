@@ -47,6 +47,7 @@ function categoriesReducer(state = initialState, action) {
           ),
         };
         case FILTER_BY_PRICE:
+  // eslint-disable-next-line no-case-declarations
   const filteredProducts = state.categoriesArticlesBackup.products.filter(
     (product) =>
       product.price >= action.payload[0] &&
@@ -54,6 +55,7 @@ function categoriesReducer(state = initialState, action) {
   );
 
   // Ordena los productos filtrados según el último ordenamiento
+  // eslint-disable-next-line no-case-declarations
   const sortedFilteredProducts = [...filteredProducts].sort((a, b) => {
     if (state.lastOrder === "ASC") {
       return a.price - b.price;

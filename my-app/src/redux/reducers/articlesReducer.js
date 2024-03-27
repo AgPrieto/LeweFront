@@ -4,12 +4,15 @@ import {
   GET_ARTICLES_BY_ID,
   GET_ADMIN_ARTICLES,
   DISABLE_ARTICLE
+  GET_ARTICLES_BY_NAME_ADMIN,
+
 } from "../action-types/articlesContstants";
 
 const initialState = {
   articles: [],
   articlesBackup: [],
   adminArticles: [],
+  adminArticlesBackup: [],
   inactiveArticles: [],
   detail: [],
 };
@@ -41,6 +44,14 @@ function articlesReducer(state = initialState, action) {
       return {
         ...state,
         adminArticles: action.payload,
+        adminArticlesBackup : action.payload,
+      };
+    case GET_ARTICLES_BY_NAME_ADMIN:
+      return {
+        ...state,
+        adminArticles: state.adminArticlesBackup.filter((product) =>
+          product.name.toLowerCase().includes(action.payload.toLowerCase())
+        ),
       };
       case DISABLE_ARTICLE:
       return {
