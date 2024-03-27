@@ -5,8 +5,8 @@
   }
 
   .formContainer img{
-    width: 70px;
-    height: 60px;
+    width: 50px;
+    height: 40px;
   }
   
   .inputContainer {
@@ -14,6 +14,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    top: 0
   }
 
   .inputContainer input {
@@ -46,3 +47,7 @@
     outline: none   ;
   }
   
+  .errorMessage { 
+    font-size: 12px;
+    color: red;
+  }

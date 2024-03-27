@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../action-types/cartConstants";
+import { ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART } from "../action-types/cartConstants";
 
 export const addToCart = (product) => {
   console.log(product)
@@ -14,3 +14,7 @@ export const addToCart = (product) => {
       payload: product,
     };
   };
+
+  export const clearCart = () => ({
+    type: CLEAR_CART,
+  });

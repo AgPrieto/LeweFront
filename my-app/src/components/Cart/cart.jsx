@@ -13,6 +13,7 @@ import 'aos/dist/aos.css';
 import { IoMdClose } from "react-icons/io";
 
 
+
 const Cart = () => {
 
   useEffect(() => {
@@ -35,12 +36,12 @@ const Cart = () => {
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
-    document.body.style.overflow = 'hidden'; // Evita el scroll
+     // Evita el scroll
   };
   
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    document.body.style.overflow = 'auto'; // Permite el scroll
+    // Permite el scroll
   };
 
   const availableProducts = articlesBackup.product.filter(
@@ -91,28 +92,35 @@ const Cart = () => {
   <div data-aos="fade-down" className="modal" style={{
     position: 'fixed',
     width: '2000px',
-    height: "1000px",
+    height: "100%",
     marginLeft: '0px',
-    top: 0,
+    top: 20,
     left: 0,
     right: 0,
-    bottom: 0,
+    bottom: 50,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
     color: "black",
     zIndex: 0,
-    backdropFilter: 'blur(4px)'
+    backdropFilter: 'blur(4px)',
+    overflowY: 'auto',
+    
+    
+
   }}>
           <div className="modal-content" style={{
       backgroundColor: '#161616',
       padding: '20px',
       borderRadius: '4px',
       color: "white",
-      height: "650px",
+      height: "auto",
+      maxHeight: "700px",
       width: "600px",
       border: "1px solid",
+      overflowY: 'auto'
+      
       
 
     }}>

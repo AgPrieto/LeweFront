@@ -34,7 +34,7 @@ const SizeButtons = ({ detail, quantity, setQuantity, selectedSize, setSelectedS
       }
     };
 
-  const noSizeCategories = ['ab178e9d-253f-4fe5-a9a0-59cac1c1cdf7', 'f75de8fb-83f7-444a-a6b9-b3f151fae7a2', '67726fd5-b41a-4320-ba42-c9e8f484087f'];
+  const noSizeCategories = ['108312e1-bed1-4468-aaed-657307fb2267', '4567773c-ab96-41aa-b9fa-ffa331fe4d7f', 'd5033fd4-8d56-4e02-b816-78b4f65ee660'];
 
   if (noSizeCategories.includes(detail1.CategoryId)) {
       return (
