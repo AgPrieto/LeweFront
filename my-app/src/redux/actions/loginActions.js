@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN_REQUEST } from '../action-types/loginConstants';
+import { LOGIN_REQUEST, LOGOUT_REQUEST } from '../action-types/loginConstants';
 
 export const loginRequest = (userData) => {
     return async (dispatch) => {
@@ -12,5 +12,11 @@ export const loginRequest = (userData) => {
       } catch (error) {
         throw new Error(error.message);
       }
+    };
+  };
+
+  export const logoutRequest = () => {
+    return {
+      type: LOGOUT_REQUEST,
     };
   };

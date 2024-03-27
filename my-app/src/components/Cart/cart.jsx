@@ -77,7 +77,7 @@ const Cart = () => {
                     ) : (
                       <p className={styles.productSize}>&nbsp;</p>  // Espacio reservado para 'size' cuando no está presente
                     )}
-                    <button className={`${styles.deleteButton} hvr-icon-float`} onClick={() => handleRemoveFromCart(item)}>
+                    <button title="Eliminar del carrito" className={`${styles.deleteButton} hvr-icon-float`} onClick={() => handleRemoveFromCart(item)}>
                       <MdDelete className="hvr-icon" />
                     </button>
                   </div>
@@ -121,8 +121,6 @@ const Cart = () => {
       border: "1px solid",
       overflowY: 'auto'
       
-      
-
     }}>
             {/* Contenido del modal, en este caso el componente CustomerForm */}
             <button className={`${styles.formButton} hvr-icon-spin`} onClick={handleCloseModal}>

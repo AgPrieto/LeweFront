@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST } from '../action-types/loginConstants';
+import { LOGIN_REQUEST, LOGOUT_REQUEST } from '../action-types/loginConstants';
 
 const initialState = {
   isLoggedIn: JSON.parse(localStorage.getItem('isLoggedIn')) || false,
@@ -14,7 +14,12 @@ const loginReducer = (state = initialState, action) => {
         isLoggedIn: true, // establece isLoggedIn en true cuando el login es exitoso
         // ...otros estados...
       };
-    // ...otros casos...
+      case LOGOUT_REQUEST:
+        localStorage.setItem('isLoggedIn', false);
+        return {
+          ...state,
+          isLoggedIn: false,
+        };
     default:
       return state;
   }

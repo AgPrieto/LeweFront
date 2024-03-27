@@ -56,6 +56,7 @@ const HandleArticles = () => {
               <h2 className={styles.productName}>{item.name}</h2>
               <p className={styles.productPrice}>Precio: ${item.price}</p>
               <button
+                title="Editar Articulo"
                 className={`${styles.editButton} hvr-icon-float`}
                 onClick={() => handleClick(item.id)}
               >
@@ -63,6 +64,7 @@ const HandleArticles = () => {
               </button>
               <div className={styles.switchContainer}>
               <Switch
+              title="Activar/Desactivar Articulo"
   checked={item.isActive} // Usa la propiedad isActive para establecer el estado inicial del Switch
   onChange={(checked) => handleSwitchChange(checked, item.id)}
 
