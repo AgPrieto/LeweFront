@@ -3,6 +3,7 @@ import {
   GET_ARTICLES_BY_NAME,
   GET_ARTICLES_BY_ID,
   GET_ADMIN_ARTICLES,
+  DISABLE_ARTICLE,
   GET_ARTICLES_BY_NAME_ADMIN,
 } from "../action-types/articlesContstants";
 
@@ -51,6 +52,13 @@ function articlesReducer(state = initialState, action) {
           product.name.toLowerCase().includes(action.payload.toLowerCase())
         ),
       };
+      case DISABLE_ARTICLE:
+        return {
+          ...state,
+          adminArticles: state.adminArticles.map((article) =>
+            article.id === action.payload.id ? action.payload : article
+          ),
+        };
 
     default:
       return state;

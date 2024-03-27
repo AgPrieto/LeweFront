@@ -62,10 +62,11 @@ const HandleArticles = () => {
                 <FaPencilAlt className="hvr-icon" />
               </button>
               <div className={styles.switchContainer}>
-                <Switch
-                  checked={item.enabled} // O ajusta la propiedad correcta de acuerdo a tu estado
-                  onChange={(checked) => handleSwitchChange(checked, item.id)}
-                />
+              <Switch
+  checked={item.isActive} // Usa la propiedad isActive para establecer el estado inicial del Switch
+  onChange={(checked) => handleSwitchChange(checked, item.id)}
+
+/>
               </div>
             </div>
           </div>
