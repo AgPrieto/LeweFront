@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import style from "./searchBar.module.css";
-import { getArticlesByName } from '../../redux/actions/articlesActions';
+import { getArticlesByNameAdmin } from '../../redux/actions/articlesActions';
 
 const SearchBarIndu = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const SearchBarIndu = () => {
   };
 
   useEffect(() => {
-    dispatch(getArticlesByName(searchByName));
+    dispatch(getArticlesByNameAdmin(searchByName));
   }, [searchByName, dispatch]);
 
 

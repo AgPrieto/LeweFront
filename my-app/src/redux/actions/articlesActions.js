@@ -6,6 +6,7 @@ import {
   UPDATE_ARTICLE,
   GET_ADMIN_ARTICLES,
   DISABLE_ARTICLE,
+  GET_ARTICLES_BY_NAME_ADMIN,
 } from "../action-types/articlesContstants";
 import axios from "axios";
 
@@ -28,6 +29,19 @@ export const getArticlesByName = (name) => {
     try {
       return dispatch({
         type: GET_ARTICLES_BY_NAME,
+        payload: name,
+      });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+};
+export const getArticlesByNameAdmin = (name) => {
+  console.log(name);
+  return async (dispatch) => {
+    try {
+      return dispatch({
+        type: GET_ARTICLES_BY_NAME_ADMIN,
         payload: name,
       });
     } catch (error) {
