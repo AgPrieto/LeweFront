@@ -1,21 +1,22 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
-import { Layout, Menu, Button } from "antd";
+import { Layout, Menu } from "antd";
 import {
   AppstoreOutlined,
   LineChartOutlined,
   PlusOutlined,
-  BarsOutlined,
   LeftOutlined,
   RightOutlined,
-  FileTextOutlined
+  FileTextOutlined,
+  PieChartOutlined,
 } from "@ant-design/icons";
 
-import styles from "./AdminDashboard.module.css";
+//import styles from "./AdminDashboard.module.css";
 import ArticleForm from "../../components/ArticleForm/ArticleForm";
 import HandleArticles from "../HandleArticles/HandleArticles";
 import Invoice from "../../components/Invoice/Invoice";
 import Orders from "../Orders/Orders";
+import Analytics from "../Analytics/Analytics";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -41,6 +42,8 @@ const AdminDashboard = () => {
   };
   const renderContent = () => {
     switch (selectedKey) {
+      case "analytics":
+        return <Analytics />;
       case "productos":
         return <HandleArticles/>;
       case "ordenes":
@@ -100,6 +103,9 @@ const AdminDashboard = () => {
   
     
   </Menu.Item>
+          <Menu.Item key="analytics" icon={<PieChartOutlined />} title="Estadísticas Generales" style={{ marginBottom: '30px', color: selectedKey === "analytics" ? "red" : "white", background: "#161616"   }}>
+            Estadísticas Generales
+          </Menu.Item>
           <Menu.Item key="productos" icon={<AppstoreOutlined />} title="Gestionar Productos" style={{ marginBottom: '30px', color: selectedKey === "productos" ? "red" : "white", background: "#161616"   }}>
             Gestionar Productos
           </Menu.Item>
