@@ -8,10 +8,13 @@ import { formatDate } from "../../utils/formatDate";
 import style from "./customerForm.module.css";
 import leweIcon from './lewe.png'
 import 'hover.css/css/hover-min.css';
+import { clearCart } from '../../redux/actions/cartActions';
+import { useNavigate } from "react-router-dom";
 
 const CustomerForm = (cartArticles) => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [customer, setCustomer] = useState({
     customerName: "",
@@ -49,15 +52,17 @@ articles: cartArticles.cart.map((article) => {
   };}),
 }]
 
-  const handleSubmit =  (e) => {
-    e.preventDefault();
-    setErrors(validateCustomer(customer));
-    try {
-      dispatch(sendOrder(whatsappOrder));
-    } catch (error) {
-      alert(error.message)
-    }
-    };
+const handleSubmit = (e) => {
+  e.preventDefault();
+  setErrors(validateCustomer(customer));
+  try {
+    dispatch(sendOrder(whatsappOrder));
+    dispatch(clearCart()); // Limpia el carrito
+    navigate("/"); // Redirige al usuario a la página principal
+  } catch (error) {
+    alert(error.message)
+  }
+};
 
     return (
       <form onSubmit={handleSubmit}>
@@ -73,7 +78,7 @@ articles: cartArticles.cart.map((article) => {
             value={customer.customerName}
             onChange={handleChange}
           />
-          {errors.customerName && <p>{errors.customerName}</p>}
+          {errors.customerName && <p className={style.errorMessage}>{errors.customerName}</p>}
   
           <label>Email</label>
           <input
@@ -82,7 +87,7 @@ articles: cartArticles.cart.map((article) => {
             value={customer.customerMail}
             onChange={handleChange}
           />
-          {errors.customerMail && <p>{errors.customerMail}</p>}
+          {errors.customerMail && <p className={style.errorMessage}>{errors.customerMail}</p>}
   
           <label>Domicilio</label>
           <input
@@ -91,7 +96,7 @@ articles: cartArticles.cart.map((article) => {
             value={customer.customerAddress}
             onChange={handleChange}
           />
-          {errors.customerAddress && <p>{errors.customerAddress}</p>}
+          {errors.customerAddress && <p className={style.errorMessage}>{errors.customerAddress}</p>}
   
           <label>Teléfono</label>
           <input
@@ -100,7 +105,7 @@ articles: cartArticles.cart.map((article) => {
             value={customer.customerPhone}
             onChange={handleChange}
           />
-          {errors.customerPhone && <p>{errors.customerPhone}</p>}
+          {errors.customerPhone && <p className={style.errorMessage}>{errors.customerPhone}</p>}
   
           <button className={`${style.formButton} hvr-sweep-to-right`} type="submit">Confirmar Orden</button>
         </div>

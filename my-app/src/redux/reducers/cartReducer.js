@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../action-types/cartConstants";
+import { ADD_TO_CART, REMOVE_FROM_CART,CLEAR_CART } from "../action-types/cartConstants";
 
 const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -38,6 +38,11 @@ const initialState = {
                     ...state,
                     cart: updatedCart
                 };
+                case CLEAR_CART:
+      return {
+        ...state,
+        cart: [], // Limpia el carrito
+      };
             default:
                 return state;
         }
