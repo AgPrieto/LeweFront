@@ -8,6 +8,7 @@ const initialState = {
     allCategories: [],
     categoriesData: [],
     disabledArticles: [],
+    monthlySales: [],
 };
 
 function analyticsReducer(state = initialState, action) {
@@ -22,6 +23,7 @@ function analyticsReducer(state = initialState, action) {
                 allCategories: action.payload.allCategories,
                 categoriesData: action.payload.categoriesData,
                 disabledArticles: action.payload.disabledArticles,
+                monthlySales: action.payload.monthlySales,
             };
         default:
             return state;
