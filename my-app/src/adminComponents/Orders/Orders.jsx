@@ -12,7 +12,6 @@ const Orders = () => {
     const dispatch = useDispatch();
     const orders = useSelector((state) => state.orderReducer.orders);
     const [isLoading, setIsLoading] = useState(true);
-    console.log(orders);
 
     useEffect(() => {
         dispatch(getOrders()).then(() => {
@@ -39,6 +38,7 @@ const Orders = () => {
               <Panel header={<span style={{ color: 'white' }}>Orden N° {orderGroup.OrderId}</span>} key={orderGroup.OrderId}>
               <div className={styles.articleContainer}>
                 {orderGroup.articles.map((article) => (
+                
                   <div key={article.ArticleId} className={styles.article}>
                     <p><strong>Artículo:</strong> {article.name}</p>
                     <p><strong>Cantidad:</strong> {article.quantity}</p>
