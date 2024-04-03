@@ -1,3 +1,11 @@
+.allContainer {
+  
+}
+
+.logoIcon {
+  width: 70px;
+    height: 60px;
+}
 
 .formContainer h1 {
     color: white;
@@ -46,6 +54,10 @@
     border: none;
     outline: none   ;
   }
+  .formButton:disabled {
+    background-color: #ccc; /* Cambia el color de fondo a gris */
+    cursor: not-allowed; /* Cambia el cursor a prohibido */
+  }
 
   .inputContainer select {
  
@@ -64,3 +76,5 @@
     height: 100px;
     border-radius: 50px;
 }
+
+

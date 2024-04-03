@@ -81,6 +81,7 @@ const Invoice = () => {
 
   const addArticle = (e) => {
     e.preventDefault();
+    if (articleData.quantity > 0 && articleData.size.trim() !== "") {
     setInvoice((prevInvoice) => ({
       ...prevInvoice,
       articles: [...prevInvoice.articles, articleData],
@@ -93,11 +94,17 @@ const Invoice = () => {
       size: "",
       price: 0,
     });
-  };
+  } else {
+    alert("Por favor, ingresa una cantidad mayor que 0 y proporciona el tamaño del artículo.");
+  }
+};
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(invoice);
+    if (!orderData.customerMail || !orderData.customerName || !orderData.customerAddress || !orderData.customerPhone || !orderData.date) {
+      alert("Por favor, completa todos los campos del cliente.");
+      return;
+    }
     dispatch(sendInvoice(invoice)).then(() => {
       alert("Comprobante enviado");
     });
@@ -127,6 +134,8 @@ const Invoice = () => {
     });
   };
 
+  
+
   if (isLoading) {
     return (
       <div className={style.loaderContainer}>
@@ -136,20 +145,23 @@ const Invoice = () => {
   }
 
   return (
+    
+      <div className={style.allContainer}>
     <form>
-      <div>
+        <div>
+          <img  className={style.logoIcon} src={leweIcon} alt="leweIcon" />
         <div className={style.formContainer}>
-          <img src={leweIcon} alt="leweIcon" />
           <h1>COMPROBANTE DE COMPRA</h1>
-        </div>
         <h2>Datos del Cliente</h2>
         <div className={style.inputContainer}>
           <label>Email</label>
           <input
+          
             type="text"
             name="customerMail"
             value={orderData.customerMail}
             onChange={handleOrderChange}
+             required
           />
 
           <label>Nombre</label>
@@ -158,7 +170,8 @@ const Invoice = () => {
             name="customerName"
             value={orderData.customerName}
             onChange={handleOrderChange}
-          />
+            required
+            />
 
           <label>Dirección</label>
           <input
@@ -166,7 +179,8 @@ const Invoice = () => {
             name="customerAddress"
             value={orderData.customerAddress}
             onChange={handleOrderChange}
-          />
+            required
+            />
 
           <label>Teléfono</label>
           <input
@@ -174,7 +188,8 @@ const Invoice = () => {
             name="customerPhone"
             value={orderData.customerPhone}
             onChange={handleOrderChange}
-          />
+            required
+            />
 
           <label>Fecha</label>
           <input
@@ -182,9 +197,12 @@ const Invoice = () => {
             name="date"
             value={orderData.date}
             onChange={handleOrderChange}
-          />
+            
+            />
         </div>
       </div>
+        </div>
+        <div className={style.formContainer}>
       <h2>ARTÍCULOS</h2>
 
       <h3>Artículo Seleccionado</h3>
@@ -254,7 +272,9 @@ const Invoice = () => {
           Enviar Comprobante
         </button>
       </div>
+      </div>
     </form>
+    </div>
   );
 };
 

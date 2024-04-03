@@ -124,7 +124,12 @@ const toggleSubDropdown = () => {
             </button>
         </Link>
         {isLoggedIn ? (
-          <button onClick={handleLogout} className={styles.logoutButton} title="Cerrar sesión"><IoLogOutOutline /></button>
+  <>
+    <Link to="/admin">
+      <button className={styles.adminButton} title="Panel de Administrador"><FaUserTie /></button>
+    </Link>
+    <button onClick={handleLogout} className={styles.logoutButton} title="Cerrar sesión"><IoLogOutOutline /></button>
+  </>
         ) : (
           <Link to="/login">
             <button className={styles.adminButton}title="Inicio Administrador" ><FaUserTie /></button>
