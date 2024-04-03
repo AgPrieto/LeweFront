@@ -3,3 +3,68 @@
     height: 70px;
     margin-top: 330px;
   }
+  .container {
+    display: grid;
+    place-items: center; /* Esto centra el contenido vertical y horizontalmente */
+    margin: 20px; /* Agrega margen alrededor del contenedor si es necesario */
+}
+.containerBar {
+    display: grid;
+    place-items: center; /* Esto centra el contenido vertical y horizontalmente */
+    margin: 20px; /* Agrega margen alrededor del contenedor si es necesario */
+}
+.containerTable{
+    display: grid;
+    place-items: center; /* Esto centra el contenido vertical y horizontalmente */
+    
+
+}
+.select {
+  margin-bottom: 10px;
+  padding: 3px;
+  font-size: 14px;
+}
+
+.details {
+  width: 400px;
+  margin-top: 10px;
+}
+
+.table {
+  width: 600px;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  font-size: 12px;
+}
+
+th {
+  background-color: #e34a4a;
+}
+
+th, td {
+  text-align: left;
+}
+
+.containerData{
+  display: grid;
+  place-items: center; /* Esto centra el contenido vertical y horizontalmente */
+  margin: 20px; /* Agrega margen alrededor del contenedor si es necesario */
+}	
+.disabledArticlesContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.disabledArticleImage {
+  opacity: 0.5; /* Establece la opacidad deseada */
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin: 10px;
+}
+.disabledArticleImage:hover {
+  opacity: 1; /* Establece la opacidad deseada */
+}
