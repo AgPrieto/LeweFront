@@ -107,27 +107,34 @@ const toggleSubDropdown = () => {
         <button style={{color: location.pathname === '/cart' ? 'red' : 'white'}}>
       <Badge count={cart.length} style={{ marginTop: "10px", marginRight: "12px" }}>
       <IoCart
-      style={{
-        marginLeft: '10px',
-        padding: '8px 16px',
-        border: 'none',
-        borderRadius: '4px',
-        cursor: 'pointer',
-        fontSize: '30px',
-        outline: 'none',
-        background: 'transparent',
-        color: location.pathname === '/cart' ? 'red' : 'white'
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    />
+  style={{
+    marginLeft: '10px',
+    padding: '8px 16px',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    fontSize: '30px',
+    outline: 'none',
+    background: 'transparent',
+    color: location.pathname === '/cart' ? 'red' : 'white'
+  }}
+  onMouseEnter={(e) => e.target.style.color = 'red'}
+  onMouseLeave={(e) => e.target.style.color = location.pathname === '/cart' ? 'red' : 'white'}
+/>
       </Badge>
     </button>
         </Link>
         {isLoggedIn ? (
   <>
     <Link to="/admin">
-    <button style={{marginTop:"8px", color: location.pathname === '/admin' ? 'red' : 'white'}} title="Panel de Administrador"><FaUserTie /></button>
+    <button style={{
+    marginTop:"8px", 
+    color: location.pathname === '/admin' || location.pathname === '/login' ? 'red' : 'white',
+    transition: 'color 0.3s ease',
+  }} 
+  onMouseEnter={(e) => e.target.style.color = 'red'}
+  onMouseLeave={(e) => e.target.style.color = location.pathname === '/admin' || location.pathname === '/login' ? 'red' : 'white'}
+  title="Panel de Administrador"><FaUserTie /></button>
     </Link>
     <button onClick={handleLogout} className={styles.logoutButton} title="Cerrar sesión"><IoLogOutOutline /></button>
   </>
