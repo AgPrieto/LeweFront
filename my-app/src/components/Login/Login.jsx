@@ -2,14 +2,17 @@
 import React from "react";
 import { loginRequest } from "../../redux/actions/loginActions";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import style from "./login.module.css";
 import { validateUser } from "../../utils/userValidation";
 import leweIcon from './lewe.png'
 import 'hover.css/css/hover-min.css';
+import { ThreeDots } from 'react-loading-icons';
 
 const Login = () => {
+
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLoggedIn = useSelector(state => state.loginReducer.isLoggedIn);
@@ -20,6 +23,13 @@ const Login = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/admin");
+    }
+  }, [isLoggedIn]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,15 +42,16 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true); // Establece isLoading en true al inicio de la solicitud
     dispatch(loginRequest(user))
       .then(() => {
-        // Verifica si el usuario está autenticado
+        setIsLoading(false); // Establece isLoading en false una vez que la promesa se resuelve
         if (isLoggedIn) {
-          // Redirige a la página de administrador después de que se haya completado el inicio de sesión
           navigate("/admin");
         }
       })
       .catch((error) => {
+        setIsLoading(false); // También establece isLoading en false si la promesa se rechaza
         alert(error.message);
       });
   };
@@ -76,8 +87,8 @@ const Login = () => {
           {errors.password && <p>{errors.password}</p>}
 
           <button type="submit" className={`${style.formButton} hvr-sweep-to-right`}>
-            Ingresar
-          </button>
+          {isLoading ? <ThreeDots fill="#ffffff" height="25" width="40"  /> : 'Ingresar'}
+        </button>
         </div>
         </div>
       </form>
