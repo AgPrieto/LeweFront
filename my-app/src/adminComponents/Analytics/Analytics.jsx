@@ -168,10 +168,10 @@ const Analytics = () => {
             <table className={styles.table}>
               <thead>
                 <tr>
-                  <th>Category</th>
-                  <th>Total Products</th>
-                  <th>Active Products</th>
-                  <th>Inactive Products</th>
+                  <th>CATEGORIA</th>
+                  <th>CANTIDAD DE PRODUCTOS</th>
+                  <th>PRODUCTOS ACTIVOS</th>
+                  <th>PRODUCTOS INACTIVOS</th>
                 </tr>
               </thead>
               <tbody>
