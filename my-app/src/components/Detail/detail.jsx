@@ -190,20 +190,23 @@ useEffect(() => {
       <h3>DESCRIPCION</h3>
 
       <p>{detail.description}</p>
-      <Link to="/cart">
       <button 
-        className={style.cartButton} 
-        onClick={handleAddToCart} 
-        disabled={isButtonDisabled}
-        style={{
-          backgroundColor: isButtonDisabled ? 'gray' : 'red', // Cambia el color de fondo a gris si el botón está deshabilitado
-          borderColor: isButtonDisabled ? 'gray' : 'red', // Cambia el color del borde a gris si el botón está deshabilitado
-          cursor: isButtonDisabled ? 'not-allowed' : 'pointer', // Cambia el cursor a "prohibido" si el botón está deshabilitado
-        }}
-      >
-        AGREGAR AL CARRITO
-      </button>
-      </Link>
+  className={style.cartButton} 
+  onClick={handleAddToCart} 
+  disabled={isButtonDisabled}
+  style={{
+    backgroundColor: isButtonDisabled ? 'gray' : 'red',
+    borderColor: isButtonDisabled ? 'gray' : 'red',
+    cursor: isButtonDisabled ? 'not-allowed' : 'pointer',
+    width: isButtonDisabled ? "435px" : "auto",
+    height: isButtonDisabled ? "45px" : "auto",
+  }}
+>
+  AGREGAR AL CARRITO
+  { !isButtonDisabled && 
+    <Link to="/cart" style={{ color: 'white', textDecoration: 'none' }} />
+  }
+</button>
       {isButtonDisabled && <p style={{ color: 'red', marginLeft: "5px" }}>Debes ingresar una cantidad</p>} {/* Muestra el mensaje de error si el botón está deshabilitado */}
       </div>
     </div>

@@ -11,6 +11,7 @@ const { Panel } = Collapse;
 const Orders = () => {
     const dispatch = useDispatch();
     const orders = useSelector((state) => state.orderReducer.orders);
+    console.log(orders);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -35,7 +36,15 @@ const Orders = () => {
         ) : (
           <Collapse accordion expandIcon={({ isActive }) => <span style={{ color: 'white', fontSize: '20px'}}>{isActive ? '-' : '+'}</span>}>
             {orders.map((orderGroup) => (
-              <Panel header={<span style={{ color: 'white' }}>Orden N° {orderGroup.OrderId}</span>} key={orderGroup.OrderId}>
+              <Panel header={<span style={{ color: 'white' }}>Orden N° {orderGroup.OrderId.slice(-6)} - {orderGroup.customerName}</span>} key={orderGroup.OrderId}>
+
+                <h2>Informacion de la Orden</h2>
+                <p><strong>Nombre:</strong> {orderGroup.customerName}</p>
+              <p><strong>Email:</strong> {orderGroup.customerMail}</p>
+              <p><strong>Fecha:</strong> {orderGroup.orderDate}</p>
+              <p><strong>Precio total de la compra:</strong> ${orderGroup.total}</p>
+              <hr />
+                <h2>Articulos</h2>
               <div className={styles.articleContainer}>
                 {orderGroup.articles.map((article) => (
                 
@@ -43,6 +52,7 @@ const Orders = () => {
                     <p><strong>Artículo:</strong> {article.name}</p>
                     <p><strong>Cantidad:</strong> {article.quantity}</p>
                     <p><strong>Talle:</strong> {article.size}</p>
+                    <p><strong>Talle:</strong> ${article.total}</p>
                     <img className={styles.articleimg} src={article.image} alt="" />
                   </div>
                 ))}
