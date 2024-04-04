@@ -78,6 +78,8 @@
     border: 2px solid rgb(195, 68, 68); /* Cambia el color del borde en lugar de eliminarlo */
     background-color: rgb(195, 68, 68);
   }
+
+
   .loader {
     width: 70px;
     height: 70px;
