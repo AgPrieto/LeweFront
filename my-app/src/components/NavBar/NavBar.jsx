@@ -4,7 +4,7 @@ import styles from './NavBar.module.css';
 import leweBlack from "../../assets/leweBlack.png"
 import { IoCart } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { SlArrowDown } from "react-icons/sl";
 import { Badge } from 'antd';
 import { useSelector } from "react-redux";
@@ -19,6 +19,7 @@ const NavBar = () => {
   const [isHovered, setIsHovered] = useState(false);
   const node = useRef();
   const navigate = useNavigate();
+  const location = useLocation();
   const cart = useSelector((state) => state.cartReducer.cart);
   const isLoggedIn = useSelector(state => state.loginReducer.isLoggedIn);
   const dispatch = useDispatch();
@@ -71,11 +72,11 @@ const toggleSubDropdown = () => {
 
   return (
     <div className={styles.navbar}>
-     <Link to="/"><img src={leweBlack} alt="Pokemon" className={styles.logo} /></Link>
+      <Link to="/"><img src={leweBlack} alt="Pokemon" className={styles.logo} /></Link>
       <div className={styles.buttonGroup}>
-        <Link to="/"><button onClick={() => handleClick('HOME')} className={activeButton === 'HOME' ? styles.active : ''}>HOME</button></Link>
+        <Link to="/"><button onClick={() => handleClick('HOME')} className={location.pathname === '/' ? styles.active : ''}>HOME</button></Link>
         <div className={styles.dropdown} ref={node}>
-          <button onClick={toggleDropdown} className={activeButton === 'CATEGORIAS' ? styles.active : ''}>PRODUCTOS <SlArrowDown /> </button>
+          <button onClick={toggleDropdown} className={location.pathname.startsWith('/category') ? styles.active : ''}>PRODUCTOS <SlArrowDown /> </button>
           {dropdownOpen && (
             <div className={styles.dropdownMenu}>
               <button onClick={toggleSubDropdown}>Indumentaria </button>
@@ -99,40 +100,42 @@ const toggleSubDropdown = () => {
             </div>
           )}
         </div>
-        <button onClick={() => handleClick("contact")} className={activeButton === 'CONTACTANOS' ? styles.active : ''}>CONTACTANOS</button>
+        <button onClick={() => handleClick("contact")} className={location.pathname === '/contact' ? styles.active : ''}>CONTACTANOS</button>
       </div>
       <div className={styles.rightButton}>
         <Link to="/cart">
-        <button>
-        <Badge count={cart.length} style={{ marginTop: "10px", marginRight: "12px" }}>
-            <IoCart
-  style={{
-    marginLeft: '10px',
-    padding: '8px 16px',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    fontSize: '30px',
-    outline: 'none',
-    background: 'transparent',
-    color: isHovered ? 'red' : 'white'
-  }}
-  onMouseEnter={() => setIsHovered(true)}
-  onMouseLeave={() => setIsHovered(false)}
-/>
-            </Badge>
-            </button>
+        <button style={{color: location.pathname === '/cart' ? 'red' : 'white'}}>
+      <Badge count={cart.length} style={{ marginTop: "10px", marginRight: "12px" }}>
+      <IoCart
+      style={{
+        marginLeft: '10px',
+        padding: '8px 16px',
+        border: 'none',
+        borderRadius: '4px',
+        cursor: 'pointer',
+        fontSize: '30px',
+        outline: 'none',
+        background: 'transparent',
+        color: location.pathname === '/cart' ? 'red' : 'white'
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    />
+      </Badge>
+    </button>
         </Link>
         {isLoggedIn ? (
   <>
     <Link to="/admin">
-      <button className={styles.adminButton} title="Panel de Administrador"><FaUserTie /></button>
+    <button style={{marginTop:"8px", color: location.pathname === '/admin' ? 'red' : 'white'}} title="Panel de Administrador"><FaUserTie /></button>
     </Link>
     <button onClick={handleLogout} className={styles.logoutButton} title="Cerrar sesión"><IoLogOutOutline /></button>
   </>
         ) : (
           <Link to="/login">
-            <button className={styles.adminButton}title="Inicio Administrador" ><FaUserTie /></button>
+            <button className={styles.adminButton}title="Inicio Administrador" ><FaUserTie style={{
+        color: location.pathname === '/login' ? 'red' : 'white'
+      }}  /></button>
           </Link>
         )}
       </div> 
