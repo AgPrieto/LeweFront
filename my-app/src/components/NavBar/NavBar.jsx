@@ -78,8 +78,8 @@ const toggleSubDropdown = () => {
         <div className={styles.dropdown} ref={node}>
           <button onClick={toggleDropdown} className={location.pathname.startsWith('/category') ? styles.active : ''}>PRODUCTOS <SlArrowDown /> </button>
           {dropdownOpen && (
-            <div className={styles.dropdownMenu}>
-              <button onClick={toggleSubDropdown}>Indumentaria </button>
+            <div className={styles.dropdownMenu} >
+              <button onClick={toggleSubDropdown}>INDUMENTARIA</button>
               {subDropdownOpen && (
                 <div className={styles.subDropdownMenu}>
                   <button onClick={() => handleClick('e65ee595-cbbb-458f-b346-af6146000097')}>Remeras</button>
@@ -91,12 +91,12 @@ const toggleSubDropdown = () => {
                   {/* Add more subcategories as needed */}
                 </div>
               )}
-              <hr />
-              <button onClick={() => handleClick('4567773c-ab96-41aa-b9fa-ffa331fe4d7f')}>Raquetas</button>
-              <hr />
-              <button onClick={() => handleClick('d5033fd4-8d56-4e02-b816-78b4f65ee660')}>Pelotas</button>
-              <hr />
-              <button onClick={() => handleClick('108312e1-bed1-4468-aaed-657307fb2267')}>Accesorios</button>
+             
+              <button onClick={() => handleClick('4567773c-ab96-41aa-b9fa-ffa331fe4d7f')}>RAQUETAS</button>
+             
+              <button onClick={() => handleClick('d5033fd4-8d56-4e02-b816-78b4f65ee660')}>PELOTAS</button>
+             
+              <button onClick={() => handleClick('108312e1-bed1-4468-aaed-657307fb2267')}>ACCESORIOS</button>
             </div>
           )}
         </div>
