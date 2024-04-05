@@ -8,7 +8,7 @@ import style from "./articleForm.module.css";
 import { useEffect } from "react";
 import { getAllCategories } from "../../redux/actions/categoriesActions";
 import axios from "axios";
-
+import Swal from 'sweetalert2';
 const ArticleForm = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categoriesReducer.categories);
@@ -96,6 +96,7 @@ const ArticleForm = () => {
     console.log(article);
     dispatch(createArticle(article));
     setErrors(validateArticle(article));
+    
     setArticle({
       name: "",
       description: "",
@@ -113,6 +114,13 @@ const ArticleForm = () => {
     });
     document.getElementById("imageInput").value = "";
     setUrlImage("");
+    Swal.fire({
+      icon: 'success',
+      title: '<span style="color:white">¡Éxito!</span>',
+      background: '#161616',
+      html: '<p style="color:white">Artículo creado con éxito</p>',
+      confirmButtonColor: '#d33'
+  });
   };
 
   return (
