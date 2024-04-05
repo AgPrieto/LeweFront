@@ -89,6 +89,12 @@ border: none;
 
 .dropdown {
   position: relative; 
+  width: 180px;
+  
+}
+
+.dropdown:hover .dropdownMenu {
+  display: block;
 }
 
 .dropdownMenu {
@@ -98,6 +104,14 @@ border: none;
   color: #000; 
   padding: 10px; 
   z-index: 2000;
+  
+}
+
+
+
+.dropdownMenu button{
+  display: flex;
+  align-items: flex-start;
 }
 
 @font-face {
@@ -108,10 +122,12 @@ border: none;
 }
 
 .subDropdownMenu {
+  
   background-color: #161616; 
   color: #000; 
   z-index: 2000;
   outline: none;
+  
 }
 
 .dropdownMenu button:focus {
@@ -120,6 +136,9 @@ border: none;
 
 .subDropdownMenu button {
   color: rgb(156, 155, 155); 
+  display: flex;
+  align-items: flex-start;
+  
 }
 
 .subDropdownMenu button:hover {
