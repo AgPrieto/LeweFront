@@ -33,31 +33,27 @@ const ArticleForm = () => {
 
   useEffect(() => {
     dispatch(getAllCategories());
+  setErrors(validateArticle(article));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
-
   const handleChange = (e) => {
     const value = e.target.value;
-
+  
     // Verificar si el valor contiene solo dígitos y puntos decimales
     const isNumeric = /^\d+(\.\d+)?$/.test(value);
-
     const newValue = isNumeric ? parseFloat(value) : value;
-
-    setArticle(
-      (prevArticle) => ({
-        ...prevArticle,
-        [e.target.name]: newValue,
-      }),
-      () => {
-        // Este código se ejecuta después de que el estado article se haya actualizado completamente
-        setErrors(
-          validateArticle({
-            ...article,
-            [e.target.name]: newValue,
-          })
-        );
-      }
-    );
+  
+    // Actualizar el estado del artículo con el nuevo valor
+    setArticle((prevArticle) => ({
+      ...prevArticle,
+      [e.target.name]: newValue,
+    }));
+  
+    // Validar el artículo después de que se haya actualizado el estado
+    setErrors(validateArticle({
+      ...article,
+      [e.target.name]: newValue,
+    }));
   };
   // Función para manejar el cambio en la carga de la imagen
   const uploadChange = async (event) => {
@@ -94,8 +90,16 @@ const ArticleForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(article);
+    if (Object.keys(errors).length > 0){
+      return Swal.fire({
+        icon: 'error',
+        title: '<span style="color:white">Oops...</span>',
+        text: 'Por favor, completa todos los campos del formulario.',
+        confirmButtonColor: '#d33',
+        background: '#161616',
+        html: '<p style="color:white">Por favor, completa todos los campos del formulario.</p>'
+      })}
     dispatch(createArticle(article));
-    setErrors(validateArticle(article));
     
     setArticle({
       name: "",
@@ -155,6 +159,7 @@ const ArticleForm = () => {
             value={article.descriptionDetail}
             onChange={handleChange}
           />
+          {errors.descriptionDetail && <p>{errors.descriptionDetail}</p>}
 
           <label>Precio</label>
           <input
@@ -185,6 +190,8 @@ const ArticleForm = () => {
               </button>
             </div>
           )}
+          {errors.image && <p>{errors.image}</p>}
+
           <label>Categoría</label>
           <select
             value={article.CategoryId}
@@ -204,59 +211,75 @@ const ArticleForm = () => {
         <div className={style.column}>
           <h3>Stock:</h3>
 
-          <label>XS</label>
-          <input
-            type="number"
-            name="stockXS"
-            value={article.stockXS}
-            onChange={handleChange}
-          />
-          {errors.stockXS && <p>{errors.stockXS}</p>}
+          {article.CategoryId === 'd5033fd4-8d56-4e02-b816-78b4f65ee660' ||
+            article.CategoryId === '4567773c-ab96-41aa-b9fa-ffa331fe4d7f' ||
+            article.CategoryId === '108312e1-bed1-4468-aaed-657307fb2267' ? (
+              <div>
+                <input
+                  type="number"
+                  name="stockM"
+                  value={article.stockM}
+                  onChange={handleChange}
+                />
+                {errors.stockM && <p>{errors.stockM}</p>}
+              </div>
+            ) : (
+              <div className={style.column}>
+                <label>XS</label>
+                <input
+                  type="number"
+                  name="stockXS"
+                  value={article.stockXS}
+                  onChange={handleChange}
+                />
+                {errors.stockXS && <p>{errors.stockXS}</p>}
 
-          <label>S</label>
-          <input
-            type="number"
-            name="stockS"
-            value={article.stockS}
-            onChange={handleChange}
-          />
-          {errors.stockS && <p>{errors.stockS}</p>}
+                <label>S</label>
+                <input
+                  type="number"
+                  name="stockS"
+                  value={article.stockS}
+                  onChange={handleChange}
+                />
+                {errors.stockS && <p>{errors.stockS}</p>}
 
-          <label>M</label>
-          <input
-            type="number"
-            name="stockM"
-            value={article.stockM}
-            onChange={handleChange}
-          />
-          {errors.stockM && <p>{errors.stockM}</p>}
+                <label>M</label>
+                <input
+                  type="number"
+                  name="stockM"
+                  value={article.stockM}
+                  onChange={handleChange}
+                />
+                {errors.stockM && <p>{errors.stockM}</p>}
 
-          <label>L</label>
-          <input
-            type="number"
-            name="stockL"
-            value={article.stockL}
-            onChange={handleChange}
-          />
-          {errors.stockL && <p>{errors.stockL}</p>}
+                <label>L</label>
+                <input
+                  type="number"
+                  name="stockL"
+                  value={article.stockL}
+                  onChange={handleChange}
+                />
+                {errors.stockL && <p>{errors.stockL}</p>}
 
-          <label>XL</label>
-          <input
-            type="number"
-            name="stockXL"
-            value={article.stockXL}
-            onChange={handleChange}
-          />
-          {errors.stockXl && <p>{errors.stockXL}</p>}
+                <label>XL</label>
+                <input
+                  type="number"
+                  name="stockXL"
+                  value={article.stockXL}
+                  onChange={handleChange}
+                />
+                {errors.stockXl && <p>{errors.stockXL}</p>}
 
-          <label>XXL</label>
-          <input
-            type="number"
-            name="stockXXL"
-            value={article.stockXXL}
-            onChange={handleChange}
-          />
-          {errors.stockXXL && <p>{errors.stockXXL}</p>}
+                <label>XXL</label>
+                <input
+                  type="number"
+                  name="stockXXL"
+                  value={article.stockXXL}
+                  onChange={handleChange}
+                />
+                {errors.stockXXL && <p>{errors.stockXXL}</p>}
+              </div>
+            )}
         </div>
       </div>
       <button

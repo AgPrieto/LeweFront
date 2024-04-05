@@ -1,5 +1,4 @@
 const maxCharsRegex = /^.{1,49}$/
-
 export const validateArticle = (article) => {
     let errors = {};
     if(!article.name){
@@ -17,6 +16,12 @@ export const validateArticle = (article) => {
     } else if(article.price < 0){
         errors.price = "El precio no puede ser negativo";
     } 
+    if(!article.descriptionDetail){
+        errors.descriptionDetail = "La descripción detallada es requerida";
+    }
+    if(article.CategoryId === ""){
+        errors.CategoryId = "La categoría es requerida";
+    }
     if(isNaN(article.stockXS)){
         errors.stockXS = "El stock debe ser un número";
     } else if(article.stockXS < 0){
