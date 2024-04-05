@@ -7,11 +7,13 @@ import { createArticle } from "../../redux/actions/articlesActions";
 import style from "./articleForm.module.css";
 import { useEffect } from "react";
 import { getAllCategories } from "../../redux/actions/categoriesActions";
+import axios from "axios";
 
 const ArticleForm = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categoriesReducer.categories);
-  console.log(categories);
+  const [urlImage, setUrlImage] = useState("");
+  const [errors, setErrors] = useState({});
 
   const [article, setArticle] = useState({
     name: "",
@@ -33,16 +35,14 @@ const ArticleForm = () => {
     dispatch(getAllCategories());
   }, [dispatch]);
 
-  const [errors, setErrors] = useState({});
-
   const handleChange = (e) => {
     const value = e.target.value;
-  
+
     // Verificar si el valor contiene solo dígitos y puntos decimales
     const isNumeric = /^\d+(\.\d+)?$/.test(value);
-  
+
     const newValue = isNumeric ? parseFloat(value) : value;
-  
+
     setArticle(
       (prevArticle) => ({
         ...prevArticle,
@@ -59,10 +59,41 @@ const ArticleForm = () => {
       }
     );
   };
+  // Función para manejar el cambio en la carga de la imagen
+  const uploadChange = async (event) => {
+    try {
+      const file = event.target.files[0];
+      const data = new FormData();
+      data.append("file", file);
+      data.append("upload_preset", "e2jdjnn1");
+
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dvdruvmwk/image/upload",
+        data
+      );
+
+      // Actualiza el estado local de la URL de la imagen
+      setUrlImage(response.data.secure_url);
+      // Actualiza el estado local del evento con la URL de la imagen
+      setArticle((prevArticle) => ({
+        ...prevArticle,
+        image: response.data.secure_url,
+      }));
+    } catch (error) {
+      return `Error uploading image: , ${error}`;
+    }
+  };
+
+  const deleteImage = () => {
+    setUrlImage("");
+    setArticle((prevArticle) => ({ ...prevArticle, image: "" }));
+    // Resetea el valor del input de tipo "file"
+    document.getElementById("imageInput").value = "";
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(article)
+    console.log(article);
     dispatch(createArticle(article));
     setErrors(validateArticle(article));
     setArticle({
@@ -80,6 +111,8 @@ const ArticleForm = () => {
       size: "",
       CategoryId: "",
     });
+    document.getElementById("imageInput").value = "";
+    setUrlImage("");
   };
 
   return (
@@ -91,14 +124,13 @@ const ArticleForm = () => {
         <div className={style.column}>
           <label>Nombre</label>
           <input
-            
             type="text"
             name="name"
             value={article.name}
             onChange={handleChange}
           />
           {errors.name && <p>{errors.name}</p>}
-  
+
           <label>Descripción Breve</label>
           <input
             type="text"
@@ -115,7 +147,7 @@ const ArticleForm = () => {
             value={article.descriptionDetail}
             onChange={handleChange}
           />
-  
+
           <label>Precio</label>
           <input
             type="number"
@@ -124,16 +156,27 @@ const ArticleForm = () => {
             onChange={handleChange}
           />
           {errors.price && <p>{errors.price}</p>}
-  
+
           <label>Imagen</label>
           <input
             type="file"
+            accept="image/"
             name="image"
-            value={article.image}
-            onChange={handleChange}
+            id="imageInput" // Agrega un id único aquí
+            onChange={uploadChange}
           />
-          {errors.image && <p>{errors.image}</p>}
-  
+          {urlImage && (
+            <div className={style.uploadedImageContainer}>
+              <img
+                src={urlImage}
+                alt="Uploaded"
+                className={style.uploadedImage}
+              />
+              <button onClick={deleteImage} className={style.deleteImageButton}>
+                X
+              </button>
+            </div>
+          )}
           <label>Categoría</label>
           <select
             value={article.CategoryId}
@@ -149,10 +192,10 @@ const ArticleForm = () => {
           </select>
           {errors.CategoryId && <p>{errors.CategoryId}</p>}
         </div>
-  
+
         <div className={style.column}>
           <h3>Stock:</h3>
-  
+
           <label>XS</label>
           <input
             type="number"
@@ -161,7 +204,7 @@ const ArticleForm = () => {
             onChange={handleChange}
           />
           {errors.stockXS && <p>{errors.stockXS}</p>}
-  
+
           <label>S</label>
           <input
             type="number"
@@ -170,7 +213,7 @@ const ArticleForm = () => {
             onChange={handleChange}
           />
           {errors.stockS && <p>{errors.stockS}</p>}
-  
+
           <label>M</label>
           <input
             type="number"
@@ -179,7 +222,7 @@ const ArticleForm = () => {
             onChange={handleChange}
           />
           {errors.stockM && <p>{errors.stockM}</p>}
-  
+
           <label>L</label>
           <input
             type="number"
@@ -188,7 +231,7 @@ const ArticleForm = () => {
             onChange={handleChange}
           />
           {errors.stockL && <p>{errors.stockL}</p>}
-  
+
           <label>XL</label>
           <input
             type="number"
@@ -197,7 +240,7 @@ const ArticleForm = () => {
             onChange={handleChange}
           />
           {errors.stockXl && <p>{errors.stockXL}</p>}
-  
+
           <label>XXL</label>
           <input
             type="number"
@@ -208,10 +251,14 @@ const ArticleForm = () => {
           {errors.stockXXL && <p>{errors.stockXXL}</p>}
         </div>
       </div>
-      <button className={`${style.formButton} hvr-sweep-to-right`} type="submit">Crear</button>
+      <button
+        className={`${style.formButton} hvr-sweep-to-right`}
+        type="submit"
+      >
+        Crear
+      </button>
     </form>
   );
-  
 };
 
 export default ArticleForm;

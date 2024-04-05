@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import style from "./update.module.css";
 import loader from "./loader.gif";
+import axios from "axios";
 
 const UpdateArticleForm = () => {
   const { id } = useParams();
@@ -19,6 +20,7 @@ const UpdateArticleForm = () => {
   const categories = useSelector((state) => state.categoriesReducer.categories);
   const articleToUpdate = useSelector((state) => state.articlesReducer.detail);
   const [isLoading, setIsLoading] = useState(true);
+  const [urlImage, setUrlImage] = useState("");
   const [article, setArticle] = useState({
     name: "",
     description: "",
@@ -61,6 +63,38 @@ const UpdateArticleForm = () => {
         [e.target.name]: newValue,
       })
     );
+  };
+
+   // Función para manejar el cambio en la carga de la imagen
+   const uploadChange = async (event) => {
+    try {
+      const file = event.target.files[0];
+      const data = new FormData();
+      data.append("file", file);
+      data.append("upload_preset", "e2jdjnn1");
+
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dvdruvmwk/image/upload",
+        data
+      );
+
+      // Actualiza el estado local de la URL de la imagen
+      setUrlImage(response.data.secure_url);
+      // Actualiza el estado local del evento con la URL de la imagen
+      setArticle((prevArticle) => ({
+        ...prevArticle,
+        image: response.data.secure_url,
+      }));
+    } catch (error) {
+      return `Error uploading image: , ${error}`;
+    }
+  };
+
+  const deleteImage = () => {
+    setUrlImage("");
+    setArticle((prevArticle) => ({ ...prevArticle, image: "" }));
+    // Resetea el valor del input de tipo "file"
+    document.getElementById("imageInput").value = "";
   };
 
   const handleSubmit = (e) => {
@@ -117,15 +151,26 @@ const UpdateArticleForm = () => {
         />
         {errors.price && <p>{errors.price}</p>}
 
-        <label className={style.label}>Imagen</label>
-        <input
-          type="text"
-          name="image"
-          value={article.image}
-          onChange={handleChange}
-          className={style.input}
-        />
-        {errors.image && <p>{errors.image}</p>}
+          <label>Imagen</label>
+          <input
+            type="file"
+            accept="image/"
+            name="image"
+            id="imageInput" // Agrega un id único aquí
+            onChange={uploadChange}
+          />
+          {urlImage && (
+            <div className={style.uploadedImageContainer}>
+              <img
+                src={urlImage}
+                alt="Uploaded"
+                className={style.uploadedImage}
+              />
+              <button onClick={deleteImage} className={style.deleteImageButton}>
+                X
+              </button>
+            </div>
+          )}
 
         <label className={style.label}>Categoría</label>
         <select
