@@ -8,6 +8,7 @@ import loader from "./loader.gif";
 import style from "./invoice.module.css";
 import { sendInvoice } from "../../redux/actions/invoice";
 import leweIcon from "./lewe.png";
+import Swal from 'sweetalert2';
 
 const Invoice = () => {
   const dispatch = useDispatch();
@@ -102,11 +103,24 @@ const Invoice = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!orderData.customerMail || !orderData.customerName || !orderData.customerAddress || !orderData.customerPhone || !orderData.date) {
-      alert("Por favor, completa todos los campos del cliente.");
+      Swal.fire({
+        icon: 'error',
+        title: '<span style="color:white">Oops...</span>',
+        text: 'Por favor, completa todos los campos del cliente.',
+        confirmButtonColor: '#d33',
+        background: '#161616',
+        html: '<p style="color:white">Por favor, completa todos los campos del cliente.</p>'
+      });
       return;
     }
     dispatch(sendInvoice(invoice)).then(() => {
-      alert("Comprobante enviado");
+      Swal.fire({
+        icon: 'success',
+        title: '<span style="color:white">¡Enviado!</span>',
+        background: '#161616',
+        html: '<p style="color:white">Comprobante enviado</p>',
+        confirmButtonColor: '#d33'
+      });
     });
     setInvoice({ order: {}, articles: [] });
     setOrderData({

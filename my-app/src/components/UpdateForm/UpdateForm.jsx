@@ -13,7 +13,7 @@ import { useEffect } from "react";
 import style from "./update.module.css";
 import loader from "./loader.gif";
 import axios from "axios";
-
+import Swal from 'sweetalert2';
 const UpdateArticleForm = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -100,10 +100,17 @@ const UpdateArticleForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateArticle(article)).then(() => {
-        alert("Artículo actualizado con éxito")});
+        Swal.fire({
+            icon: 'success',
+            title: '<span style="color:white">¡Éxito!</span>',
+            background: '#161616',
+            html: '<p style="color:white">Artículo actualizado con éxito</p>',
+            confirmButtonColor: '#d33'
+        });
+    });
     setErrors(validateArticle(article));
-  };
-
+};
+ 
   if (isLoading) {
     return (
       <div className={style.loaderContainer}>

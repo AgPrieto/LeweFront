@@ -73,7 +73,8 @@
   }
   
   .contactForm textarea {
-    background-color: #333
+    background-color: #333;
+    height: 100px;
   }
   
 
