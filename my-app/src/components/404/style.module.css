@@ -1,0 +1,33 @@
+.container{
+    margin-bottom: 150px;
+    ;
+}
+.imagen{
+    width: 900px;
+    height: 500px;
+}
+
+.link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    background-color: #2d2c2c;
+
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 20px;
+    transition: 0.5s;
+}
+
+.link:hover {
+    background-color: #be1313;
+    color: #ffffff;
+    text-decoration: none;
+    border: red;
+}
