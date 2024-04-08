@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { filterByPrice } from '../../redux/actions/categoriesActions';
 
 const FilterPrice = () => {
-  const [sliderValues, setSliderValues] = React.useState([0, 50000]);
+  const [sliderValues, setSliderValues] = React.useState([0, 200000]);
 
   const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const FilterPrice = () => {
       <Slider
   style={{ width: "80%" }}
   range={{ draggableTrack: true }}
-  max={50000}
+  max={200000}
   value={sliderValues}
   onChange={handleSliderChange}
   marks={{ 0: '' }}
