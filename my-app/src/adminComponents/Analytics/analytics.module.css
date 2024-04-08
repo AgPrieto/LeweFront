@@ -1,7 +1,8 @@
 .loader {
-    width: 70px;
-    height: 70px;
-    margin-top: 330px;
+  display: flex; /* Hace que los elementos dentro del contenedor se alineen en una fila */
+  justify-content: center; /* Centra horizontalmente los elementos en el contenedor */
+  align-items: center; /* Centra verticalmente los elementos en el contenedor */
+  height: 100vh; /* Opcional: hace que el contenedor ocupe toda la altura de la pantalla */
   }
   .container {
     display: grid;
@@ -75,4 +76,5 @@ th, td {
 }
 .disabledArticleImage:hover {
   opacity: 1; /* Establece la opacidad deseada */
+  box-shadow: 0 0 10px rgba(250, 250, 250, 0.9); /* Agrega una sombra alrededor de la imagen */
 }

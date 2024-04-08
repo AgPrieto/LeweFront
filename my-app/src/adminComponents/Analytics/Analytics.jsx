@@ -14,9 +14,10 @@ import {
 import { useEffect, useState } from "react";
 import { getAnalytics } from "../../redux/actions/analyticsActions";
 import { useSelector, useDispatch } from "react-redux";
-import loader from "./loader.gif";
 import styles from "./analytics.module.css";
 import { Link } from "react-router-dom";
+import { ThreeCircles } from 'react-loader-spinner'
+
 
 const Analytics = () => {
 
@@ -62,8 +63,16 @@ const Analytics = () => {
 
   if (isLoading) {
     return (
-      <div className={styles.loaderContainer}>
-        <img src={loader} alt="Loading..." className={styles.loader} />
+      <div className={styles.loader}>
+<ThreeCircles
+  visible={true}
+  height="100"
+  width="100"
+  color="red"
+  ariaLabel="three-circles-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  />
       </div>
     );
   }
