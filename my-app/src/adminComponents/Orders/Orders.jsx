@@ -29,15 +29,15 @@ const Orders = () => {
     }
 
     return (
-      <div style={{ width: '80%', margin: '0 auto', color: "white", marginLeft: "270px" }}>
+      <div   className={styles.totalContainer} style={{ width: '80%', margin: '0 auto', color: "white", marginLeft: "270px" }}>
         <h2>REGISTRO DE VENTAS</h2>
         {orders.length <= 0 ? (
           <p>No hay ordenes registradas por el momento.</p>
         ) : (
-          <Collapse accordion expandIcon={({ isActive }) => <span style={{ color: 'white', fontSize: '20px'}}>{isActive ? '-' : '+'}</span>}>
+          <Collapse accordion expandIcon={({ isActive }) => <span className={styles.totalContainer} style={{ color: 'white', fontSize: '20px'}}>{isActive ? '-' : '+'}</span>}>
             {orders.map((orderGroup) => (
-              <Panel header={<span style={{ color: 'white' }}>Orden N° {orderGroup.OrderId.slice(-6)} - {orderGroup.customerName}</span>} key={orderGroup.OrderId}>
-
+              <Panel header={<span className={styles.totalContainer} style={{ color: 'white' }}>Orden N° {orderGroup.OrderId.slice(-6)} - {orderGroup.customerName}</span>} key={orderGroup.OrderId}>
+           <div className={styles.totalContainer}>
                 <h2>Informacion de la Orden</h2>
                 <p><strong>Nombre:</strong> {orderGroup.customerName}</p>
               <p><strong>Email:</strong> {orderGroup.customerMail}</p>
@@ -45,6 +45,7 @@ const Orders = () => {
               <p><strong>Precio total de la compra:</strong> ${orderGroup.total}</p>
               <hr />
                 <h2>Articulos</h2>
+                </div>
               <div className={styles.articleContainer}>
                 {orderGroup.articles.map((article) => (
                 

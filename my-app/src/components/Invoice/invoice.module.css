@@ -1,5 +1,12 @@
+@font-face {
+  font-family: 'Gotham';
+  src: url('../../assets/GothamRnd-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .allContainer {
-  
+  font-family: Gotham;
 }
 
 .logoIcon {

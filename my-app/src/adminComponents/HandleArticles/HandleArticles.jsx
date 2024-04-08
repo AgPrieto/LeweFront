@@ -38,7 +38,7 @@ const HandleArticles = () => {
   }
 
   return (
-    <div>
+    <div className={styles.totalContainer}>
       <div className={styles.searchBar}>
         <h2>GESTIONAR PRODUCTOS</h2>
         <SearchBarIndu />
