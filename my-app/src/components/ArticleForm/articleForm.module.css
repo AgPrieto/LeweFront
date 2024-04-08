@@ -32,6 +32,35 @@
   align-items: center;
   width: 50%; /* Divide el espacio disponible en dos */
   font-family: Gotham;
+ margin-left: 290px;
+}
+
+.column1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%; /* Divide el espacio disponible en dos */
+  font-family: Gotham;
+  margin-right: 210px;
+}
+
+.column1 input {
+ 
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 0;
+  background-color: white;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  max-height: 40px;
+  font-family: Gotham;
+  
+}
+
+.column1 h3 {
+  margin-right: 210px;
 }
 
 .column input {
@@ -45,6 +74,19 @@
   margin-top: 10px;
   max-height: 40px;
   font-family: Gotham;
+  
+}
+
+.column1 select {
+ 
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 0;
+  background-color: white;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  max-height: 40px;
   
 }
 

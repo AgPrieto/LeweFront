@@ -208,7 +208,7 @@ const ArticleForm = () => {
           {errors.CategoryId && <p className={style.errors}>{errors.CategoryId}</p>}
         </div>
 
-        <div className={style.column}>
+        <div className={style.column1}>
           <h3>Stock:</h3>
 
           {article.CategoryId === 'd5033fd4-8d56-4e02-b816-78b4f65ee660' ||
@@ -224,7 +224,7 @@ const ArticleForm = () => {
                 {errors.stockM && <p className={style.errors}>{errors.stockM}</p>}
               </div>
             ) : (
-              <div className={style.column}>
+              <div className={style.column1}>
                 <label>XS</label>
                 <input
                   type="number"
