@@ -70,7 +70,7 @@ const Analytics = () => {
   const colors = ["#FF9999", "#FF6666", "#FF3333", "#CC0000", "#990000"]; // Paleta de colores con tonos rojos
 
   return (
-    <div>
+    <div className={styles.totalContainer}>
       <h1>Analytics</h1>
       <div className={styles.containerBar}>
         <ResponsiveContainer width="50%" height={300}>

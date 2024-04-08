@@ -141,7 +141,7 @@ const ArticleForm = () => {
             value={article.name}
             onChange={handleChange}
           />
-          {errors.name && <p>{errors.name}</p>}
+          {errors.name && <p className={style.errors}>{errors.name}</p>}
 
           <label>Descripción Breve</label>
           <input
@@ -150,7 +150,7 @@ const ArticleForm = () => {
             value={article.description}
             onChange={handleChange}
           />
-          {errors.description && <p>{errors.description}</p>}
+          {errors.description && <p className={style.errors}>{errors.description}</p>}
 
           <label>Descripción Detallada</label>
           <input
@@ -159,7 +159,7 @@ const ArticleForm = () => {
             value={article.descriptionDetail}
             onChange={handleChange}
           />
-          {errors.descriptionDetail && <p>{errors.descriptionDetail}</p>}
+          {errors.descriptionDetail && <p className={style.errors}>{errors.descriptionDetail}</p>}
 
           <label>Precio</label>
           <input
@@ -168,7 +168,7 @@ const ArticleForm = () => {
             value={article.price}
             onChange={handleChange}
           />
-          {errors.price && <p>{errors.price}</p>}
+          {errors.price && <p className={style.errors}>{errors.price}</p>}
 
           <label>Imagen</label>
           <input
@@ -190,7 +190,7 @@ const ArticleForm = () => {
               </button>
             </div>
           )}
-          {errors.image && <p>{errors.image}</p>}
+          {errors.image && <p className={style.errors}>{errors.image}</p>}
 
           <label>Categoría</label>
           <select
@@ -205,7 +205,7 @@ const ArticleForm = () => {
               </option>
             ))}
           </select>
-          {errors.CategoryId && <p>{errors.CategoryId}</p>}
+          {errors.CategoryId && <p className={style.errors}>{errors.CategoryId}</p>}
         </div>
 
         <div className={style.column}>
@@ -221,7 +221,7 @@ const ArticleForm = () => {
                   value={article.stockM}
                   onChange={handleChange}
                 />
-                {errors.stockM && <p>{errors.stockM}</p>}
+                {errors.stockM && <p className={style.errors}>{errors.stockM}</p>}
               </div>
             ) : (
               <div className={style.column}>
@@ -232,7 +232,7 @@ const ArticleForm = () => {
                   value={article.stockXS}
                   onChange={handleChange}
                 />
-                {errors.stockXS && <p>{errors.stockXS}</p>}
+                {errors.stockXS && <p className={style.errors}>{errors.stockXS}</p>}
 
                 <label>S</label>
                 <input
@@ -241,7 +241,7 @@ const ArticleForm = () => {
                   value={article.stockS}
                   onChange={handleChange}
                 />
-                {errors.stockS && <p>{errors.stockS}</p>}
+                {errors.stockS && <p className={style.errors}>{errors.stockS}</p>}
 
                 <label>M</label>
                 <input
@@ -250,7 +250,7 @@ const ArticleForm = () => {
                   value={article.stockM}
                   onChange={handleChange}
                 />
-                {errors.stockM && <p>{errors.stockM}</p>}
+                {errors.stockM && <p className={style.errors}>{errors.stockM}</p>}
 
                 <label>L</label>
                 <input
@@ -259,7 +259,7 @@ const ArticleForm = () => {
                   value={article.stockL}
                   onChange={handleChange}
                 />
-                {errors.stockL && <p>{errors.stockL}</p>}
+                {errors.stockL && <p className={style.errors}>{errors.stockL}</p>}
 
                 <label>XL</label>
                 <input
@@ -268,7 +268,7 @@ const ArticleForm = () => {
                   value={article.stockXL}
                   onChange={handleChange}
                 />
-                {errors.stockXl && <p>{errors.stockXL}</p>}
+                {errors.stockXl && <p className={style.errors}>{errors.stockXL}</p>}
 
                 <label>XXL</label>
                 <input
@@ -277,7 +277,7 @@ const ArticleForm = () => {
                   value={article.stockXXL}
                   onChange={handleChange}
                 />
-                {errors.stockXXL && <p>{errors.stockXXL}</p>}
+                {errors.stockXXL && <p className={style.errors}>{errors.stockXXL}</p>}
               </div>
             )}
         </div>

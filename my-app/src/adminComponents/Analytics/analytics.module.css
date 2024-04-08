@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'Gotham';
+  src: url('../../assets/GothamRnd-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.totalContainer {
+  font-family: Gotham;
+}
+
 .loader {
     width: 70px;
     height: 70px;
@@ -12,6 +23,7 @@
     display: grid;
     place-items: center; /* Esto centra el contenido vertical y horizontalmente */
     margin: 20px; /* Agrega margen alrededor del contenedor si es necesario */
+    font-family: Gotham;
 }
 .containerTable{
     display: grid;

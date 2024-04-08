@@ -1,5 +1,20 @@
+@font-face {
+  font-family: 'Gotham';
+  src: url('../../assets/GothamRnd-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.totalContainer {
+  font-family: Gotham;
+  color: black;
+  
+}
+
+
 .customCollapse .antCollapseItem > .antCollapseHeader .antCollapseArrow {
   color: white;
+  
 }
 
 
@@ -19,12 +34,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: row;
+  font-family: Gotham;
 }
 
 .article {
   width: 33.33%;
   box-sizing: border-box;
   padding: 10px;
+  font-family: Gotham;
 }
 
 
