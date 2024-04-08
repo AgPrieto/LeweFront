@@ -7,6 +7,7 @@ import style from "./detail.module.css";
 import { InputNumber } from 'antd';
 import { addToCart } from '../../redux/actions/cartActions';
 import loader from "./loader.gif";
+import { useCallback } from 'react';
 
 const SizeButtons = ({ detail, quantity, setQuantity, selectedSize, setSelectedSize }) => {
   const sizes = ['XS','S', 'M', 'L', 'XL', 'XXL'];
@@ -94,55 +95,58 @@ const dispatch = useDispatch();
 const { id } = useParams();
 const detailArticle = useSelector((state) => state.articlesReducer.detail);
 const [detail, setDetail] = useState({});
+console.log(detail);
 const cart = useSelector((state) => state.cartReducer.cart);
 const [quantity, setQuantity] = useState(0);
 const [selectedSize, setSelectedSize] = useState(null);
-const imgRef = useRef(null);
+
 const [isLoading, setIsLoading] = useState(true);
 
 
+if (detailArticle !== detail) {
+  setDetail(detailArticle);
+}
+
 useEffect(() => {
-    setIsLoading(true); // Muestra la imagen de carga al iniciar la carga de la categoría
-    dispatch(getArticlesById(id)).then(() => {
-      setIsLoading(false); // Oculta la imagen de carga después de cargar la categoría
-    })
-    setDetail(detailArticle);
-     return () => {
-      setDetail({});
+  setIsLoading(true);
+  dispatch(getArticlesById(id)).then(() => {
+    setIsLoading(false);
+  });
+  return () => {
+    setDetail({});
+  };
+}, [dispatch, id]);
+
+const imgRef = useCallback(node => {
+  if (node !== null) {
+    const img = node;
+    const handleMouseMove = (e) => {
+      const { left, top, width, height } = e.target.getBoundingClientRect();
+      const x = ((e.pageX - left) / width) * 100;
+      const y = ((e.pageY - top) / height) * 100;
+      const scaleFactor = 1.2;
+      img.style.transformOrigin = `${x}% ${y}%`;
+      img.style.transform = `scale(${scaleFactor})`;
     };
-  }, [detailArticle, dispatch, id]);
 
-  useEffect(() => {
-    if (imgRef.current) {
-      const img = imgRef.current;
-      const handleMouseMove = (e) => {
-        const { left, top, width, height } = e.target.getBoundingClientRect();
-        const x = ((e.pageX - left) / width) * 100;
-        const y = ((e.pageY - top) / height) * 100;
-  
-        // Solo aplica el zoom si el cursor está en la parte superior de la imagen
-        // Ajusta este valor para cambiar la región donde se aplica el zoom
-          const scaleFactor = 1.2;
-          img.style.transformOrigin = `${x}% ${y}%`;
-          img.style.transform = `scale(${scaleFactor})`;
-        
-      };
-      
-      const handleMouseOut = () => {
-        img.style.transformOrigin = "center center";
-        img.style.transform = "scale(1)";
-      };
+    const handleMouseOut = () => {
+      img.style.transformOrigin = "center center";
+      img.style.transform = "scale(1)";
+    };
 
-      img.addEventListener("mousemove", handleMouseMove);
-      img.addEventListener("mouseout", handleMouseOut);
+    img.addEventListener("mousemove", handleMouseMove);
+    img.addEventListener("mouseout", handleMouseOut);
 
-      return () => {
-        img.removeEventListener("mousemove", handleMouseMove);
-        img.removeEventListener("mouseout", handleMouseOut);
-        setDetail({});
-      };
-    }
-  }, [imgRef.current]);
+    return () => {
+      img.removeEventListener("mousemove", handleMouseMove);
+      img.removeEventListener("mouseout", handleMouseOut);
+    };
+  }
+}, []);
+
+
+
+
 
   const handleAddToCart = () => {
     const hasSizes = detail.sizes && detail.sizes.length > 0;
