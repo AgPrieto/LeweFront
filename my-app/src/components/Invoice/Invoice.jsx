@@ -138,24 +138,27 @@ const Invoice = () => {
       });
       return;
     }
-    dispatch(sendInvoice(invoice)).then(() => {
-      Swal.fire({
-        icon: "success",
-        title: '<span style="color:white">¡Enviado!</span>',
-        background: "#161616",
-        html: '<p style="color:white">Comprobante enviado</p>',
-        confirmButtonColor: "#d33",
+    dispatch(sendInvoice(invoice))
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: '<span style="color:white">¡Enviado!</span>',
+          background: "#161616",
+          html: '<p style="color:white">Comprobante enviado</p>',
+          confirmButtonColor: "#d33",
+        });
+      })
+      .then(() => {
+        setInvoice({ order: {}, articles: [] });
+        setOrderData({
+          customerMail: "",
+          customerName: "",
+          customerAddress: "",
+          customerPhone: "",
+          date: formatDate(),
+          price: 0,
+        });
       });
-    });
-    setInvoice({ order: {}, articles: [] });
-    setOrderData({
-      customerMail: "",
-      customerName: "",
-      customerAddress: "",
-      customerPhone: "",
-      date: formatDate(),
-      price: 0,
-    });
   };
 
   const deleteArticle = (e) => {
