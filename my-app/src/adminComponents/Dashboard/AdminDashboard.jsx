@@ -24,7 +24,7 @@ const { Sider, Content } = Layout;
 
 
 const AdminDashboard = () => {
-  const [selectedKey, setSelectedKey] = useState("productos");
+  const [selectedKey, setSelectedKey] = useState("analytics");
   const [collapsed, setCollapsed] = useState(true);
 
   useEffect(() => {
