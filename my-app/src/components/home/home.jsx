@@ -9,7 +9,7 @@ import indumentaria from "./indumentaria.png"
 import accesorios from "./accesorios.png"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import InfiniteSlider from '../InfiniteSlider/InfiniteSlider.jsx'
+import InfiniteSlider from '../InfiniteSlider/InfiniteSlider.jsx';
 
 const Home = () => {
   useEffect(() => {
@@ -19,10 +19,10 @@ const Home = () => {
   return (
     <div>
       <div>
-        <InfiniteSlider />
+        <Carrusel />
       </div>
       <div>
-        <Carrusel />
+        <InfiniteSlider />
       </div>
       <div
               className={styles.categorys}>
