@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { getAllCategories } from "../../redux/actions/categoriesActions";
 import { getAllArticles } from "../../redux/actions/articlesActions";
 import { useSelector } from "react-redux";
+import { Carousel } from 'antd';
 
 const Carrusel = () => {
     const dispatch = useDispatch();
@@ -25,41 +26,16 @@ const Carrusel = () => {
     event.image
   ))
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const prevSlide = () => {
-      const isFirstSlide = currentIndex === 0;
-      const newIndex = isFirstSlide ? images.length - 1 : currentIndex - 1;
-      setCurrentIndex(newIndex);
-  };
-
-  const nextSlide = () => {
-      const isLastSlide = currentIndex === images.length - 1;
-      const newIndex = isLastSlide ? 0 : currentIndex + 1;
-      setCurrentIndex(newIndex);
-  };
-
-  const goToSlide = (imageIndex) => {
-      setCurrentIndex(imageIndex);
-  }
-return (
-    <div className={styles.container}>
-        <div className={styles.image} style={{backgroundImage: `url(${images[currentIndex]})`}} />
-        <div className={styles.leftControl} onClick={prevSlide}>
-            <BsChevronCompactLeft size={30} />
+  
+  return (
+    <Carousel autoplay className={styles.carousel}>
+      {images.map((image, index) => (
+        <div key={index}>
+          <img src={image} alt={`slide-${index}`} style={{ width: '100%' }} />
         </div>
-        <div className={styles.rightControl} onClick={nextSlide}>
-            <BsChevronCompactRight size={30} />
-        </div>
-        <div className={styles.dotsContainer}>
-            {data.map((image, imageIndex) => (
-                <div key={imageIndex} className={styles.control} onClick={() => goToSlide(imageIndex)}>
-                    <RxDotFilled />
-                </div>
-            ))}
-        </div>
-    </div>
-);
+      ))}
+    </Carousel>
+  );
 };
 
 export default Carrusel;

@@ -20,50 +20,45 @@ const Home = () => {
       <div>
         <Carrusel />
       </div>
-      <div className={styles.categorys}>
-        <div className={styles.category}>
+      <div
+              className={styles.categorys}>
+        <div className={`${styles.category} hvr-hang`}>
           <Link to={"/category/108312e1-bed1-4468-aaed-657307fb2267"}>
-            <img
+            <img data-aos="fade-right" data-aos-duration="1000"
               src={accesorios}
               alt="Accesorios"
               className={`${styles.imagenFiltrotabla}`}
-              data-aos="fade-left"
-              data-aos-duration="1000"
+              
             />
           </Link>
         </div>
-        <div className={styles.category}>
+        <div className={`${styles.category} hvr-hang`}>
           <Link to={"/category/d5033fd4-8d56-4e02-b816-78b4f65ee660"}>
-            <img
+            <img data-aos="fade-right" data-aos-duration="1000"
               src={raquetas}
               alt="Pelotas"
               className={`${styles.imagenFiltrotabla}`}
-              data-aos="fade-left"
-              data-aos-duration="1000"
+             
+              
             />
           </Link>
         </div>
-      </div>
-      <div className={styles.categorys}>
-        <div className={styles.category}>
+        <div className={`${styles.category} hvr-hang`}>
           <Link to={"/category/4567773c-ab96-41aa-b9fa-ffa331fe4d7f"}>
-            <img
+            <img data-aos="fade-right" data-aos-duration="1000"
               src={paletas}
               alt="Raquetas"
               className={`${styles.imagenFiltrotabla}`}
-              data-aos="fade-right"
-              data-aos-duration="1000"
             />
           </Link>
         </div>
-        <div className={styles.category}>
+        <div className={`${styles.category} hvr-hang`}>
           <Link to={"/category/indumentaria"}>
-            <img
+            <img data-aos="fade-right" data-aos-duration="1000"
               src={indumentaria}
               alt="Indumentaria"
               className={`${styles.imagenFiltrotabla}`}
-              data-aos="fade-right"
-              data-aos-duration="1000"
+        
             />
           </Link>
         </div>
@@ -72,4 +67,5 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home 
+

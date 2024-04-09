@@ -216,7 +216,7 @@ const Invoice = () => {
         </div>
       </div>
         </div>
-        <div className={style.formContainer}>
+        <div className={style.formContainer1}>
       <h2>ARTÍCULOS</h2>
 
       <h3>Artículo Seleccionado</h3>
