@@ -62,11 +62,6 @@
     max-width: 1px;
     text-wrap: nowrap;
   }
-  .loader {
-    width: 70px;
-    height: 70px;
-    margin-top: 330px;
-  }
 
   .modal {
     position: 'fixed';
@@ -111,5 +106,10 @@
     border: none;
     outline: none
   }
-
-  
+ 
+  .loader {
+    display: flex; /* Hace que los elementos dentro del contenedor se alineen en una fila */
+    justify-content: center; /* Centra horizontalmente los elementos en el contenedor */
+    align-items: center; /* Centra verticalmente los elementos en el contenedor */
+    height: 100vh; /* Opcional: hace que el contenedor ocupe toda la altura de la pantalla */
+    }

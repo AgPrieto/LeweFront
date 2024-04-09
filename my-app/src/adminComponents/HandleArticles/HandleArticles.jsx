@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import { disAbleArticle, getAdminArticles } from "../../redux/actions/articlesActions";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./handleArticles.module.css";
-import loader from "./loader.gif";
 import { FaPencilAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import SearchBarIndu from "../../components/SearchBar/SearchBarIndu";
 import { Switch } from "antd";
+import { ThreeCircles } from 'react-loader-spinner';
+
 
 const HandleArticles = () => {
   const dispatch = useDispatch();
@@ -31,8 +32,16 @@ const HandleArticles = () => {
 
   if (isLoading) {
     return (
-      <div className={styles.loaderContainer}>
-        <img src={loader} alt="Loading..." className={styles.loader} />
+      <div className={styles.loader}>
+   <ThreeCircles
+  visible={true}
+  height="100"
+  width="100"
+  color="red"
+  ariaLabel="three-circles-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  />
       </div>
     );
   }
