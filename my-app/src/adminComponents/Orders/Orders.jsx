@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { getOrders } from "../../redux/actions/orderActions";
 import { useDispatch, useSelector } from "react-redux";
@@ -5,8 +6,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Collapse } from 'antd';
 import styles from './orders.module.css';
-import loader from "./loader.gif";
 const { Panel } = Collapse;
+import { ThreeCircles } from 'react-loader-spinner'
+
 
 const Orders = () => {
     const dispatch = useDispatch();
@@ -22,9 +24,17 @@ const Orders = () => {
 
     if (isLoading) {
       return (
-        <div className={styles.loaderContainer}>
-          <img src={loader} alt="Loading..." className={styles.loader} />
-        </div>
+        <div className={styles.loader}>
+        <ThreeCircles
+       visible={true}
+       height="100"
+       width="100"
+       color="red"
+       ariaLabel="three-circles-loading"
+       wrapperStyle={{}}
+       wrapperClass=""
+       />
+           </div>
       );
     }
 

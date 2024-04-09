@@ -4,11 +4,12 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { formatDate } from "../../utils/formatDate";
 import { getAllArticles } from "../../redux/actions/articlesActions";
-import loader from "./loader.gif";
 import style from "./invoice.module.css";
 import { sendInvoice } from "../../redux/actions/invoice";
 import leweIcon from "./lewe.png";
 import Swal from "sweetalert2";
+import { ThreeCircles } from 'react-loader-spinner'
+
 
 const Invoice = () => {
   const dispatch = useDispatch();
@@ -178,8 +179,16 @@ const Invoice = () => {
 
   if (isLoading) {
     return (
-      <div className={style.loaderContainer}>
-        <img src={loader} alt="Loading..." className={style.loader} />
+      <div className={style.loader}>
+   <ThreeCircles
+  visible={true}
+  height="100"
+  width="100"
+  color="red"
+  ariaLabel="three-circles-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  />
       </div>
     );
   }
