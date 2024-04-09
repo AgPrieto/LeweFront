@@ -7,12 +7,15 @@
 
 .allContainer {
   font-family: Gotham;
+  
 }
 
 .logoIcon {
   width: 70px;
     height: 60px;
 }
+
+
 
 .formContainer h1 {
     color: white;

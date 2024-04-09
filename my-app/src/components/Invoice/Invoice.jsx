@@ -343,7 +343,82 @@ const Invoice = () => {
             </button>
           </div>
         </div>
-      </form>
+
+      </div>
+        </div>
+        <div className={style.formContainer1}>
+      <h2>ARTÍCULOS</h2>
+
+      <h3>Artículo Seleccionado</h3>
+      <div className={style.inputContainer}>
+        <select
+          value={articleData.id}
+          onChange={handleSelector}
+          name="selectedArticle"
+        >
+          <option value="">Seleccionar un artículo</option>
+          {articles.product.map((article) => (
+            <option key={article.id} value={article.id}>
+              {article.name}
+            </option>
+          ))}
+        </select>
+
+        <label>ID</label>
+        <input type="text" name="id" value={articleData.id} readOnly />
+
+        <label>Nombre</label>
+        <input type="text" name="name" value={articleData.name} readOnly />
+
+        <label>Imagen</label>
+        <input type="text" name="image" value={articleData.image} readOnly />
+
+        <label>Cantidad</label>
+        <input
+          type="number"
+          name="quantity"
+          value={articleData.quantity}
+          onChange={handleArticleChange}
+        />
+
+        <label>Talle</label>
+        <input
+          type="text"
+          name="size"
+          value={articleData.size}
+          onChange={handleArticleChange}
+        />
+
+        <label>Precio</label>
+        <input type="text" name="price" value={articleData.price} readOnly />
+
+        <button onClick={addArticle} className={style.formButton}>
+          Agregar
+        </button>
+
+        {invoice.articles.length > 0 &&  <h2>Artículos Agregados</h2> }
+        
+          {invoice.articles.map((article) => (
+            <div key={article.id}>
+              <button onClick={deleteArticle}>X</button>
+              <p>{article.name}</p>
+              <img src={article.image} alt={article.name} className={style.articleimg}/>
+              <p>{`Cantidad: ${article.quantity}`}</p>
+              <p>{`Talle: ${article.size}`}</p>
+              <p>{`$ ${article.price}`}</p>
+            </div>
+          ))}
+
+        <button
+          onClick={handleSubmit}
+          className={`${style.formButton} hvr-sweep-to-right`}
+        >
+          Enviar Comprobante
+        </button>
+      </div>
+      </div>
+    </form>
+
     </div>
   );
 };
