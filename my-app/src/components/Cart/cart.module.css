@@ -200,8 +200,12 @@ font-size: x-large;
   outline: none;
   border: none;
 }
-
-
+.shop{
+  background-color: red;
+}
+.shop:hover {
+  border-color: white;
+}
 
 
 
