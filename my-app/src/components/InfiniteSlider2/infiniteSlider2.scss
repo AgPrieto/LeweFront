@@ -7,15 +7,16 @@ $animationSpeed: 15s;
 
 // Animation
 @keyframes scroll {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(calc(-250px * 7))}
+	0% { transform: translateX(calc(-250px * 7)); } /* Iniciar desde la posición final */
+	100% { transform: translateX(0); } /* Terminar en la posición inicial */
 }
 
+
 // Styling
-.slider1 {
-	background: #dedbdb;
+.slider {
+	background: #161616;
 	height: 40px;
-	margin-top: 20px;
+	margin-top: 2px;
 	overflow:hidden;
 	position: relative;
 	width: 100%;

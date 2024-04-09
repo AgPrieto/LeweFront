@@ -1,9 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import {useState} from 'react';
 import styles from "./carrusel.module.css";
-import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs';
-import {RxDotFilled} from 'react-icons/rx';
 import data from "../../App.js";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
