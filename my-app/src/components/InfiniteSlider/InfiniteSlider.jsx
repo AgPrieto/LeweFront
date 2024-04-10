@@ -29,7 +29,7 @@ const InfiniteSlider = () => {
     }
     for (let i = 0; i < imgQuantity; i++) {
         slides.push(
-          <div className="slide" key={i}>
+          <div className="slide" key={i+26}>
             <div className="top">
               <img
                 src="https://i.ibb.co/YRdbSn6/lewe-White.png"

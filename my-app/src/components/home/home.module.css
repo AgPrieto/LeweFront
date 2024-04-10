@@ -2,10 +2,10 @@
 .imagenFiltrotabla,
 .imagenFiltroaccesorio {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   margin: 20px 0; 
   transition: box-shadow 0.3s ease-in-out;
-  height: 400px;
+  height: 500px;
   margin-top: 70px;
 }
 
@@ -14,12 +14,73 @@
   flex-direction: row;
   flex-wrap: nowrap; /* Asegura que los elementos no se envuelvan a la siguiente línea */
   justify-content: space-around; /* Distribuye el espacio restante alrededor de los elementos */
-}
+} 
 
 .category {
   flex: 1; /* Los elementos crecerán y se encogerán para llenar el espacio restante */
   transition: transform 0.3s ease-in-out;
   z-index: 0;
-  margin-top: 40px;
+  margin-top: 20px;
+  margin-right: 370px;
 }
 
+.category1 {
+  flex: 1; /* Los elementos crecerán y se encogerán para llenar el espacio restante */
+  transition: transform 0.3s ease-in-out;
+  z-index: 0;
+  margin-top: 20px;
+  margin-left: 370px;
+}
+
+.recommendedProductsContainer {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  
+}
+
+.recommendedProductsContainer h2 {
+  font-weight: bold;
+}
+
+.recommendedProductsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.recommendedProductItem {
+  flex: 0 0 calc(20% - 10px);
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease; 
+  list-style-type: none;
+}
+
+.recommendedProductItem:hover{
+  transform: scale(1.03);
+}
+
+.recommendedLink {
+  color: black;
+  text-decoration: none;
+}
+
+.recommendedImage {
+  width: 350px;
+  height: 350px;
+  margin-top: 20px;
+}
+
+
+.recommendedName {
+  margin: 10px 0;
+}
+
+.recommendedPrice {
+  color: #888;
+}
+
+.recommendedProductsContainer h2 {
+  color: white;
+}
