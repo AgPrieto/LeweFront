@@ -10,11 +10,26 @@ import accesorios from "./accesorios.png"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import InfiniteSlider from '../InfiniteSlider/InfiniteSlider.jsx';
+import { useSelector } from "react-redux";
+import HowToBuyContainer from "../Franja/franja.jsx";
 
 const Home = () => {
+  const cart = useSelector((state) => state.cartReducer.cart);
+  const savedArticlesBackup = localStorage.getItem("articlesBackup");
+  const articlesBackup = JSON.parse(savedArticlesBackup);
+
   useEffect(() => {
     AOS.init();
   }, []);
+
+
+  const availableProducts = articlesBackup.product.filter(
+    (product) => !cart.some((cartItem) => cartItem.id === product.id)
+  );
+
+  const recommendedProducts = availableProducts
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 4);
 
   return (
     <div>
@@ -26,7 +41,7 @@ const Home = () => {
       </div>
       <div
               className={styles.categorys}>
-        <div className={`${styles.category} hvr-hang`}>
+        <div className={`${styles.category1} hvr-hang`}>
           <Link to={"/category/108312e1-bed1-4468-aaed-657307fb2267"}>
             <img data-aos="fade-right" data-aos-duration="1000"
               src={accesorios}
@@ -47,7 +62,10 @@ const Home = () => {
             />
           </Link>
         </div>
-        <div className={`${styles.category} hvr-hang`}>
+        </div>
+        <div
+              className={styles.categorys}>
+        <div className={`${styles.category1} hvr-hang`}>
           <Link to={"/category/4567773c-ab96-41aa-b9fa-ffa331fe4d7f"}>
             <img data-aos="fade-right" data-aos-duration="1000"
               src={paletas}
@@ -66,7 +84,35 @@ const Home = () => {
             />
           </Link>
         </div>
-      </div>
+        </div>
+        <div>
+        <HowToBuyContainer data-aos="fade-down"/>
+        </div>
+        <div className={styles.recommendedProductsContainer}>
+            <h2>PRODUCTOS DESTACADOS</h2>
+            <ul className={styles.recommendedProductsList}>
+              {recommendedProducts.map((item) => (
+                <div data-aos="fade-up" key={item.id}>
+                  <li className={styles.recommendedProductItem}>
+                    <Link
+                      to={`/details/${item.id}`}
+                      className={styles.recommendedLink}
+                    >
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className={styles.recommendedImage}
+                      />
+                      <h2 className={styles.recommendedName}>{item.name}</h2>
+                      <p className={styles.recommendedPrice}>
+                        Precio: ${item.price}
+                      </p>
+                    </Link>
+                  </li>
+                </div>
+              ))}
+            </ul>
+          </div>
     </div>
   )
 }

@@ -25,10 +25,10 @@ const Carrusel = () => {
 
   
   return (
-    <Carousel autoplay className={styles.carousel}>
+    <Carousel autoplay draggable className={styles.carousel}>
       {images.map((image, index) => (
         <div key={index}>
-          <img src={image} alt={`slide-${index}`} style={{ width: '100%' }} />
+          <img src={image} alt={`slide-${index}`} style={{ width: '100%', height: "780px" }} />
         </div>
       ))}
     </Carousel>
