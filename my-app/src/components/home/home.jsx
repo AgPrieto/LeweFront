@@ -17,6 +17,7 @@ const Home = () => {
   const cart = useSelector((state) => state.cartReducer.cart);
   const savedArticlesBackup = localStorage.getItem("articlesBackup");
   const articlesBackup = JSON.parse(savedArticlesBackup);
+  
 
   useEffect(() => {
     AOS.init();
@@ -40,7 +41,8 @@ const Home = () => {
         <InfiniteSlider />
       </div>
       <div
-              className={styles.categorys}>
+        className={styles.categorys}>
+        
         <div className={`${styles.category1} hvr-hang`}>
           <Link to={"/category/108312e1-bed1-4468-aaed-657307fb2267"}>
             <img data-aos="fade-right" data-aos-duration="1000"
@@ -52,15 +54,16 @@ const Home = () => {
           </Link>
         </div>
         <div className={`${styles.category} hvr-hang`}>
+          {
           <Link to={"/category/d5033fd4-8d56-4e02-b816-78b4f65ee660"}>
             <img data-aos="fade-right" data-aos-duration="1000"
               src={raquetas}
               alt="Pelotas"
               className={`${styles.imagenFiltrotabla}`}
-             
-              
+                         
             />
           </Link>
+          }
         </div>
         </div>
         <div

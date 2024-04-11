@@ -1,9 +1,10 @@
+import img from './assets/leweCarusel1.png';
 const data = [
     {
         id: 1,
         name: 'John Doe',
         age: 25,
-        image: "https://d22fxaf9t8d39k.cloudfront.net/f92f23b986748f148b087713d2f6aeb1a7d64157a426a002dc0435e1618feab2208360.png"
+        image: img
     },
     {
         id: 2,
