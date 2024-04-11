@@ -1,4 +1,5 @@
 import img from './assets/leweCarusel1.png';
+
 const data = [
     {
         id: 1,
