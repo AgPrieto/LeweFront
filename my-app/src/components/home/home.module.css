@@ -2,11 +2,18 @@
 .imagenFiltrotabla,
 .imagenFiltroaccesorio {
   width: 100%;
-  max-width: 500px;
+  max-width: 700px;
   margin: 20px 0; 
   transition: box-shadow 0.3s ease-in-out;
-  height: 500px;
+  height: 450px;
   margin-top: 70px;
+  border: solid 1px grey;
+  opacity: 0.3 !important; /* Opacidad inicial */
+}
+
+.imagenFiltrotabla:hover,
+.imagenFiltroaccesorio:hover {
+  opacity: 1 !important; /* Opacidad al hacer hover */
 }
 
 .categorys {
@@ -14,14 +21,26 @@
   flex-direction: row;
   flex-wrap: nowrap; /* Asegura que los elementos no se envuelvan a la siguiente línea */
   justify-content: space-around; /* Distribuye el espacio restante alrededor de los elementos */
-} 
+  position: relative; 
+}
 
 .category {
   flex: 1; /* Los elementos crecerán y se encogerán para llenar el espacio restante */
   transition: transform 0.3s ease-in-out;
   z-index: 0;
   margin-top: 20px;
-  margin-right: 370px;
+  margin-right: 240px;
+  position: relative;
+}
+
+.category:before {
+
+  position: absolute; /* Establece el posicionamiento absoluto */
+  top: 50%; /* Posiciona el texto en la mitad vertical */
+  left: 50%; /* Posiciona el texto en la mitad horizontal */
+  transform: translate(-50%, -50%); /* Centra el texto */
+  color: white; /* Color del texto */
+  font-size: 20px; /* Tamaño de fuente del texto */
 }
 
 .category1 {
@@ -29,8 +48,36 @@
   transition: transform 0.3s ease-in-out;
   z-index: 0;
   margin-top: 20px;
-  margin-left: 370px;
+  margin-left: 240px;
+  position: relative;
+  
 }
+
+
+.category1:before {
+  
+  position: absolute; /* Establece el posicionamiento absoluto */
+  top: 50%; /* Posiciona el texto en la mitad vertical */
+  left: 50%; /* Posiciona el texto en la mitad horizontal */
+  transform: translate(-50%, -50%); /* Centra el texto */
+  color: white; /* Color del texto */
+  font-size: 20px; /* Tamaño de fuente del texto */
+}
+
+.categoryText,
+.category1Text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+ 
+}
+
+
 
 .recommendedProductsContainer {
   margin-top: 20px;
@@ -84,3 +131,42 @@
 .recommendedProductsContainer h2 {
   color: white;
 }
+.topBoxesContainer {
+  margin-top: -10px; /* Espacio entre los dos contenedores de cuadros */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; /* Distribuye el espacio restante alrededor de los elementos */
+  height: fit-content;
+}
+
+.bottomBoxesContainer {
+   /* Espacio entre los dos contenedores de cuadros */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; /* Distribuye el espacio restante alrededor de los elementos */
+  margin-top: -105px;
+  
+}
+
+.category1 .category1Text,
+.category .categoryText {
+  opacity: 1; /* Cambia la opacidad al hacer hover o siempre */
+  text-transform: uppercase;
+  font-family: Gotham;
+  font-weight: 3000;
+}
+
+
+
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../../assets/GothamRnd-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+
