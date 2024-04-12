@@ -4,8 +4,8 @@ import Carrusel from '../Carrusel/Carrusel.jsx'
 import { Link } from 'react-router-dom'
 import styles from "./home.module.css"
 import raquetas from "./bola.jpeg"
-import paletas from "./RaquetasCat.png"
-import indumentaria from "./indu.png"
+import paletas from "../../assets/RaquetasCat.png"
+import indumentaria from "../../assets/remera.jpg"
 import accesorios from "./accesorios.png"
 import AOS from 'aos';
 import 'aos/dist/aos.css';
