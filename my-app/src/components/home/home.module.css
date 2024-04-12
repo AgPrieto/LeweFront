@@ -77,6 +77,27 @@
  
 }
 
+.categoryText::before,
+.category1Text::before {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Ajusta la posición de la línea debajo del texto */
+  left: 50%; /* Centra horizontalmente la línea */
+  transform: translateX(-50%); /* Centra horizontalmente la línea */
+  width: 80%; /* Ancho de la línea */
+  height: 2px; /* Altura de la línea */
+  background-color: red; /* Cambia el color de la línea a rojo */
+  opacity: 0; /* Por defecto, la línea no es visible */
+  transition: opacity 0.3s ease, width 0.3s ease; /* Transición para la opacidad y el ancho */
+}
+
+.category:hover .categoryText::before,
+.category1:hover .category1Text::before {
+  opacity: 1; /* Hace visible la línea al hacer hover */
+  width: 100%; /* Anima el ancho de la línea al hacer hover */
+}
+
+
 
 
 .recommendedProductsContainer {
