@@ -48,7 +48,7 @@ const Home = () => {
           <div className={styles.category1}>
             <Link to={"/category/108312e1-bed1-4468-aaed-657307fb2267"}>
               <img
-                data-aos="fade-right"
+                data-aos="fade-up"
                 data-aos-duration="1000"
                 src={accesorios}
                 alt="Accesorios"
@@ -60,7 +60,7 @@ const Home = () => {
           <div className={styles.category}>
             <Link to={"/category/indumentaria"}>
               <img
-                data-aos="fade-right"
+                data-aos="fade-up"
                 data-aos-duration="1000"
                 src={indumentaria}
                 alt="Indumentaria"
@@ -75,7 +75,7 @@ const Home = () => {
           <div className={styles.category1}>
             <Link to={"/category/4567773c-ab96-41aa-b9fa-ffa331fe4d7f"}>
               <img
-                data-aos="fade-right"
+                data-aos="fade-up"
                 data-aos-duration="1000"
                 src={paletas}
                 alt="Raquetas"
@@ -87,7 +87,7 @@ const Home = () => {
           <div className={styles.category}>
             <Link to={"/category/d5033fd4-8d56-4e02-b816-78b4f65ee660"}>
               <img
-                data-aos="fade-right"
+                data-aos="fade-up"
                 data-aos-duration="1000"
                 src={raquetas}
                 alt="Pelotas"
