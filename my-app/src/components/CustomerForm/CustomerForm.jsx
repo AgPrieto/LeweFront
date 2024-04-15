@@ -10,7 +10,7 @@ import leweIcon from './lewe.png'
 import 'hover.css/css/hover-min.css';
 import { clearCart } from '../../redux/actions/cartActions';
 import { useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 const CustomerForm = (cartArticles) => {
 
   const dispatch = useDispatch();
@@ -57,7 +57,17 @@ const handleSubmit = (e) => {
   setErrors(validateCustomer(customer));
   try {
     dispatch(sendOrder(whatsappOrder));
-    dispatch(clearCart()); // Limpia el carrito
+    dispatch(clearCart())
+      
+        Swal.fire({
+          icon: "success",
+          title: '<span style="color:white">¡Enviado!</span>',
+          background: "#161616",
+          html: '<p style="color:white">Comprobante enviado</p>',
+          confirmButtonColor: "#d33",
+        });
+     
+     // Limpia el carrito
     navigate("/"); // Redirige al usuario a la página principal
   } catch (error) {
     alert(error.message)
