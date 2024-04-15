@@ -41,8 +41,6 @@
   border-top: 2.5px solid;
   border-bottom: 2.5px solid;
   border-color: rgb(66, 66, 66);
-  
-
 }
 
 .imgContainer img {
@@ -50,7 +48,6 @@
   height: 730px;
   transition: transform 0.3s ease;
   cursor: zoom-in;
-  
 }
 
 .imgContainer img:hover {
@@ -59,11 +56,9 @@
 
   .imgContainer p{
     color: white;
-
   }
 
   .cartButton  {
-    
     padding: 10px 20px;
     background-color: red;
     color: #fff;
