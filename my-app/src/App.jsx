@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from 'react';
 import Home from "./components/home/home";
 import NavBar from "./components/NavBar/NavBar";
+
 import Footer from "./components/Footer/Footer"
 import Categories from "./components/Categories/Categories";
 import Detail from "./components/Detail/detail";

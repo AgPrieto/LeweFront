@@ -238,3 +238,11 @@
     justify-content: space-around;
   }
 }
+
+@media (max-width: 500px) {
+  .carrousel{
+    margin-top: 80px;
+  }
+
+ 
+}
