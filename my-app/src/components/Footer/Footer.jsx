@@ -8,9 +8,8 @@ const Footer = () => {
   return (
     <div className={styles.footerContainer}>
       <div className={styles.footer}>
-        <div className={styles.column}>
-          <img src={leweBlack} alt="leweBlack" />
-        </div>
+        <img src={leweBlack} alt="leweBlack" className={styles.logoFooter}/>
+        <div className={styles.categoriesAndInfo}>
         <div className={styles.column}>
           <h3>Categorías</h3>
           <ul>
@@ -38,11 +37,13 @@ const Footer = () => {
         </div>
         <div className={styles.column1}>
           <h3>Información</h3>
+
           <ul>
             <Link to={"/contact"}>
             <li>Contacto</li>
             </Link>
           </ul>
+          </div>
         </div>
         <div>
         <div className={styles.column}>
