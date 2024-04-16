@@ -36,7 +36,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className={styles.column}>
+        <div className={styles.column1}>
           <h3>Información</h3>
           <ul>
             <Link to={"/contact"}>
@@ -44,6 +44,7 @@ const Footer = () => {
             </Link>
           </ul>
         </div>
+        <div>
         <div className={styles.column}>
           <ul className={styles.socials}>
             <li>
@@ -58,7 +59,6 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
           <p className={styles.rightContent}>
             © 2018 Lewe SportsLife. Todos los derechos reservados.
           </p>
