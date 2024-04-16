@@ -187,7 +187,7 @@
   font-style: normal;
 }
 
-@media (max-width: 2496px) {
+@media (max-width: 1800px) {
   
   .categorys {
     flex-direction: row;
@@ -210,7 +210,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media  (max-width: 1024px) {
   .categorys {
     flex-direction: column;
     justify-content: space-around;
