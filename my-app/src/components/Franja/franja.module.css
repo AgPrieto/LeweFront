@@ -42,3 +42,31 @@
   margin: 20px;
   margin-left: 50px;
 }
+
+.parrafo {
+  color: white;
+  font-size: 17px;
+}
+.avatar{
+  background-color:#a01c0e ;
+  margin-top:50px;
+}
+.icono{
+  color: white;
+  font-size: 40px;
+}
+
+@media (max-width: 1024px) {
+  .parrafo {
+    font-size: 10px;
+  }
+  .avatar{
+    background-color:#a01c0e ;
+    margin-top:50px;
+  }
+  .icono{
+    color: white;
+    font-size: 35px;
+  }
+
+}

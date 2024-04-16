@@ -40,6 +40,22 @@
     align-items: center;
     margin-left: 100px;
   }
+  .column1{
+    flex: 1;
+  }
+  .column1 h3 {
+    margin-bottom: 10px;
+  }
+  
+  .column1 ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 122.5px;
+  }
+  
+  .column1 ul li {
+    margin-bottom: 5px;
+  }
 
   .socials li svg {
     width: 30px;
@@ -62,5 +78,30 @@
 }
 .footer a:hover {
   color: #F93822;
+
+}
+
+@media(max-width: 1024px) {
+  .footer {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .column {
+    margin-bottom: 20px;
+    
+  }
+
+  .column ul.socials {
+    margin-left: 150px;
+  }
+
+  .rightContent {
+    margin-right: 10px;
+  }
+
+  .column img {
+    width: 200px;
+  }
 
 }

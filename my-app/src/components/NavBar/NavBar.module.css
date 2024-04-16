@@ -148,13 +148,13 @@ border: none;
 .adminButton {
   margin-top: 5.8px;
 }
-
-
-
-
-
-
-
+@media (max-width: 1024px) {
+  .buttonGroup {
+    margin-left: 90px;
+    margin-right: 30px;
+  }
+  
+}
 
   
   
