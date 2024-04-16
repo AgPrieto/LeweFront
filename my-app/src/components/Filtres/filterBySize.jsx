@@ -28,8 +28,9 @@ const FilterBySize = () => {
 
   return (
     
-    <div className={`${styles.checkboxContainer}`}>
+    <div className={styles.container}>
       <h4>Filtrar por talle:</h4>
+    <div className={`${styles.checkboxContainer}`}>
       <Checkbox
       className={styles.checkboxStyle}
         checked={selectedTalles.includes("stockXS")}
@@ -72,6 +73,7 @@ const FilterBySize = () => {
       >
         XXL
       </Checkbox>
+      </div>
     </div>
     
   );
