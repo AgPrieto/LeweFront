@@ -13,9 +13,6 @@ import InfiniteSlider from '../InfiniteSlider/InfiniteSlider.jsx';
 import { useSelector } from "react-redux";
 import HowToBuyContainer from "../Franja/franja.jsx";
 
-
-
-
 const Home = () => {
   const cart = useSelector((state) => state.cartReducer.cart);
   const savedArticlesBackup = localStorage.getItem("articlesBackup");
