@@ -112,3 +112,8 @@
   }
 
 }
+@media (max-width:1800px){
+  .column1 {
+    margin-top: 22px;
+  }
+}
