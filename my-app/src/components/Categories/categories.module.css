@@ -58,6 +58,10 @@
 .description {
   font-size: 14px;
   text-align: center;
+  max-height: 40px; /* Altura máxima para la descripción */
+  overflow: hidden; /* Oculta el texto que excede la altura máxima */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos (...) al final del texto que se corta */
+  white-space: nowrap;
 }
 
 .price {
@@ -143,41 +147,58 @@
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-    flex-wrap: nowrap;
-    margin-left: 70px;
+    /* Alinea los elementos al inicio del contenedor */
+    align-items: center;
+    overflow-x: hidden;
+    
   }
-
-
+  
   .filters {
     margin-right: 0;
     flex-direction: row;
   }
-
-  .card {
-    max-height: 500px;
-    max-width: 500px;
-    margin-right: 10px;
-  }
-
-  .imgCard {
-    max-height: 120px;
-    max-width: 100%;
-  }
-
-  .card p {
-    font-size: x-small;
-  }
-
   .cardContainer {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    margin-right: 0px;
-    margin-left: 0px;
+    flex-direction: row;
+    max-width: 100%;
+    max-height: 100%;
+    margin-right: 5px;
+    margin-left: 20px;
     /* Agrega margen a la izquierda de las tarjetas */
     margin-top: 10px;
     margin-bottom: 0px;
   }
+  .card {
+    max-width: 45%;
+    height: 320px;
+    width: 100%;
+    flex-basis: calc((50% - 10px));
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .card p {
+    text-align: left;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  
+  .imgCard {
+    max-height: 200px;
+    max-width: 100%;
+  }
+  .name{
+    font-size: small;
+  }
+  .price {
+    font-size: medium;
+  }
+
+  .description{
+    font-size: x-small;
+  }
+
 
   .errorContainer {
     margin-left: 0;
@@ -187,7 +208,6 @@
     position: relative; /* Asegura que el botón esté posicionado relativo a este contenedor */
     text-align: center;
     margin-top: 20px;
-    margin-left: 110px;
   }
   
   .showFiltersButton {
