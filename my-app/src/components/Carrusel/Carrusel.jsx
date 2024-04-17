@@ -7,28 +7,31 @@ import { useDispatch } from "react-redux";
 import { getAllCategories } from "../../redux/actions/categoriesActions";
 import { getAllArticles } from "../../redux/actions/articlesActions";
 import { useSelector } from "react-redux";
-import { Carousel } from 'antd';
+import { Carousel } from "antd";
 
 const Carrusel = () => {
-    const dispatch = useDispatch();
-    const articles = useSelector((state) => state.articlesReducer.articles);
-    console.log(articles);
+  const dispatch = useDispatch();
+  const articles = useSelector((state) => state.articlesReducer.articles);
+  console.log(articles);
 
-    useEffect(() => {
-        dispatch(getAllCategories());
-        dispatch(getAllArticles());
-      }, [dispatch]);
+  useEffect(() => {
+    dispatch(getAllCategories());
+    dispatch(getAllArticles());
+  }, [dispatch]);
 
-  const images = data.map((event) => (
-    event.image
-  ))
+  const images = data.map((event) => event.image);
 
-  
   return (
     <Carousel autoplay draggable className={styles.carousel}>
       {images.map((image, index) => (
         <div key={index}>
-          <img src={image} alt={`slide-${index}`} className={styles.carusel} />
+          <img
+            src={image}
+            alt={`slide-${index}`}
+            className={
+            styles.carusel
+            }
+          />
         </div>
       ))}
     </Carousel>

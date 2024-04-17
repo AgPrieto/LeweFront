@@ -57,4 +57,12 @@ $animationSpeed: 15s;
 	align-items: center;
 	margin: 0px
 }
-
+@media (max-width: 768px) {
+	.slider1 {
+		height: 20px;
+	}
+	.slide {
+		height: 40px;
+		width: 125px;
+	}
+}
