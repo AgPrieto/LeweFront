@@ -20,7 +20,7 @@ const FilterPrice = () => {
     <div className={styles.price}>
       <h4>Filtrar por precio: </h4>
       <Slider
-  style={{ width: "80%" }}
+  className={styles.slider}
   range={{ draggableTrack: true }}
   max={200000}
   value={sliderValues}

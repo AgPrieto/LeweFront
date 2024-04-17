@@ -249,10 +249,32 @@
   }
 }
 
-@media (max-width: 500px) {
-  .carrousel{
-    margin-top: 80px;
+@media (max-width: 768px) {
+  .categorys {
+    flex-direction: column;
+    justify-content: space-around;
   }
 
- 
+  .category {
+    margin-right: 0;
+    margin-top: 0px;
+
+  }
+
+  .category1 {
+    margin-left: 0;
+  }
+
+  .topBoxesContainer {
+    flex-direction: column;
+    margin-top: -10px;
+    justify-content: space-around;
+  }
+
+  .bottomBoxesContainer {
+    flex-direction: column;
+    margin-top: -105px;
+    justify-content: space-around;
+  }
 }
+

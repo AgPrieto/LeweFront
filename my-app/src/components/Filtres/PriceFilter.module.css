@@ -8,10 +8,16 @@
     width: 160px;
     text-align: left;
 }
+.slider {
+    width: 80%; 
+}
 @media (max-width: 768px) {
     .price{
         width: 100%;
         text-align: center;
-        font-size: large;
+        font-size: small;
+    }
+    .slider{
+        width: 50%;      
     }
 }
