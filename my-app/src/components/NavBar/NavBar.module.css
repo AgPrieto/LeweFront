@@ -9,10 +9,10 @@
   width: 100%;
   position: fixed;
   top: 0;
-  left: 0;
   box-sizing: border-box;
   font-family: Gotham;
   z-index: 100;
+  
 }
 
 .logo {
@@ -24,7 +24,7 @@
 .buttonGroup {
   display: flex;
   justify-content: space-between;
-  margin-left: 200px;
+  margin-left: 125px;
 }
 
 .buttonGroup button {
