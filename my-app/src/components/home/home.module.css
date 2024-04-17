@@ -197,7 +197,7 @@
   font-style: normal;
 }
 
-@media (max-width: 1800px) {
+@media (max-width: 1920px) {
   
   .categorys {
     flex-direction: row;
