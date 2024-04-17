@@ -176,7 +176,17 @@
   font-family: Gotham;
   font-weight: 3000;
 }
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
+.loader {
+  width: 70px;
+  height: 70px;
+}
 
 
 
