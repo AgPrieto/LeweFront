@@ -101,8 +101,14 @@
   .rightContent {
     margin-right: 10px;
   }
+  .categoriesAndInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
 
-  .column img {
+  .logoFooter {
     width: 200px;
   }
   .column1{

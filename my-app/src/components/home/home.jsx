@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import Carrusel from '../Carrusel/Carrusel.jsx'
 import { Link } from 'react-router-dom'
 import styles from "./home.module.css"
@@ -12,25 +12,45 @@ import 'aos/dist/aos.css';
 import InfiniteSlider from '../InfiniteSlider/InfiniteSlider.jsx';
 import { useSelector } from "react-redux";
 import HowToBuyContainer from "../Franja/franja.jsx";
+import { getAllArticles } from '../../redux/actions/articlesActions.js'
+import { useDispatch } from 'react-redux';
+import loader from "./loader.gif";
+
 
 const Home = () => {
   const cart = useSelector((state) => state.cartReducer.cart);
   const savedArticlesBackup = localStorage.getItem("articlesBackup");
-  const articlesBackup = JSON.parse(savedArticlesBackup);
-  
+  const cartItemsBackup = JSON.parse(savedArticlesBackup);
+  const articlesBackup = useSelector((state) => state.articlesReducer.articlesBackup);
+  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  console.log(articlesBackup);
 
   useEffect(() => {
-    AOS.init();
-  }, []);
+    setIsLoading(true)
+    dispatch(getAllArticles()).then(() => {
+      setIsLoading(false); // Oculta la imagen de carga después de cargar la categoría
+      AOS.init();
+    });
+  }, [dispatch]);
 
 
-  const availableProducts = articlesBackup.product.filter(
-    (product) => !cart.some((cartItem) => cartItem.id === product.id)
-  );
-
-  const recommendedProducts = availableProducts
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 4);
+  
+  if (isLoading) {
+    return (
+      <div className={styles.loaderContainer}>
+        <img src={loader} alt="Loading..." className={styles.loader} />
+        </div>
+      );
+    }
+    
+    const availableProducts = cartItemsBackup.length ? articlesBackup.product.filter(
+      (product) => !cart.some((cartItem) => cartItem.id === product.id)
+    ) : savedArticlesBackup.product || articlesBackup.product;
+  
+    const recommendedProducts = availableProducts
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 4);
 
     return (
       <div>
