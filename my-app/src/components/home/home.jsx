@@ -16,6 +16,7 @@ import { getAllArticles } from '../../redux/actions/articlesActions.js'
 import { useDispatch } from 'react-redux';
 import loader from "./loader.gif";
 
+
 const Home = () => {
   const cart = useSelector((state) => state.cartReducer.cart);
   const savedArticlesBackup = localStorage.getItem("articlesBackup");
