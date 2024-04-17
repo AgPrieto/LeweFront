@@ -20,16 +20,16 @@
     .price{
         width: 100%;
         text-align: center;
-        font-size: large;
+        font-size: small;
     }
     .selectStyle {
         width: 100%;
         text-align: center;
-        font-size: 14px;
+        font-size: x-small;
       }
       .selectStyle option {
         color: #919191;
         background-color: #010101;
-        font-size: 12px;
+        font-size: x-small;
       }
   }

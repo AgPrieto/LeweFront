@@ -79,12 +79,6 @@
   /* Asegura que no haya relleno alrededor de la imagen */
 }
 
-@media (min-width: 768px) {
-  .card {
-    max-width: none;
-    max-width: calc(25% - 20px);
-  }
-}
 
 .loaderContainer {
   display: flex;
@@ -149,8 +143,10 @@
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
+    flex-wrap: nowrap;
     margin-left: 70px;
   }
+
 
   .filters {
     margin-right: 0;
@@ -169,7 +165,7 @@
   }
 
   .card p {
-    font-size: 5px;
+    font-size: x-small;
   }
 
   .cardContainer {
@@ -187,13 +183,28 @@
     margin-left: 0;
   }
 
-  .showFiltersButton {
+  .showFiltersButtonContainer {
+    position: relative; /* Asegura que el botón esté posicionado relativo a este contenedor */
     text-align: center;
     margin-top: 20px;
     margin-left: 110px;
   }
-
-  .title h1 {
+  
+  .showFiltersButton {
+    position: relative; /* Permite que el ícono se posicione absolutamente dentro del botón */
+    background-color: #161616;
+    width: 20px; /* Ajusta el tamaño del botón según sea necesario */
+    height: 20px; /* Ajusta el tamaño del botón según sea necesario */
+    border: none; /* Quita el borde del botón si no lo necesitas */
+  }
+  
+  .icon {
+    position: absolute; /* Posiciona el ícono dentro del botón */
+    top: 50%; /* Centra verticalmente el ícono */
+    left: 50%; /* Centra horizontalmente el ícono */
+    transform: translate(-50%, -50%); /* Corrige la posición para que el ícono esté completamente centrado */
+  }
+    .title h1 {
     font-size: 20px;
   }
 
