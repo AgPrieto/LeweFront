@@ -258,11 +258,17 @@
   .category {
     margin-right: 0;
     margin-top: 0px;
-
+    height: 100px;
+    width: 350px;
+    margin-left: 20px;
   }
 
   .category1 {
     margin-left: 0;
+    height: 100px;
+    width: 350px;
+    margin-left: 20px;
+    height: auto;
   }
 
   .topBoxesContainer {
@@ -276,5 +282,23 @@
     margin-top: -105px;
     justify-content: space-around;
   }
+}
+
+.recommendedImage {
+  width: 250px;
+  height: 250px;
+  margin-top: 20px;
+  margin-right: 45px;
+}
+
+.recommendedName {
+  margin: 10px 0;
+  margin-right: 45px;
+}
+
+.recommendedPrice {
+  color: white;
+  font-size: small;
+  margin-right: 45px;
 }
 

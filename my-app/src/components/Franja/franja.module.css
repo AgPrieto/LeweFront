@@ -1,73 +1,64 @@
-@font-face {
-    font-family: 'Gotham';
-    src: url('../../assets/GothamRnd-Light.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
 .container {
   display: flex;
   flex-direction: column;
-  height: 200px;
   background-color: #16161600;
-
   box-shadow: 0px 0px 10px 0px #ba0505;
   margin-top: 100px;
   align-items: center;
   justify-content: center;
-  font-family: 'Gotham';
+  font-family: "Gotham";
   text-align: center;
- margin-bottom: 100px;
+  margin-bottom: 100px;
+  overflow-x: auto; /* Añadido para permitir el desplazamiento horizontal en pantallas estrechas */
 }
 
 .container > div:first-child {
-  
-    margin-bottom: 60px;
-    font-weight: 800;
-}
-
-.container > div:last-child {
-  display: flex;
-  justify-content: space-between;
-  
-}
-
-.container > div:last-child > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  width: 25%;
+  margin-bottom: 60px;
   font-weight: 800;
+}
+
+.container > div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Cambiado para permitir que los elementos se envuelvan en pantallas estrechas */
+}
+
+.step {
+  display: flex;
+  flex-direction: column; /* Cambiado para que el texto vaya hacia abajo en pantallas estrechas */
+  align-items: center;
   margin: 20px;
-  margin-left: 50px;
+  min-width: 150px; /* Añadido para asegurar que los avatares no se contraigan demasiado */
 }
 
 .parrafo {
   color: white;
   font-size: 17px;
+  margin-top: 10px; /* Añadido espacio entre el ícono y el texto */
 }
-.avatar{
-  background-color:#a01c0e ;
-  margin-top:50px;
+
+.avatar {
+  background-color: #a01c0e;
+  margin-top: 50px;
 }
-.icono{
+
+.icono {
   color: white;
   font-size: 40px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 790px) {
   .parrafo {
-    font-size: 10px;
-  }
-  .avatar{
-    background-color:#a01c0e ;
-    margin-top:50px;
-  }
-  .icono{
-    color: white;
-    font-size: 35px;
+    font-size: 14px;
   }
 
+  .avatar {
+    margin-top: 20px;
+  }
+
+  .icono {
+    font-size: 30px;
+  }
 }
+
 
