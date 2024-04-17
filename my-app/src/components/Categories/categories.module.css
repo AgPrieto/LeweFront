@@ -143,7 +143,12 @@
     margin-left: 50px;
   }
 }
-
+@media (min-width: 768px) {
+  .card {
+    max-width: none;
+    max-width: calc(25% - 20px);
+  }
+}
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
