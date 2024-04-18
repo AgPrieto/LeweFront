@@ -1,7 +1,7 @@
 .detailsContainer {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    height: auto;
     text-align: left;
     width: 70%;
     padding-bottom: 20px;
@@ -33,7 +33,7 @@
   position: relative;
   margin-top: 40px;
   width: 60%;
-  height: 690px;
+  height: 75vh;
   overflow: hidden;
   z-index: 0;
   border-right: 2.5px solid;
@@ -123,17 +123,18 @@
     }
     .imgContainer {
       position: relative;
+      overflow: none;
       margin-top: 40px;
       margin-left: 22px;
-      width: 320px;
-      height: 900px;
-      
+      width: 320px; 
+      height: 400px;
       z-index: 0;
       border-right: 2.5px solid;
       border-left: 2.5px solid;
       border-top: 2.5px solid;
       border-bottom: 2.5px solid;
       border-color: rgb(66, 66, 66);
+      
     }
     .description{
       font-size: small;
@@ -144,8 +145,8 @@
     }
 
     .imgContainer img {
-      width: 340px;
-      height: 340px;
+      width: 350px;
+      height: 380px;
       transition: transform 0.3s ease;
     }
     .cantidadInput {
@@ -161,4 +162,5 @@
     .cantidadLabel {
       font-size: medium;
     }
+    
 }
