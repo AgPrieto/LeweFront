@@ -193,19 +193,19 @@ const imgRef = useCallback(node => {
       </div>
       <h3>DESCRIPCION</h3>
 
-      <p>{detail.description}</p>
-          <button 
-            className={style.cartButton} 
-            onClick={handleAddToCart} 
-            disabled={isButtonDisabled}
-            style={{
-              backgroundColor: isButtonDisabled ? 'gray' : 'red',
-              borderColor: isButtonDisabled ? 'gray' : 'red',
-              cursor: isButtonDisabled ? 'not-allowed' : 'pointer',
-              width: isButtonDisabled ? "435px" : "auto",
-              height: isButtonDisabled ? "45px" : "auto",
-            }}
-          >
+      <p className={style.description}>{detail.description}</p>
+      <button 
+    className={`${style.cartButton} ${isButtonDisabled && window.innerWidth <= 768 ? style.mobileButton : ''}`} 
+    onClick={handleAddToCart} 
+    disabled={isButtonDisabled}
+    style={{
+        backgroundColor: isButtonDisabled ? 'gray' : 'red',
+        borderColor: isButtonDisabled ? 'gray' : 'red',
+        cursor: isButtonDisabled ? 'not-allowed' : 'pointer',
+        width: isButtonDisabled ? "435px" : "auto",
+        height: isButtonDisabled ? "45px" : "auto",
+    }}
+>
             <Link to="/cart" style={{ textDecoration: 'none', color: "white" }}>
             AGREGAR AL CARRITO
         </Link>
