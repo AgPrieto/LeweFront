@@ -249,7 +249,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .categorys {
     flex-direction: column;
     justify-content: space-around;
@@ -282,23 +282,25 @@
     margin-top: -105px;
     justify-content: space-around;
   }
+
+  .recommendedImage {
+    width: 250px;
+    height: 250px;
+    margin-top: 20px;
+    margin-right: 45px;
+  }
+  
+  .recommendedName {
+    margin: 10px 0;
+    margin-right: 45px;
+  }
+  
+  .recommendedPrice {
+    color: white;
+    font-size: small;
+    margin-right: 45px;
+  }
 }
 
-.recommendedImage {
-  width: 250px;
-  height: 250px;
-  margin-top: 20px;
-  margin-right: 45px;
-}
 
-.recommendedName {
-  margin: 10px 0;
-  margin-right: 45px;
-}
-
-.recommendedPrice {
-  color: white;
-  font-size: small;
-  margin-right: 45px;
-}
 
