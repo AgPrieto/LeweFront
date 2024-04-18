@@ -35,7 +35,7 @@ const Categories = () => {
   const filteredProducts = useSelector(
     (state) => state.categoriesReducer.filteredProducts
   );
-  const [showFilters, setShowFilters] = useState(true);
+  const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
     setIsLoading(true); // Muestra la imagen de carga al iniciar la carga de la categoría
@@ -91,7 +91,7 @@ const Categories = () => {
             </button>
           </div>
         )}
-        {showFilters && (
+        {window.innerWidth < 790 ? ( showFilters && (
           <div className={style.filters}>
             {filteredProducts && <FilterPrice />}
             {filteredProducts && <OrderByPrice />}
@@ -100,6 +100,15 @@ const Categories = () => {
               id !== "d5033fd4-8d56-4e02-b816-78b4f65ee660" &&
               filteredProducts && <FilterBySize />}
           </div>
+        )) : (
+          <div className={style.filters}>
+          {filteredProducts && <FilterPrice />}
+          {filteredProducts && <OrderByPrice />}
+          {id !== "108312e1-bed1-4468-aaed-657307fb2267" &&
+            id !== "4567773c-ab96-41aa-b9fa-ffa331fe4d7f" &&
+            id !== "d5033fd4-8d56-4e02-b816-78b4f65ee660" &&
+            filteredProducts && <FilterBySize />}
+        </div>
         )}
         {!category || !filteredProducts || filteredProducts.length === 0 ? (
           <div className={style.errorContainer}>
