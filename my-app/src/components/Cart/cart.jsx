@@ -13,7 +13,6 @@ import "aos/dist/aos.css";
 import { IoMdClose } from "react-icons/io";
 import { GrShop } from "react-icons/gr";
 
-
 const Cart = () => {
   useEffect(() => {
     AOS.init({
@@ -52,6 +51,7 @@ const Cart = () => {
   const recommendedProducts = availableProducts
     .sort(() => 0.5 - Math.random())
     .slice(0, 4);
+
   return (
     <div className={styles.cartContainer}>
       <h1>CARRITO</h1>
@@ -62,33 +62,36 @@ const Cart = () => {
             <p>No hay productos en el carrito.</p>
             <p>Una vez añadas algo, aparecerá acá. Empecemos!</p>
             <Link to={"/"}>
-            <button className={styles.shop}> <GrShop /></button>
+              <button className={styles.shop}>
+                {" "}
+                <GrShop />
+              </button>
             </Link>
           </div>
           <div className={styles.recommendedProductsContainer}>
-          <h2>TE PUEDE INTERESAR!</h2>
-          <ul className={styles.recommendedProductsList}>
-            {recommendedProducts.map((item) => (
-              <div data-aos="fade-up" key={item.id}>
-                <li className={styles.recommendedProductItem}>
-                  <Link
-                    to={`/details/${item.id}`}
-                    className={styles.recommendedLink}
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className={styles.recommendedImage}
-                    />
-                    <h2 className={styles.recommendedName}>{item.name}</h2>
-                    <p className={styles.recommendedPrice}>
-                      Precio: ${item.price}
-                    </p>
-                  </Link>
-                </li>
-              </div>
-            ))}
-          </ul>
+            <h2>TE PUEDE INTERESAR!</h2>
+            <ul className={styles.recommendedProductsList}>
+              {recommendedProducts.map((item) => (
+                <div data-aos="fade-up" key={item.id}>
+                  <li className={styles.recommendedProductItem}>
+                    <Link
+                      to={`/details/${item.id}`}
+                      className={styles.recommendedLink}
+                    >
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className={styles.recommendedImage}
+                      />
+                      <h2 className={styles.recommendedName}>{item.name}</h2>
+                      <p className={styles.recommendedPrice}>
+                        Precio: ${item.price}
+                      </p>
+                    </Link>
+                  </li>
+                </div>
+              ))}
+            </ul>
           </div>
         </div>
       ) : (
@@ -114,22 +117,57 @@ const Cart = () => {
                     >
                       <h2 className={styles.productName}>{item.name}</h2>
                     </Link>
-                    <p className={styles.productPrice}>Precio: ${item.price}</p>
-                    <p className={styles.productQuantity}>
-                      Cantidad: {item.quantity}
-                    </p>
-                    {item.size ? (
-                      <p className={styles.productSize}>Tamaño: {item.size}</p>
+                    {window.innerWidth < 768 ? (
+                      <div className={styles.mobileData}>
+                        <div className={styles.priceAndQtity}>
+                          <p className={styles.productPrice}>
+                            Precio: ${item.price}
+                          </p>
+                          <p className={styles.productQuantity}>
+                            Cantidad: {item.quantity}
+                          </p>
+                        </div>
+                        <div className={styles.mobileSizeAndDelete}>
+                          {item.size ? (
+                            <p className={styles.productSize}>
+                              Tamaño: {item.size}
+                            </p>
+                          ) : (
+                            <p className={styles.productSize}>&nbsp;</p> // Espacio reservado para 'size' cuando no está presente
+                          )}
+                          <button
+                            title="Eliminar del carrito"
+                            className={`${styles.deleteButton} hvr-icon-float`}
+                            onClick={() => handleRemoveFromCart(item)}
+                          >
+                            <MdDelete className="hvr-icon" />
+                          </button>
+                        </div>
+                      </div>
                     ) : (
-                      <p className={styles.productSize}>&nbsp;</p> // Espacio reservado para 'size' cuando no está presente
+                      <>
+                        <p className={styles.productPrice}>
+                          Precio: ${item.price}
+                        </p>
+                        <p className={styles.productQuantity}>
+                          Cantidad: {item.quantity}
+                        </p>
+                        {item.size ? (
+                          <p className={styles.productSize}>
+                            Tamaño: {item.size}
+                          </p>
+                        ) : (
+                          <p className={styles.productSize}>&nbsp;</p> // Espacio reservado para 'size' cuando no está presente
+                        )}
+                        <button
+                          title="Eliminar del carrito"
+                          className={`${styles.deleteButton} hvr-icon-float`}
+                          onClick={() => handleRemoveFromCart(item)}
+                        >
+                          <MdDelete className="hvr-icon" />
+                        </button>
+                      </>
                     )}
-                    <button
-                      title="Eliminar del carrito"
-                      className={`${styles.deleteButton} hvr-icon-float`}
-                      onClick={() => handleRemoveFromCart(item)}
-                    >
-                      <MdDelete className="hvr-icon" />
-                    </button>
                   </div>
                 </li>
               ))}

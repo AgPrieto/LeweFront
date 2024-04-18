@@ -134,9 +134,21 @@
     margin-right: 0;
     /* Elimina el margen a la derecha de los filtros */
   }
+  
+  .container {
+    display: flex;
+    align-items: flex-start;
+    /* Alinea los elementos al inicio del contenedor */
+    overflow-x: hidden;
+    background-color: aqua;
+    }
 
   .card {
     max-width: 1150px;
+  }
+  
+  .cardContainer {
+    margin-left: 5px;
   }
 
   .errorContainer {
@@ -213,14 +225,16 @@
     position: relative; /* Asegura que el botón esté posicionado relativo a este contenedor */
     text-align: center;
     margin-top: 20px;
+    outline: none; /* Quita el contorno del botón al hacer clic */
   }
   
   .showFiltersButton {
     position: relative; /* Permite que el ícono se posicione absolutamente dentro del botón */
     background-color: #161616;
-    width: 20px; /* Ajusta el tamaño del botón según sea necesario */
-    height: 20px; /* Ajusta el tamaño del botón según sea necesario */
+    width: 30px; /* Ajusta el tamaño del botón según sea necesario */
+    height: 30px; /* Ajusta el tamaño del botón según sea necesario */
     border: none; /* Quita el borde del botón si no lo necesitas */
+    outline: none; /* Quita el contorno del botón al hacer clic */
   }
   
   .icon {
@@ -228,6 +242,7 @@
     top: 50%; /* Centra verticalmente el ícono */
     left: 50%; /* Centra horizontalmente el ícono */
     transform: translate(-50%, -50%); /* Corrige la posición para que el ícono esté completamente centrado */
+    outline: none; /* Quita el contorno del botón al hacer clic */
   }
     .title h1 {
     font-size: 20px;
