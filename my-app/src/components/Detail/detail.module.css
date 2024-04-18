@@ -85,7 +85,7 @@
     width: 300px !important;
 }
 
-  @media (max-width: 500px) {
+  @media (max-width: 390px) {
     .detailsContainer {
         display: flex;
         flex-direction: column;
@@ -112,8 +112,8 @@
       margin-top: 40px;
       margin-left: 22px;
       width: 320px;
-      height: 800px !important;
-      overflow: hidden;
+      height: 690px;
+      
       z-index: 0;
       border-right: 2.5px solid;
       border-left: 2.5px solid;
@@ -129,6 +129,11 @@
       
     }
 
-    
+    .imgContainer img {
+      width: 340px;
+      height: 380px;
+      transition: transform 0.3s ease;
+     
+    }
     
 }
