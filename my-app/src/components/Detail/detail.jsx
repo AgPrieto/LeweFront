@@ -41,12 +41,12 @@ const SizeButtons = ({ detail, quantity, setQuantity, selectedSize, setSelectedS
       return (
           <div>
               <label>Cantidad</label>
-              <InputNumber 
+              <InputNumber
                   min={1} 
                   max={detail1[`stock${selectedSize}`]} 
                   value={quantity} 
                   onChange={value => setQuantity(value)} 
-                  style={{ marginLeft: '10px', height: '40px', width: '100px', fontSize: '20px', borderRadius: "0px", marginTop: "10px", }}
+                  className={style.cantidadInput}
               />
           </div>
       );
@@ -65,6 +65,7 @@ const SizeButtons = ({ detail, quantity, setQuantity, selectedSize, setSelectedS
                           outline: 'none',
                           backgroundColor: selectedSize === size ? 'red' : 'white',
                           color: selectedSize === size ? 'white' : 'initial',
+                          
                       }} 
                       onClick={() => handleSizeClick(size)}
                       >{size}</button>;
@@ -73,13 +74,13 @@ const SizeButtons = ({ detail, quantity, setQuantity, selectedSize, setSelectedS
               })}
               {selectedSize && (
                   <div>    
-                      <label>Cantidad</label>
+                      <label className={style.cantidadLabel}>Cantidad</label>
                       <InputNumber 
                           min={1} 
                           max={detail1[`stock${selectedSize}`]} 
                           value={quantity} 
                           onChange={value => setQuantity(value)} 
-                          style={{ marginLeft: '10px', height: '40px', width: '100px', fontSize: '20px', borderRadius: "0px", marginTop: "10px", }}
+                          className={style.cantidadInput}
                       />
                   </div>
               )}
@@ -166,7 +167,10 @@ const imgRef = useCallback(node => {
     }
   };
   
-  const isButtonDisabled = quantity === 0;
+  const isButtonDisabled = quantity === 0 || isNaN(parseInt(quantity)) || /^.*[0-9].*[a-zA-Z].*$/.test(quantity) || /^.*[a-zA-Z].*[0-9].*$/.test(quantity);
+
+
+
   if (isLoading) {
     return (
       <div className={style.loaderContainer}>
