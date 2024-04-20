@@ -2,12 +2,13 @@
 
 .contactContainer {
     color: white;
-    
+  
   }
   
   .contactInfo {
     width: 820px;
     margin-top: 110px;
+    
   }
   
   .contactInfo p {
@@ -82,6 +83,7 @@
 .containerInfoForm{
   display: flex;
   flex-direction: row;
+  
 }
 
 .contactHeader {
@@ -93,6 +95,169 @@
  height: 100px;
 }
 
+.map{
+  width: 800px;
+  height: 700px;
+  border: 0;
+  margin-top: 20px;
+}
+@media (max-width: 390px) {
+  .contactContainer {
+    color: white;
+    
+  }
+  .containerInfoForm{
+    display: flex;
+    flex-direction: column;
+    
+  }
 
+  .contactInfo {
+    width: 220px;
+    margin-top: 90px;
+    margin-bottom: 60px;
+    margin-left: 50px;
+    
+  }
+  .contactInfo p {
+    margin-bottom: 10px;
+    font-size: small;
+  }
+
+  .contactHeader {
+    margin-top: 100px;
+    margin-bottom: 70px;
+  }
+
+  .contactForm {
+    width: 300px;
+    justify-content: center;
+    margin-right: 120px;
+    margin-left: 35px;
+  }
+
+  .contactForm button {
+    padding: 10px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 130px;
+    margin: auto;
+    margin-left: 95px;
+    transition: transform 0.3s;
+    margin-top: 20px;
+  }
+
+  .contactForm h3 {
+    margin-left: 15px;
+  }
+
+  .map{
+    width: 340px;
+    height: 700px;
+    border: 0;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+  .contactContainer {
+    color: white;
+    
+  }
+  .containerInfoForm{
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  .contactInfo {
+    width: 220px;
+    margin-top: 90px;
+    margin-bottom: 60px;
+    margin-left: 45px;
+    
+  }
+  .contactInfo p {
+    margin-bottom: 10px;
+    font-size: medium;
+  }
+
+  .contactHeader {
+    margin-top: 100px;
+    margin-bottom: 70px;
+    
+  }
+
+  .contactForm {
+    width: 300px;
+    justify-content: center;
+    margin-right: 120px;
+    margin-left: 55px;
+  }
+
+  .contactForm button {
+    padding: 10px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 130px;
+    margin: auto;
+    margin-left: 95px;
+    transition: transform 0.3s;
+    margin-top: 20px;
+  }
+
+  .contactForm h3 {
+    margin-left: 15px;
+  }
+
+  .map{
+    width: 380px;
+    height: 700px;
+    border: 0;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 770px) and (max-width: 1024px) {
+  .containerInfoForm{
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  .contactInfo {
+    width: 220px;
+    margin-top: 90px;
+    margin-bottom: 60px;
+    margin-left: 300px;
+    
+  }
+
+  .map{
+    width: 900px;
+    height: 700px;
+    border: 0;
+    margin-top: 20px;
+  }
+
+  .contactForm {
+    width: 800px;
+    justify-content: center;
+    margin-right: 120px;
+    margin-left: 100px;
+  }
+
+  .contactHeader {
+    margin-bottom: 100px;
+    margin-left: 20px;
+  }
+  .contactForm h3 {
+    margin-left: 20px;
+  }
+}
 
 
