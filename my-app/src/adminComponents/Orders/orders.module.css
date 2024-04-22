@@ -46,5 +46,19 @@
   font-family: Gotham;
 }
 
+.totalContainerNo {
+  font-family: Gotham;
+}
 
+@media (min-width: 770px) and (max-width: 1024px) {
+  .totalContainer {
+    font-family: Gotham;
+    color: black;
+    margin-left: 150px !important;
+  }
+
+  .totalContainerNo {
+    font-family: Gotham;
+  }
+}
   

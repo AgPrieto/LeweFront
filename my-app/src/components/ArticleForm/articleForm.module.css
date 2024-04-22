@@ -155,3 +155,24 @@ input:focus {
 .errors {
   color: red;
 }
+
+@media (min-width: 770px) and (max-width: 1024px) {
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Divide el espacio disponible en dos */
+    font-family: Gotham;
+   margin-left: 20px;
+  }
+  .column1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Divide el espacio disponible en dos */
+    font-family: Gotham;
+    margin-right: 30px;
+  }
+}

@@ -19,6 +19,7 @@
   overflow-y: auto; 
   max-width: 1250px;
   margin-left: 250px;
+  
 }
 
 .productItem {
@@ -112,4 +113,14 @@
     justify-content: center; /* Centra horizontalmente los elementos en el contenedor */
     align-items: center; /* Centra verticalmente los elementos en el contenedor */
     height: 100vh; /* Opcional: hace que el contenedor ocupe toda la altura de la pantalla */
+    }
+
+    @media (min-width: 770px) and (max-width: 1024px) {
+      .productContainer {
+        max-height: 700px; 
+        overflow-y: auto; 
+        max-width: 1000px;
+        margin-left: 0px;
+        
+      }
     }

@@ -1,5 +1,5 @@
 .form {
-  margin-bottom: 250px;
+  margin-bottom: 160px;
   color: white;
   
 }
@@ -70,7 +70,7 @@
   
   @media  (max-width: 1024px) {
     .form {
-      margin-bottom: 380px;
+      margin-bottom: 38 0px;
       width: 1000px;
       color: white;
     }
