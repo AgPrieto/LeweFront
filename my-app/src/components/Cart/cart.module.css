@@ -318,6 +318,7 @@ align-items: center;
 }
 .mobileTotalPriceContainer h2{
   font-size: medium;
+  color: #ccc;
 }
 
  .buyButton{
@@ -357,6 +358,7 @@ align-items: center;
   border-top: none;
   & p {
     font-size: medium;
+    color: #ccc;
   }
 }
 .modal{
