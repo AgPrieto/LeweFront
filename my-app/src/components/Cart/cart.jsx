@@ -243,7 +243,7 @@ const Cart = () => {
                     maxHeight: "500px",
                     width: "600px",
                     border: "1px solid",
-                    overflowY: "hidden",
+                    overflowY: "scroll",
                   }: {
                     backgroundColor: "#161616",
                     padding: "20px",
