@@ -162,6 +162,7 @@ border: none;
     align-items: center;
     height: auto;
     width: 390px !important;
+    z-index: 10000;
   }
 
   .buttonGroup {

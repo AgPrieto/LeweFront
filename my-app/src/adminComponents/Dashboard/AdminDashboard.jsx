@@ -11,7 +11,7 @@ import {
   PieChartOutlined,
 } from "@ant-design/icons";
 
-//import styles from "./AdminDashboard.module.css";
+import styles from "./AdminDashboard.module.css";
 import ArticleForm from "../../components/ArticleForm/ArticleForm";
 import HandleArticles from "../HandleArticles/HandleArticles";
 import Invoice from "../../components/Invoice/Invoice";
@@ -76,6 +76,7 @@ const AdminDashboard = () => {
           top: 0,
           left: 0,
         }}
+        className={styles.sider}
       >
         <Menu
   theme="light"
@@ -95,7 +96,8 @@ const AdminDashboard = () => {
     background: "#161616", 
     margin: 0,
     zIndex: 1, 
-    textAlign: "start"
+    textAlign: "start",
+    marginTop: "20px"
   }}
 >
 <Menu.Item key="toggle" style={{ marginBottom: '60px', background: "#161616", color: "white"   }}>
