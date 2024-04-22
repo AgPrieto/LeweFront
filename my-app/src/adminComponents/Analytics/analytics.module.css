@@ -90,3 +90,12 @@ th, td {
   opacity: 1; /* Establece la opacidad deseada */
   box-shadow: 0 0 10px rgba(250, 250, 250, 0.9); /* Agrega una sombra alrededor de la imagen */
 }
+
+@media (min-width: 770px) and (max-width: 1024px) {
+  .disabledArticlesContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px; /* Ajusta este valor según tus necesidades */
+  }
+}
+
