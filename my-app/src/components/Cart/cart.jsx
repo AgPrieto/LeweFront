@@ -14,7 +14,6 @@ import { IoMdClose } from "react-icons/io";
 import { GrShop } from "react-icons/gr";
 import { Carousel } from "antd";
 
-
 const Cart = () => {
   useEffect(() => {
     AOS.init({
@@ -72,28 +71,55 @@ const Cart = () => {
           </div>
           <div className={styles.recommendedProductsContainer}>
             <h2>TE PUEDE INTERESAR!</h2>
-            <ul className={styles.recommendedProductsList}>
-              {recommendedProducts.map((item) => (
-                <div data-aos="fade-up" key={item.id}>
-                  <li className={styles.recommendedProductItem}>
-                    <Link
-                      to={`/details/${item.id}`}
-                      className={styles.recommendedLink}
-                    >
+            {window.innerWidth < 790 ? (
+              
+              <Carousel
+                autoplay
+                draggable
+                className={styles.carousel}
+                slidesToShow={2}
+                pauseOnHover
+                touchMove
+                dots={true}
+                adaptiveHeight
+                centerMode={false}
+              >
+                {recommendedProducts.map((item) => (
+                  <div key={item.id}>
+                    <Link to={`/details/${item.id}`}>
                       <img
                         src={item.image}
                         alt={item.name}
-                        className={styles.recommendedImage}
+                        className={styles.carouselImage}
                       />
-                      <h2 className={styles.recommendedName}>{item.name}</h2>
-                      <p className={styles.recommendedPrice}>
-                        Precio: ${item.price}
-                      </p>
                     </Link>
-                  </li>
-                </div>
-              ))}
-            </ul>
+                  </div>
+                ))}
+              </Carousel>
+            ) : (
+              <ul className={styles.recommendedProductsList}>
+                {recommendedProducts.map((item) => (
+                  <div data-aos="fade-up" key={item.id}>
+                    <li className={styles.recommendedProductItem}>
+                      <Link
+                        to={`/details/${item.id}`}
+                        className={styles.recommendedLink}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className={styles.recommendedImage}
+                        />
+                        <h2 className={styles.recommendedName}>{item.name}</h2>
+                        <p className={styles.recommendedPrice}>
+                          Precio: ${item.price}
+                        </p>
+                      </Link>
+                    </li>
+                  </div>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       ) : (
@@ -193,68 +219,74 @@ const Cart = () => {
               <div
                 data-aos="fade-down"
                 className={styles.modal}
-                style={window.innerWidth < 790?{
-                  position: "fixed",
-                  width: "300px",
-                  height: "75%",
-                  top: 50,
-                  left: 45,
-                  right: 0,
-                  bottom: 50,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  backgroundColor: "transparent",
-                  color: "black",
-                  zIndex: 2,
-                  backdropFilter: "blur(4px)",
-                  overflowY: "hidden",
-                  overflow: "hidden",
-                  overflowX: "hidden",
-                } : {
-                  position: "fixed",
-                  width: "2000px",
-                  height: "100%",
-                  marginLeft: "0px",
-                  top: 20,
-                  left: 0,
-                  right: 0,
-                  bottom: 50,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  backgroundColor: "transparent",
-                  color: "black",
-                  zIndex: 0,
-                  backdropFilter: "blur(4px)",
-                  overflowY: "auto",
+                style={
+                  window.innerWidth < 790
+                    ? {
+                        position: "fixed",
+                        width: "300px",
+                        height: "75%",
+                        top: 50,
+                        left: 45,
+                        right: 0,
+                        bottom: 50,
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        backgroundColor: "transparent",
+                        color: "black",
+                        zIndex: 2,
+                        backdropFilter: "blur(4px)",
+                        overflowY: "hidden",
+                        overflow: "hidden",
+                        overflowX: "hidden",
+                      }
+                    : {
+                        position: "fixed",
+                        width: "2000px",
+                        height: "100%",
+                        marginLeft: "0px",
+                        top: 20,
+                        left: 0,
+                        right: 0,
+                        bottom: 50,
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        backgroundColor: "transparent",
+                        color: "black",
+                        zIndex: 0,
+                        backdropFilter: "blur(4px)",
+                        overflowY: "auto",
+                      }
                 }
-              }
               >
                 <div
                   className={styles.modalContent}
-                  style={window.innerWidth < 790?
-                    {
-                    backgroundColor: "#161616",
-                    padding: "0px",
-                    borderRadius: "4px",
-                    color: "white",
-                    height: "auto",
-                    maxHeight: "500px",
-                    width: "600px",
-                    border: "1px solid",
-                    overflowY: "scroll",
-                  }: {
-                    backgroundColor: "#161616",
-                    padding: "20px",
-                    borderRadius: "4px",
-                    color: "white",
-                    height: "auto",
-                    maxHeight: "700px",
-                    width: "600px",
-                    border: "1px solid",
-                    overflowY: "auto",
-                  }}
+                  style={
+                    window.innerWidth < 790
+                      ? {
+                          backgroundColor: "#161616",
+                          padding: "0px",
+                          borderRadius: "4px",
+                          color: "white",
+                          height: "auto",
+                          maxHeight: "500px",
+                          width: "600px",
+                          border: "1px solid",
+                          overflowY: "scroll",
+                        }
+                      : {
+                          backgroundColor: "#161616",
+                          padding: "20px",
+                          borderRadius: "4px",
+                          color: "white",
+                          height: "auto",
+                          maxHeight: "700px",
+                          width: "600px",
+                          border: "1px solid",
+                          overflowY: "auto",
+                        }
+                  }
                 >
                   {/* Contenido del modal, en este caso el componente CustomerForm */}
                   <button
@@ -273,32 +305,32 @@ const Cart = () => {
           </div>
           {window.innerWidth < 790 ? (
             <div>
-            <div className={styles.recommendedProductsContainer}>
-            <p>TE PUEDE INTERESAR!</p>
-            </div>
-            <Carousel
-              autoplay
-              draggable
-              className={styles.carousel}
-              slidesToShow={2}
-              pauseOnHover
-              touchMove
-              dots={true}
-              adaptiveHeight
-              centerMode={false}
-            >
-              {recommendedProducts.map((item) => (
-                <div key={item.id}>
-                  <Link to={`/details/${item.id}`}>
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className={styles.carouselImage}
-                    />
-                  </Link>
-                </div>
-              ))}
-            </Carousel>
+              <div className={styles.recommendedProductsContainer}>
+                <p>TE PUEDE INTERESAR!</p>
+              </div>
+              <Carousel
+                autoplay
+                draggable
+                className={styles.carousel}
+                slidesToShow={2}
+                pauseOnHover
+                touchMove
+                dots={true}
+                adaptiveHeight
+                centerMode={false}
+              >
+                {recommendedProducts.map((item) => (
+                  <div key={item.id}>
+                    <Link to={`/details/${item.id}`}>
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className={styles.carouselImage}
+                      />
+                    </Link>
+                  </div>
+                ))}
+              </Carousel>
             </div>
           ) : (
             <div className={styles.recommendedProductsContainer}>
