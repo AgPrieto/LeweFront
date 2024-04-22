@@ -60,5 +60,25 @@
   .totalContainerNo {
     font-family: Gotham;
   }
+  .loader {
+    align-items: center;
+    margin-top: 140px;
+    height: 500px;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 390px) {
+  .loader {
+    margin-left: 70px;
+  }
+  .totalContainer {
+    font-family: Gotham;
+    color: black;
+    margin-left: 110px !important;
+    width: 250px !important;
+    margin-top: 100px !important;
+  }
+
 }
   

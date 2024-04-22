@@ -22,7 +22,7 @@ import { ThreeCircles } from 'react-loader-spinner'
 const Analytics = () => {
 
   const dispatch = useDispatch();
-
+  
   const totalArticles = useSelector(
     (state) => state.analyticsReducer.totalArticles
   );
@@ -33,7 +33,7 @@ const Analytics = () => {
     (state) => state.analyticsReducer.grossIncome
   );
   const mostSold = useSelector((state) => state.analyticsReducer.mostSold);
-
+  
   const categoriesData = useSelector(
     (state) => state.analyticsReducer.categoriesData
   );
@@ -44,23 +44,37 @@ const Analytics = () => {
     (state) => state.analyticsReducer.monthlySales
   );
   const [isLoading, setIsLoading] = useState(true);
-
+  
   const [selectedCategory, setSelectedCategory] = useState("");
-
+  const [containerWidth, setContainerWidth] = useState(window.innerWidth <= 390 ? "90%" : "50%");
+  
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
   };
-
+  
   const selectedCategoryDetails = categoriesData.find(
     (category) => category.category === selectedCategory
   );
-
+  
   useEffect(() => {
     dispatch(getAnalytics()).then(() => {
       setIsLoading(false);
     });
   }, [dispatch]);
-
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setContainerWidth(window.innerWidth <= 390 ? "90%" : "50%");
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  
+  
   if (isLoading) {
     return (
       <div className={styles.loader}>
@@ -82,7 +96,7 @@ const Analytics = () => {
     <div className={styles.totalContainer}>
       <h1>Analytics</h1>
       <div className={styles.containerBar}>
-        <ResponsiveContainer width="50%" height={300}>
+      <ResponsiveContainer width={containerWidth} height={300}>
           <BarChart
             width={500}
             height={400}
@@ -108,7 +122,7 @@ const Analytics = () => {
         </ResponsiveContainer>
       </div>
       <div className={styles.containerBar}>
-        <ResponsiveContainer width="50%" height={300}>
+       <ResponsiveContainer width={containerWidth} height={300}>
           <BarChart
             width={500}
             height={400}
@@ -174,7 +188,7 @@ const Analytics = () => {
 
         {selectedCategory && (
           <div className={styles.details}>
-            <table className={styles.table}>
+            <table className={styles.table1}>
               <thead>
                 <tr>
                   <th>CATEGORIA</th>

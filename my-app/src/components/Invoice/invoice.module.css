@@ -94,3 +94,23 @@
   height: 100vh; /* Opcional: hace que el contenedor ocupe toda la altura de la pantalla */
   }
 
+  @media (min-width: 770px) and (max-width: 1024px) {
+   
+    .loader {
+      align-items: center;
+      margin-top: 140px;
+      height: 500px;
+      margin-left: 20px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .loader {
+      margin-left: 70px;
+    }
+    .formContainer h1 {
+      font-size: large;
+      margin-left: 50px;
+    }
+  }
+
