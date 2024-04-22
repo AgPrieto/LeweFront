@@ -12,6 +12,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { IoMdClose } from "react-icons/io";
 import { GrShop } from "react-icons/gr";
+import { Carousel } from "antd";
+
 
 const Cart = () => {
   useEffect(() => {
@@ -95,11 +97,11 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <>
+        <div className={styles.superContainer}>
           <div className={styles.productListContainer}>
             <ul className={styles.productList}>
               {cart.map((item) => (
-                <li key={item.id} className={styles.productItem}>
+                <div key={item.id} className={styles.productItem}>
                   <Link
                     to={`/details/${item.id}`}
                     className={styles.productLink}
@@ -169,23 +171,47 @@ const Cart = () => {
                       </>
                     )}
                   </div>
-                </li>
+                </div>
               ))}
             </ul>
-          </div>
-          <div className={styles.totalPriceContainer}>
-            <h2>Total: ${totalPrice}</h2>
-            <button
-              className={`${styles.buyButton} hvr-sweep-to-right`}
-              onClick={handleOpenModal}
+            <div
+              className={
+                window.innerWidth < 790
+                  ? styles.mobileTotalPriceContainer
+                  : styles.totalPriceContainer
+              }
             >
-              INICIAR COMPRA
-            </button>
+              <h2>Total: ${totalPrice}</h2>
+              <button
+                className={`${styles.buyButton} hvr-sweep-to-right`}
+                onClick={handleOpenModal}
+              >
+                INICIAR COMPRA
+              </button>
+            </div>
             {isModalOpen && (
               <div
                 data-aos="fade-down"
-                className="modal"
-                style={{
+                className={styles.modal}
+                style={window.innerWidth < 790?{
+                  position: "fixed",
+                  width: "300px",
+                  height: "75%",
+                  top: 50,
+                  left: 45,
+                  right: 0,
+                  bottom: 50,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "transparent",
+                  color: "black",
+                  zIndex: 2,
+                  backdropFilter: "blur(4px)",
+                  overflowY: "hidden",
+                  overflow: "hidden",
+                  overflowX: "hidden",
+                } : {
                   position: "fixed",
                   width: "2000px",
                   height: "100%",
@@ -202,11 +228,23 @@ const Cart = () => {
                   zIndex: 0,
                   backdropFilter: "blur(4px)",
                   overflowY: "auto",
-                }}
+                }
+              }
               >
                 <div
-                  className="modal-content"
-                  style={{
+                  className={styles.modalContent}
+                  style={window.innerWidth < 790?
+                    {
+                    backgroundColor: "#161616",
+                    padding: "0px",
+                    borderRadius: "4px",
+                    color: "white",
+                    height: "auto",
+                    maxHeight: "500px",
+                    width: "600px",
+                    border: "1px solid",
+                    overflowY: "hidden",
+                  }: {
                     backgroundColor: "#161616",
                     padding: "20px",
                     borderRadius: "4px",
@@ -233,32 +271,63 @@ const Cart = () => {
               </div>
             )}
           </div>
-          <div className={styles.recommendedProductsContainer}>
-            <h2>TAMBIEN TE PUEDE INTERESAR</h2>
-            <ul className={styles.recommendedProductsList}>
+          {window.innerWidth < 790 ? (
+            <div>
+            <div className={styles.recommendedProductsContainer}>
+            <p>TE PUEDE INTERESAR!</p>
+            </div>
+            <Carousel
+              autoplay
+              draggable
+              className={styles.carousel}
+              slidesToShow={2}
+              pauseOnHover
+              touchMove
+              dots={true}
+              adaptiveHeight
+              centerMode={false}
+            >
               {recommendedProducts.map((item) => (
-                <div data-aos="fade-up" key={item.id}>
-                  <li className={styles.recommendedProductItem}>
-                    <Link
-                      to={`/details/${item.id}`}
-                      className={styles.recommendedLink}
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className={styles.recommendedImage}
-                      />
-                      <h2 className={styles.recommendedName}>{item.name}</h2>
-                      <p className={styles.recommendedPrice}>
-                        Precio: ${item.price}
-                      </p>
-                    </Link>
-                  </li>
+                <div key={item.id}>
+                  <Link to={`/details/${item.id}`}>
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className={styles.carouselImage}
+                    />
+                  </Link>
                 </div>
               ))}
-            </ul>
-          </div>
-        </>
+            </Carousel>
+            </div>
+          ) : (
+            <div className={styles.recommendedProductsContainer}>
+              <h2>TAMBIEN TE PUEDE INTERESAR</h2>
+              <ul className={styles.recommendedProductsList}>
+                {recommendedProducts.map((item) => (
+                  <div data-aos="fade-up" key={item.id}>
+                    <li className={styles.recommendedProductItem}>
+                      <Link
+                        to={`/details/${item.id}`}
+                        className={styles.recommendedLink}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className={styles.recommendedImage}
+                        />
+                        <h2 className={styles.recommendedName}>{item.name}</h2>
+                        <p className={styles.recommendedPrice}>
+                          Precio: ${item.price}
+                        </p>
+                      </Link>
+                    </li>
+                  </div>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
