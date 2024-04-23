@@ -22,6 +22,7 @@
   flex-wrap: nowrap; /* Asegura que los elementos no se envuelvan a la siguiente línea */
   justify-content: space-around; /* Distribuye el espacio restante alrededor de los elementos */
   position: relative; 
+  
 }
 
 .category {
@@ -254,6 +255,29 @@
     flex-direction: column;
     justify-content: space-around;
   }
+  .imagenFiltrotabla,
+.imagenFiltroaccesorio {
+  width: 100%;
+  max-width: 700px;
+  margin: 20px 0; 
+  transition: box-shadow 0.3s ease-in-out;
+  max-height: 300px;
+  margin-top: 70px;
+  border: solid 1px grey;
+  opacity: 0.3 !important; /* Opacidad inicial */
+}
+.categoryText,
+.category1Text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+ margin-top: 40px;
+}
 
   .category {
     margin-right: 0;
@@ -261,11 +285,12 @@
     height: 100px;
     width: 350px;
     margin-left: 20px;
+    max-height: 340px;
   }
 
   .category1 {
     margin-left: 0;
-    height: 100px;
+    max-height: 340px;
     width: 350px;
     margin-left: 20px;
     height: auto;
@@ -300,13 +325,41 @@
     font-size: small;
     margin-right: 45px;
   }
+
+ 
 }
 
 @media (min-width: 430px) and (max-width: 768px) {
   .categorys {
     flex-direction: column;
     justify-content: space-around;
+    
   }
+
+  .categoryText,
+.category1Text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+ margin-top: 40px;
+}
+  .imagenFiltrotabla,
+  .imagenFiltroaccesorio {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px 0; 
+    transition: box-shadow 0.3s ease-in-out;
+    max-height: 320px;
+    margin-top: 70px;
+    border: solid 1px grey;
+    opacity: 0.3 !important; /* Opacidad inicial */
+  }
+ 
 
   .category {
     margin-right: 0;
@@ -314,6 +367,7 @@
     height: 120px;
     width: 370px;
     margin-left: 30px;
+    max-height: 340px;
   }
 
   .category1 {
@@ -322,6 +376,7 @@
     width: 370px;
     margin-left: 30px;
     height: auto;
+    max-height: 340px;
   }
 
   .topBoxesContainer {

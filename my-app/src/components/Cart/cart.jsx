@@ -38,11 +38,13 @@ const Cart = () => {
   const handleOpenModal = () => {
     setIsModalOpen(true);
     // Evita el scroll
+    document.body.style.overflow = 'hidden';
   };
-
+  
   const handleCloseModal = () => {
     setIsModalOpen(false);
     // Permite el scroll
+    document.body.style.overflow = 'auto';
   };
 
   const availableProducts = articlesBackup.product.filter(
@@ -240,7 +242,8 @@ const Cart = () => {
                         overflow: "hidden",
                         overflowX: "hidden",
                       }
-                    : {
+                    : window.innerWidth >= 770 && window.innerWidth <= 1024
+                    ? {
                         position: "fixed",
                         width: "2000px",
                         height: "100%",
@@ -255,6 +258,25 @@ const Cart = () => {
                         backgroundColor: "transparent",
                         color: "black",
                         zIndex: 0,
+                        backdropFilter: "blur(4px)",
+                        overflowY: "auto",
+                        
+                      }
+                    : {
+                        position: "fixed",
+                        width: "2000px",
+                        height: "100%",
+                        marginLeft: "0px",
+                        top: 20,
+                        left: 0,
+                        right: 0,
+                        bottom: 50,
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        backgroundColor: "transparent",
+                        color: "black",
+                        zIndex: 10000,
                         backdropFilter: "blur(4px)",
                         overflowY: "auto",
                       }
@@ -275,6 +297,21 @@ const Cart = () => {
                           border: "1px solid",
                           overflowY: "scroll",
                         }
+                      : window.innerWidth >= 770 && window.innerWidth <= 1024
+                      ? {
+                        backgroundColor: "#161616",
+                        padding: "20px",
+                        borderRadius: "4px",
+                        color: "white",
+                        height: "auto",
+                        maxHeight: "700px",
+                        width: "600px",
+                        border: "1px solid",
+                        overflowY: "auto",
+                        marginRight: "960px",
+                        marginBottom: "500px",
+                        zIndex: "10000",
+                      }
                       : {
                           backgroundColor: "#161616",
                           padding: "20px",

@@ -193,12 +193,14 @@ const imgRef = useCallback(node => {
     onClick={handleAddToCart} 
     disabled={isButtonDisabled}
     style={{
-        backgroundColor: isButtonDisabled ? 'gray' : 'red',
-        borderColor: isButtonDisabled ? 'gray' : 'red',
-        cursor: isButtonDisabled ? 'not-allowed' : 'pointer',
-        width: isButtonDisabled ? "435px" : "auto",
-        height: isButtonDisabled ? "45px" : "auto",
-    }}
+      backgroundColor: isButtonDisabled ? 'gray' : 'red',
+      borderColor: isButtonDisabled ? 'gray' : 'red',
+      cursor: isButtonDisabled ? 'not-allowed' : 'pointer',
+      width: window.innerWidth >= 770 && window.innerWidth <= 1024
+          ? isButtonDisabled ? "330px" : "auto" // Ajusta el ancho aquí para pantallas entre 770px y 1024px
+          : isButtonDisabled ? "435px" : "auto",
+      height: isButtonDisabled ? "45px" : "auto",
+  }}
 >
             <Link to="/cart" style={{ textDecoration: 'none', color: "white" }}>
             AGREGAR AL CARRITO
