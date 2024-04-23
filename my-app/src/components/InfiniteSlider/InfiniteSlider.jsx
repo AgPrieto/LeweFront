@@ -18,6 +18,7 @@ const InfiniteSlider = () => {
                 height="15"
                 width="80"
                 alt=""
+                
               />
               <img
                 src="https://i.ibb.co/RhQHdTg/logo.png"

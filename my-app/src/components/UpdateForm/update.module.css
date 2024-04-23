@@ -115,3 +115,10 @@ color: white;
   background-color: #d32f2f;
   border-color: #352b2b;
 }
+
+.goBack {
+  margin-right: 00px;
+  background-color: red;
+  color: white;
+  border-radius: 0px;
+}

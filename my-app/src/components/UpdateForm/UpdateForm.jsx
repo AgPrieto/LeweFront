@@ -8,7 +8,7 @@ import {
   updateArticle,
 } from "../../redux/actions/articlesActions";
 import { getAllCategories } from "../../redux/actions/categoriesActions";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import style from "./update.module.css";
 import loader from "./loader.gif";
@@ -17,6 +17,7 @@ import Swal from 'sweetalert2';
 const UpdateArticleForm = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const categories = useSelector((state) => state.categoriesReducer.categories);
   const articleToUpdate = useSelector((state) => state.articlesReducer.detail);
   const [isLoading, setIsLoading] = useState(true);
@@ -118,6 +119,10 @@ const UpdateArticleForm = () => {
       </div>
     );
   }
+
+  const goBack = () => {
+    navigate(-1); // Navega hacia atrás en el historial
+  };
   return (
     <form onSubmit={handleSubmit} className={style.formContainer}>
       <div>
@@ -265,6 +270,9 @@ const UpdateArticleForm = () => {
         </button>
         </div>
       </div>
+        <button type="button" onClick={goBack} className={style.goBack}>
+            Volver
+          </button>
     </form>
   );
 };
