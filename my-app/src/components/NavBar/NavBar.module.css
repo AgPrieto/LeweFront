@@ -73,7 +73,6 @@
   border: none; 
   background: transparent;
   color: white;
-  
 }
 
 .rightButton button:hover {
@@ -106,8 +105,6 @@ border: none;
   z-index: 2000;
   
 }
-
-
 
 .dropdownMenu button{
   display: flex;

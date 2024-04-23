@@ -1,0 +1,148 @@
+/* Clases CSS generadas para las propiedades de cada elemento */
+@font-face {
+  font-family: 'Gotham';
+  src: url('../../assets/GothamRnd-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Botón de la barra lateral */
+.sidebarIcon {
+  padding: 0.25rem 0.5rem;
+  background-color: seagreen;
+}
+.sidebar{
+  font-family: 'Gotham', sans-serif; /* Aplicar la fuente Gotham */
+  background-color: #161616;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  gap: 1rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.7);
+  font-size: medium;
+
+}
+
+.dropdownMenu {
+  top: 100%; 
+  background-color: #161616; 
+  color: #000; 
+  padding: 10px; 
+  font-size: medium;
+  border-bottom: solid 1px #ff0000;
+}
+.dropdownMenu :hover {
+  color: #ff0000;
+  outline: none;
+  border: none; 
+  background-color: transparent;
+}
+.dropdownMenu button{
+  display: flex;
+  align-items: flex-start;
+  outline: none;
+  border: none; 
+  background-color: transparent;
+  font-size: medium;
+
+}
+.subDropdownMenu {
+  padding: 10px;
+  font-size: medium;
+
+}
+.subDropdownMenu button:hover {
+  color: #ff0000;
+  outline: none;
+  border: none; 
+  background-color: transparent;
+}
+.dropdown :hover{
+color: #ff0000;
+outline: none;
+border: none; 
+background-color: transparent;
+}
+.buttonGroup{
+  border-top: solid 1px #ff0000;
+  padding: 10px;
+  font-size: medium;
+
+}
+.buttonGroup button{
+  background-color: transparent;
+  outline: none;
+  border: none; 
+  background-color: transparent;
+  font-size: medium;
+
+}
+.buttonGroup button:hover {
+  color: #c30b08;
+  outline: none;
+  border: none; 
+  background-color: transparent;
+}
+
+/* Estilo para el estado enfocado (después de hacer clic) */
+.buttonGroup button:focus {
+  outline: none;
+  border: none; 
+}
+.rightButton {
+  display: flex;
+  outline: none;
+  border: none; 
+  margin-top: 10px;
+}
+
+.rightButton button {
+  margin-right: 20px;
+  margin-left: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 30px;
+  outline: none;
+  border: none; 
+  background: transparent;
+  color: white;
+}
+
+.rightButton button:hover {
+  color: #ff0000; 
+}
+
+.rightButton button:focus,
+.rightButton button:active {
+outline: none; 
+border: none; 
+}
+/* Contenedor del encabezado personalizado */
+.customHeaderContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Texto en negrita */
+.boldText {
+  font-weight: bold;
+}
+
+.sideBarButton{
+  background-color: transparent;
+  outline: none;
+  border: none; 
+  background-color: transparent;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}

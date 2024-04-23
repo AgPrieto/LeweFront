@@ -14,11 +14,12 @@ import { useDispatch } from 'react-redux';
 import {logoutRequest} from "../../redux/actions/loginActions"
 import { IoLogOutOutline } from "react-icons/io5";
 import { useMediaQuery } from '@react-hook/media-query';
+
 const NavBar = () => {
+  // eslint-disable-next-line no-unused-vars
   const [activeButton, setActiveButton] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [subDropdownOpen, setSubDropdownOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const node = useRef();
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,11 +27,6 @@ const NavBar = () => {
   const isLoggedIn = useSelector(state => state.loginReducer.isLoggedIn);
   const dispatch = useDispatch();
   const isSmallScreen = useMediaQuery('(max-width: 768px)');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
 
   const handleLogout = () => {
     dispatch(logoutRequest());
@@ -78,7 +74,6 @@ const toggleSubDropdown = () => {
     };
   }, [dropdownOpen, subDropdownOpen]);
 
-  const dropdownClass = mobileMenuOpen && isSmallScreen ? styles.dropdownOpen : styles.dropdown;
   const logoImage = isSmallScreen ? logoWhite : leweBlack;
   return (
     <div className={styles.navbar}>
