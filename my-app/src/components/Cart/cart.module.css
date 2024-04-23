@@ -184,6 +184,7 @@ margin-left: 500px;
 font-size: x-large;
 }
 
+
 .formButton:hover {
   outline: none;
   border: none;
@@ -243,6 +244,10 @@ align-items: center;
 .errorContainer{
   font-size: x-large;
 }
+
+
+
+
 
 }
 @media (max-width: 768px) {

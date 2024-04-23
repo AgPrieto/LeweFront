@@ -75,6 +75,7 @@ const handleSubmit = (e) => {
 };
 
     return (
+      <div className={style.allForm}>
       <form onSubmit={handleSubmit}>
         <div className={style.formContainer}>
           <img src={leweIcon} alt="leweIcon" />
@@ -120,6 +121,7 @@ const handleSubmit = (e) => {
           <button className={`${style.formButton} hvr-sweep-to-right`} type="submit">Confirmar Orden</button>
         </div>
       </form>
+      </div>
     );
   };
   
