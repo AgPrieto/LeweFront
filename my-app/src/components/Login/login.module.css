@@ -54,9 +54,11 @@
 
   @media (max-width: 390px) {
     .form {
-      margin-bottom: 60px;
+      margin-bottom: 0px;
       color: white;
-      
+      margin-left: 95px;
+      margin-top: 260px;
+      width: 200px !important;
     }
   }
 
@@ -70,7 +72,7 @@
   
   @media  (max-width: 1024px) {
     .form {
-      margin-bottom: 38 0px;
+      margin-bottom: 380px;
       width: 1000px;
       color: white;
     }
