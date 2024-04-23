@@ -68,7 +68,7 @@
   }
 }
 
-@media (max-width: 390px) {
+@media (min-width: 300px) and (max-width: 429px) {
   .loader {
     margin-left: 70px;
   }
@@ -77,6 +77,20 @@
     color: black;
     margin-left: 110px !important;
     width: 250px !important;
+    margin-top: 100px !important;
+  }
+
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+  .loader {
+    margin-left: 70px;
+  }
+  .totalContainer {
+    font-family: Gotham;
+    color: black;
+    margin-left: 110px !important;
+    width: 300px !important;
     margin-top: 100px !important;
   }
 

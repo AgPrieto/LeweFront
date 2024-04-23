@@ -296,8 +296,9 @@ const Invoice = () => {
               <div></div>
             ) : (
               <div className={style.inputContainer}>
-                <label>Talle</label>
+                <label className={style.talle1}>Talle</label>
                 <input
+                  className={style.talle}
                   type="text"
                   name="size"
                   value={articleData.size}

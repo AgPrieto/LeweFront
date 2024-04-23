@@ -18,14 +18,18 @@
     }
   }
 
-  @media (max-width: 390px) {
+  @media (min-width: 300px) and (max-width: 429px) {
     .sider {
       height: 1000px !important;
       z-index: 1000;
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 430px) and (max-width: 768px) {
+    .sider {
+      height: 1000px !important;
+      z-index: 1000;
+    }
     .container {
       flex-direction: row; 
     }
