@@ -256,13 +256,14 @@
     width: 1010px;
     padding-bottom: 20px;
     margin: auto;
-    margin-bottom: 80px;
+    margin-bottom: 0px;
   }
 
   .infoContainer {
     margin: auto;
-    margin-bottom: 440px;
+    margin-bottom: 510px;
     margin-left: 80px;
+    width: 380px;
   }
   .cartButton  {
     margin-right: 50px;
