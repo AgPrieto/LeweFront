@@ -177,7 +177,7 @@ input:focus {
   }
 }
 
-@media (max-width: 390px) {
+@media (min-width: 300px) and (max-width: 429px) {
   .inputContainer { 
     display: flex;
     flex-direction: column;
@@ -223,4 +223,53 @@ input:focus {
   .formButton {
     margin-right: 25px;
   }
+}
+
+@media (min-width: 430px) and (max-width: 768px){
+  .inputContainer { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Cambia la dirección de los elementos a una fila */
+    margin-left: 95px;
+    font-family: Gotham;
+    margin-top: 100px;
+    width: 350px;
+  }
+  .inputContainer input {
+    width: 230px;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Divide el espacio disponible en dos */
+    font-family: Gotham;
+   margin-left: 70px;
+  }
+  .column1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Divide el espacio disponible en dos */
+    font-family: Gotham;
+    margin-right: 20px;
+    margin-left: 50px;
+  }
+  .column select {
+    width: 230px;
+  }
+
+  .column1 h3 {
+    margin-left: 60px;
+  }
+  .formContainer h1 {
+    color: white;
+    margin-top: 100px;
+  }
+  .formButton {
+    margin-right: 15px;
+  }
+
 }

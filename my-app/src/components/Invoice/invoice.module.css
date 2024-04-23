@@ -104,13 +104,79 @@
     }
   }
 
-  @media (max-width: 390px) {
+  @media (min-width: 300px) and (max-width: 429px) {
     .loader {
       margin-left: 70px;
     }
     .formContainer h1 {
       font-size: large;
-      margin-left: 50px;
+      margin-left: 80px;
+      margin-top: 40px;
+    }
+
+    .formContainer h2  {
+      margin-left: 60px;
+    }
+    .formContainer h3  {
+      margin-left: 60px;
+    }
+
+    .inputContainer{
+      margin-left: 60px;
+  
+    }
+
+    .inputContainer input {
+      width: 230px;
+    }
+
+    .inputContainer select {
+      width: 230px;
+    }
+    .talle {
+      margin-right: 60px;
+    }
+
+    .talle1 {
+      margin-right: 65px;
+    }
+    
+    
+  }
+  @media (min-width: 430px) and (max-width: 768px) {
+    .loader {
+      margin-left: 70px;
+    }
+    .formContainer h1 {
+      font-size: large;
+      margin-left: 80px;
+      margin-top: 40px;
+    }
+
+    .formContainer h2  {
+      margin-left: 60px;
+    }
+    .formContainer h3  {
+      margin-left: 60px;
+    }
+
+    .inputContainer{
+      margin-left: 60px;
+  
+    }
+
+    .inputContainer input {
+      width: 230px;
+    }
+
+    .inputContainer select {
+      width: 230px;
+    }
+    .talle {
+      margin-right: 60px;
+    }
+
+    .talle1 {
+      margin-right: 65px;
     }
   }
-

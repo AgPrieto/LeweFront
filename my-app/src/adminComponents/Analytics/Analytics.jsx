@@ -46,7 +46,7 @@ const Analytics = () => {
   const [isLoading, setIsLoading] = useState(true);
   
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [containerWidth, setContainerWidth] = useState(window.innerWidth <= 390 ? "90%" : "50%");
+  const [containerWidth, setContainerWidth] = useState(window.innerWidth <= 768 ? "90%" : "50%");
   
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
@@ -64,7 +64,12 @@ const Analytics = () => {
   
   useEffect(() => {
     const handleResize = () => {
-      setContainerWidth(window.innerWidth <= 390 ? "90%" : "50%");
+      
+      if (window.innerWidth <= 768) {
+        setContainerWidth("90%");
+      } else {
+        setContainerWidth("50%");
+      }
     };
     
     window.addEventListener('resize', handleResize);

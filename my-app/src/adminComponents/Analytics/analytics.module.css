@@ -114,7 +114,7 @@ th, td {
   }
 }
 
-@media (max-width: 390px) {
+@media (min-width: 300px) and (max-width: 429px) {
   .disabledArticlesContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -169,6 +169,77 @@ th, td {
     display: flex;
     flex-direction: column; /* Esto centra el contenido vertical y horizontalmente */
     width: 390px;
+}
+
+.containerBar {
+ margin-left: 100px;
+ width: 300px;
+ 
+}
+
+.loader {
+  margin-left: 70px;
+}
+
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+  .disabledArticlesContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px; /* Ajusta este valor según tus necesidades */
+    margin-left: 50px;
+  }
+
+  .totalContainer {
+    margin-top: 90px;
+  }
+
+  .totalContainer h1 {
+    margin-left: 50px;
+  }
+
+  .totalContainer h2 {
+    font-family: Gotham;
+    margin-left: 50px;
+  }
+
+  .select {
+    margin-left: 50px;
+    width: 200px;
+  }
+
+  .table{
+    width: 200px;
+    margin-left: 60px;
+  }
+
+  .table1 {
+    width: 150px;
+    border-collapse: collapse;
+    margin-left: 160px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    font-size: 11px;
+    
+  }
+  
+  th {
+    background-color: #e34a4a;
+    
+  }
+  
+  th, td {
+    text-align: left;
+  }
+  .containerTable{
+    display: flex;
+    flex-direction: column; /* Esto centra el contenido vertical y horizontalmente */
+    width: 390px;
+    margin-left: 30px;
 }
 
 .containerBar {

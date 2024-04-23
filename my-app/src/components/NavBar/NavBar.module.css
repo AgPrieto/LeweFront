@@ -156,7 +156,7 @@ border: none;
   
 }
 
-@media (max-width: 390px) {
+@media (min-width: 300px) and (max-width: 429px) {
   .navbar {
     flex-direction: column;
     align-items: center;
@@ -199,12 +199,13 @@ border: none;
   }
 }
 
-@media (max-width: 500px) {
+@media (min-width: 420px) and (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: center;
     height: auto;
     width: 430px;
+    z-index: 10000 ;
   }
 
   .buttonGroup {
