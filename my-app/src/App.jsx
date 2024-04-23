@@ -15,6 +15,7 @@ import PrivateRoute from "./components/PrivateRoute/privateRoute";
 import Invoice from "./components/Invoice/Invoice";
 import Contact from "./components/Contact/Contact";
 import NotFoundPage from "./components/404/index";
+import MobileNavBar from "./components/MobileNavBar/MobileNavBar";
 
 const App = () => {
   const { pathname } = useLocation();
@@ -25,7 +26,7 @@ const App = () => {
 
   return (
     <div className="appContent">
-       <NavBar />
+       {window.innerWidth < 790 ? <MobileNavBar/> : <NavBar />}
        <div className="mainContent"></div>
       <Routes>
         <Route path="/" element={<Home />} />

@@ -1,0 +1,43 @@
+
+  @media (max-width: 768px) {
+    .navbar {
+        display: flex;
+        flex-direction: space-around;
+        align-items: center;
+        height: 80px;
+        background-color: #161616;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        box-sizing: border-box;
+        font-family: Gotham;
+        align-items: center;
+        height: auto;
+        width: 390px !important;
+        z-index: 20;
+      }
+  .logo{
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: auto;
+  }
+  /* Estilos para la barra lateral */
+.sidebar {
+    order: -1; /* Coloca la barra lateral primero */
+  }
+  
+  /* Estilos para el contenedor del logo */
+  .logoContainer {
+    text-align: center; /* Centra el logo */
+    margin-left: 90px;
+    
+  }
+  
+  /* Estilos para el logo */
+  .logo {
+    height: 35px;
+    width: auto;
+  }
+
+  }
