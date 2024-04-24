@@ -12,7 +12,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { IoMdClose } from "react-icons/io";
 import { GrShop } from "react-icons/gr";
-import { Carousel } from "antd";
+import EmblaCarousel from "../EmblaCarousel/EmblaCarousel.jsx";
 
 const Cart = () => {
   useEffect(() => {
@@ -38,13 +38,13 @@ const Cart = () => {
   const handleOpenModal = () => {
     setIsModalOpen(true);
     // Evita el scroll
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
-  
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
     // Permite el scroll
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
   };
 
   const availableProducts = articlesBackup.product.filter(
@@ -74,30 +74,7 @@ const Cart = () => {
           <div className={styles.recommendedProductsContainer}>
             <h2>TE PUEDE INTERESAR!</h2>
             {window.innerWidth < 790 ? (
-              
-              <Carousel
-                autoplay
-                draggable
-                className={styles.carousel}
-                slidesToShow={2}
-                pauseOnHover
-                touchMove
-                dots={true}
-                adaptiveHeight
-                centerMode={false}
-              >
-                {recommendedProducts.map((item) => (
-                  <div key={item.id}>
-                    <Link to={`/details/${item.id}`}>
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className={styles.carouselImage}
-                      />
-                    </Link>
-                  </div>
-                ))}
-              </Carousel>
+              <EmblaCarousel items={recommendedProducts} />
             ) : (
               <ul className={styles.recommendedProductsList}>
                 {recommendedProducts.map((item) => (
@@ -260,9 +237,8 @@ const Cart = () => {
                         zIndex: 0,
                         backdropFilter: "blur(4px)",
                         overflowY: "auto",
-                        
                       }
-                    : {
+                     : {
                         position: "fixed",
                         width: "2000px",
                         height: "100%",
@@ -299,19 +275,19 @@ const Cart = () => {
                         }
                       : window.innerWidth >= 770 && window.innerWidth <= 1024
                       ? {
-                        backgroundColor: "#161616",
-                        padding: "20px",
-                        borderRadius: "4px",
-                        color: "white",
-                        height: "auto",
-                        maxHeight: "700px",
-                        width: "600px",
-                        border: "1px solid",
-                        overflowY: "auto",
-                        marginRight: "960px",
-                        marginBottom: "500px",
-                        zIndex: "10000",
-                      }
+                          backgroundColor: "#161616",
+                          padding: "20px",
+                          borderRadius: "4px",
+                          color: "white",
+                          height: "auto",
+                          maxHeight: "700px",
+                          width: "600px",
+                          border: "1px solid",
+                          overflowY: "auto",
+                          marginRight: "960px",
+                          marginBottom: "500px",
+                          zIndex: "10000",
+                        }
                       : {
                           backgroundColor: "#161616",
                           padding: "20px",
@@ -345,29 +321,7 @@ const Cart = () => {
               <div className={styles.recommendedProductsContainer}>
                 <p>TE PUEDE INTERESAR!</p>
               </div>
-              <Carousel
-                autoplay
-                draggable
-                className={styles.carousel}
-                slidesToShow={2}
-                pauseOnHover
-                touchMove
-                dots={true}
-                adaptiveHeight
-                centerMode={false}
-              >
-                {recommendedProducts.map((item) => (
-                  <div key={item.id}>
-                    <Link to={`/details/${item.id}`}>
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className={styles.carouselImage}
-                      />
-                    </Link>
-                  </div>
-                ))}
-              </Carousel>
+              <EmblaCarousel items={recommendedProducts} />
             </div>
           ) : (
             <div className={styles.recommendedProductsContainer}>

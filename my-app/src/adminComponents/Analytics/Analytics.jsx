@@ -185,7 +185,7 @@ const Analytics = () => {
         >
           <option value="">Selecciona una categoría...</option>
           {categoriesData.map((category, index) => (
-            <option key={index} value={category.category}>
+            <option key={index} value={category.category} style={{color :'black'}}>
               {category.category}
             </option>
           ))}

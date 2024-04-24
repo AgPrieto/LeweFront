@@ -76,7 +76,7 @@ const handleSubmit = (e) => {
 
     return (
       <div className={style.allForm}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <div className={style.formContainer}>
           <img src={leweIcon} alt="leweIcon" />
           <h1>DATOS DE CONTACTO</h1>

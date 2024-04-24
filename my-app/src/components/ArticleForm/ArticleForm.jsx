@@ -200,7 +200,7 @@ const ArticleForm = () => {
           >
             <option value="">Seleccione una categoría</option>
             {categories.map((category) => (
-              <option key={category.id} value={category.id}>
+              <option key={category.id} value={category.id} style={{color:'black'}}>
                 {category.name}
               </option>
             ))}

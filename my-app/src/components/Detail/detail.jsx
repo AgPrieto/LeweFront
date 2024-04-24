@@ -54,7 +54,7 @@ const SizeButtons = ({ detail, quantity, setQuantity, selectedSize, setSelectedS
                           marginTop: '40px',
                           outline: 'none',
                           backgroundColor: selectedSize === size ? 'red' : 'white',
-                          color: selectedSize === size ? 'white' : 'initial',
+                          color: selectedSize === size ? 'black' : 'black',
                           
                       }} 
                       onClick={() => handleSizeClick(size)}
