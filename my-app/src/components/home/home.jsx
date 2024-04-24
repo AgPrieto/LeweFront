@@ -54,7 +54,7 @@ const Home = () => {
       .slice(0, 4);
 
     return (
-      <div style={{overflowX:'hidden'}}>
+      <div style={window.innerWidth < 790 ? {overflowX:'hidden',overflowY:'hidden'}: null}>
         <div>
           <Carrusel />
         </div>
