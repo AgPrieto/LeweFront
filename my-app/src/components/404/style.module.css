@@ -36,3 +36,18 @@
     text-decoration: none;
     border: red;
 }
+
+@media (min-width: 300px) and (max-width: 429px) {
+    .imagen{
+        width: 300px;
+        height: 200px;
+    }
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+    .imagen{
+        width: 330px;
+        height: 230px;
+    }
+}
+
