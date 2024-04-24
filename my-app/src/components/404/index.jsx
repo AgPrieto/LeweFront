@@ -8,8 +8,8 @@ const NotFoundPage = () => {
   return (
     <div className={style.container}>
       <img src={svg} alt="404" className={style.imagen}/>
-      <h1 className={style.title}>Page Not Found</h1>
-      <Link to="/" className={style.link}>Go to Home</Link>
+      <h1 className={style.title}>Pagina No Encontrada</h1>
+      <Link to="/" className={style.link}>Ir a Inicio</Link>
     </div>
 );
 };

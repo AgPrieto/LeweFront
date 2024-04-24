@@ -61,9 +61,9 @@ const handleSubmit = (e) => {
       
         Swal.fire({
           icon: "success",
-          title: '<span style="color:white">¡Enviado!</span>',
+          title: '<span style="color:white">¡Exito!</span>',
           background: "#161616",
-          html: '<p style="color:white">Comprobante enviado</p>',
+          html: '<p style="color:white">Informacion Cargada Exitosamente</p>',
           confirmButtonColor: "#d33",
         });
      

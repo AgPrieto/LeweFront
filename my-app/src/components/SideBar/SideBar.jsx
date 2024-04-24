@@ -16,6 +16,8 @@ import { logoutRequest } from "../../redux/actions/loginActions";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useRef } from "react";
 import { IoMenu } from "react-icons/io5";
+import { IoMdClose } from "react-icons/io";
+
 
 const SideBar = () => {
   const [visible, setVisible] = useState(false);
@@ -37,6 +39,7 @@ const SideBar = () => {
   const handleClick = (buttonName) => {
     setActiveButton(buttonName);
     setDropdownOpen(false);
+    setVisible(false);
     buttonName === "contact"
       ? navigate("/contact")
       : navigate(`category/${buttonName}`);
@@ -76,15 +79,31 @@ const SideBar = () => {
     };
   }, [dropdownOpen, subDropdownOpen]);
 
+
   const customHeader = (
     <div className={styles.customHeaderContainer}>
       {" "}
       {/* Clase para el contenedor del encabezado personalizado */}
-      <Avatar image={logoWhite} shape="square" />
+      <Avatar image={logoWhite} shape="square" style={{
+          height: "25px", 
+          width: "30px",
+          
+        }}/>
       <span className={styles.boldText}>Lewe Sportlife ©</span>{" "}
       {/* Clase para el texto en negrita */}
+      
     </div>
   );
+ 
+  const customIcons = (
+    <React.Fragment>
+        
+        <button className="p-sidebar-close p-link" onClick={() => setVisible(false)} style={{backgroundColor: 'transparent', color: 'red', padding: '10px', borderRadius: '5px', border: 'none', marginLeft: "20px", outline: "none", border: "none"}}>
+                <IoMdClose size={24} /> {/* Usa el ícono IoMdClose para el botón de cierre */}
+            </button>
+    </React.Fragment>
+);
+
 
   return (
     <div className={styles.card}>
@@ -93,6 +112,9 @@ const SideBar = () => {
         visible={visible}
         onHide={() => setVisible(false)}
         className={styles.sidebar}
+        icons={customIcons}
+        showCloseIcon={false}
+     
       >
         <div className={styles.buttonGroup}>
           <Link to="/">
@@ -176,41 +198,13 @@ const SideBar = () => {
           </button>
         </div>
         <div className={styles.rightButton}>
-          <Link to="/cart">
-            <button
-              style={{ color: location.pathname === "/cart" ? "red" : "white" }}
-            >
-              <Badge
-                count={cart.length}
-                style={{ marginTop: "5px", marginRight: "12px" }}
-              >
-                <IoCart
-                  style={{
-                    marginRight: "10px",
-                    padding: "0px 0px 0px",
-                    border: "none",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    fontSize: "30px",
-                    outline: "none",
-                    background: "transparent",
-                    color: location.pathname === "/cart" ? "red" : "white",
-                  }}
-                  onMouseEnter={(e) => (e.target.style.color = "red")}
-                  onMouseLeave={(e) =>
-                    (e.target.style.color =
-                      location.pathname === "/cart" ? "red" : "white")
-                  }
-                />
-              </Badge>
-            </button>
-          </Link>
+          
           {isLoggedIn ? (
             <>
               <Link to="/admin">
                 <button
                   style={{
-                    marginTop: "8px",
+                    
                     color:
                       location.pathname === "/admin" ||
                       location.pathname === "/login"
