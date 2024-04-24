@@ -15,6 +15,7 @@ import HowToBuyContainer from "../Franja/franja.jsx";
 import { getAllArticles } from '../../redux/actions/articlesActions.js'
 import { useDispatch } from 'react-redux';
 import loader from "./loader.gif";
+import EmblaCarousel from '../EmblaCarousel/EmblaCarousel.jsx'
 
 
 const Home = () => {
@@ -53,7 +54,7 @@ const Home = () => {
       .slice(0, 4);
 
     return (
-      <div>
+      <div style={{overflowX:'hidden'}}>
         <div>
           <Carrusel />
         </div>
@@ -117,6 +118,12 @@ const Home = () => {
         <div>
           <HowToBuyContainer data-aos="fade-down"/>
         </div>
+        {window.innerWidth < 768 ?
+        <div className={styles.recommendedProductsContainer}>
+        <h2>PRODUCTOS DESTACADOS</h2>
+         <EmblaCarousel items={recommendedProducts}/>
+        </div> 
+         :
         <div className={styles.recommendedProductsContainer}>
           <h2>PRODUCTOS DESTACADOS</h2>
           <ul className={styles.recommendedProductsList}>
@@ -142,6 +149,7 @@ const Home = () => {
             ))}
           </ul>
         </div>
+        }
       </div>
     );
   };
