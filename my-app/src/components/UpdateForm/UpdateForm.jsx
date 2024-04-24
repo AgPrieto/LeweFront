@@ -8,7 +8,7 @@ import {
   updateArticle,
 } from "../../redux/actions/articlesActions";
 import { getAllCategories } from "../../redux/actions/categoriesActions";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import style from "./update.module.css";
 import loader from "./loader.gif";

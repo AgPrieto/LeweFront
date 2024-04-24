@@ -82,4 +82,12 @@
     }
   }
 
-  
+  @media (max-width:1900px){
+    .allForm{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: blanchedalmond;
+    }
+  }
