@@ -21,14 +21,14 @@
   @media (min-width: 300px) and (max-width: 429px) {
     .sider {
       height: 1000px !important;
-      z-index: 1000;
+      z-index: 10;
     }
   }
 
   @media (min-width: 430px) and (max-width: 768px) {
     .sider {
       height: 1000px !important;
-      z-index: 1000;
+      z-index: 10;
     }
     .container {
       flex-direction: row; 

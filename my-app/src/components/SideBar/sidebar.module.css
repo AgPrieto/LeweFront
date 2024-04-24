@@ -26,8 +26,9 @@
   gap: 1rem;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.7);
   font-size: medium;
-
+  z-index: 10000;
 }
+
 
 .dropdownMenu {
   top: 100%; 
@@ -48,14 +49,15 @@
   align-items: flex-start;
   outline: none;
   border: none; 
-  background-color: transparent;
   font-size: medium;
-
+  
 }
+
+
 .subDropdownMenu {
   padding: 10px;
   font-size: medium;
-
+  
 }
 .subDropdownMenu button:hover {
   color: #ff0000;
@@ -73,6 +75,7 @@ background-color: transparent;
   border-top: solid 1px #ff0000;
   padding: 10px;
   font-size: medium;
+  color: white;
 
 }
 .buttonGroup button{
@@ -81,6 +84,8 @@ background-color: transparent;
   border: none; 
   background-color: transparent;
   font-size: medium;
+  color: white;
+  margin-bottom: 30px;
 
 }
 .buttonGroup button:hover {
@@ -99,7 +104,7 @@ background-color: transparent;
   display: flex;
   outline: none;
   border: none; 
-  margin-top: 10px;
+  
 }
 
 .rightButton button {
@@ -114,6 +119,7 @@ background-color: transparent;
   border: none; 
   background: transparent;
   color: white;
+  margin-top: 480px;
 }
 
 .rightButton button:hover {
@@ -135,6 +141,7 @@ border: none;
 /* Texto en negrita */
 .boldText {
   font-weight: bold;
+  color: white;
 }
 
 .sideBarButton{
@@ -145,4 +152,8 @@ border: none;
   color: white;
   font-size: 25px;
   cursor: pointer;
+}
+
+.link {
+  color: white;
 }

@@ -39,10 +39,11 @@ const initialState = {
                     cart: updatedCart
                 };
                 case CLEAR_CART:
-      return {
-        ...state,
-        cart: [], // Limpia el carrito
-      };
+            localStorage.removeItem('cart');
+            return {
+                ...state,
+                cart: [],
+            };
             default:
                 return state;
         }

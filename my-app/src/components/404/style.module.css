@@ -1,6 +1,11 @@
 .container{
     margin-bottom: 150px;
+    margin-top: 80px
     ;
+}
+
+.title {
+    color: red;
 }
 .imagen{
     width: 900px;
