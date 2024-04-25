@@ -91,7 +91,7 @@ const Cart = () => {
                         />
                         <h2 className={styles.recommendedName}>{item.name}</h2>
                         <p className={styles.recommendedPrice}>
-                          Precio: ${item.price}
+                         ${item.price}
                         </p>
                       </Link>
                     </li>
@@ -341,7 +341,7 @@ const Cart = () => {
                         />
                         <h2 className={styles.recommendedName}>{item.name}</h2>
                         <p className={styles.recommendedPrice}>
-                          Precio: ${item.price}
+                          ${item.price}
                         </p>
                       </Link>
                     </li>

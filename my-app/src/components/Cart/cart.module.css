@@ -164,7 +164,8 @@
 }
 
 .recommendedPrice {
-  color: #888;
+  color: #ababab;
+  font-size: large;
 }
 
 .recommendedProductsContainer h2 {
@@ -244,10 +245,6 @@ align-items: center;
 .errorContainer{
   font-size: x-large;
 }
-
-
-
-
 
 }
 @media (max-width: 768px) {
