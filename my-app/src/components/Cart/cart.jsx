@@ -295,6 +295,7 @@ const Cart = () => {
                           color: "white",
                           height: "auto",
                           maxHeight: "700px",
+                          marginRight: window.innerWidth <= 1900 ? "350px" : "auto",
                           width: "600px",
                           border: "1px solid",
                           overflowY: "auto",
