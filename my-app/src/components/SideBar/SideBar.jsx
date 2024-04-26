@@ -96,12 +96,12 @@ const SideBar = () => {
   );
  
   const customIcons = (
-    <React.Fragment>
+   
         
-        <button className="p-sidebar-close p-link" onClick={() => setVisible(false)} style={{backgroundColor: 'transparent', color: 'red', padding: '10px', borderRadius: '5px', border: 'none', marginLeft: "20px", outline: "none", border: "none"}}>
+        <button className="p-sidebar-close p-link" onClick={() => setVisible(false)} style={{backgroundColor: 'transparent', color: 'red', padding: '10px', borderRadius: '5px', border: 'none', marginLeft: "20px", outline: "none", }}>
                 <IoMdClose size={24} /> {/* Usa el ícono IoMdClose para el botón de cierre */}
             </button>
-    </React.Fragment>
+ 
 );
 
 
