@@ -43,8 +43,10 @@ const Cart = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    // Permite el scroll
-    document.body.style.overflow = "auto";
+    // Habilita el scroll solo si el ancho de la pantalla es menor a 768px
+    if (window.innerWidth < 768) {
+      document.body.style.overflow = "auto";
+    }
   };
 
   const availableProducts = articlesBackup.product.filter(
