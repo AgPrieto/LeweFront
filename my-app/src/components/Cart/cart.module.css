@@ -252,6 +252,12 @@ align-items: center;
     display: flex;
     flex-direction: column;
   } 
+  .priceAndQtity{
+    margin-left: 30px;
+  }
+  .productPrice{
+    font-size: x-small;
+  }
   .productItem {
     width: 390px;
     position: relative  ;
@@ -278,7 +284,7 @@ align-items: center;
   }
   .productName{
     font-size: small;
-    margin-right: 20px;
+    margin-right: 15px;
   }
   .productInfo {
     gap: 50px;
@@ -290,6 +296,8 @@ align-items: center;
 
   .productQuantity{
     margin-top: 5px;
+    font-size: x-small;
+
   }
   .deleteButton{
     width: 40px;

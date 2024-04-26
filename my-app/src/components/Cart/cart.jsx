@@ -102,7 +102,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div className={styles.superContainer}>
+        <div className={styles.superContainer} style={window.innerWidth < 790 ? {overflowX:'hidden',overflowY:'hidden'}: null}>
           <div className={styles.productListContainer}>
             <ul className={styles.productList}>
               {cart.map((item) => (
@@ -321,7 +321,7 @@ const Cart = () => {
               <div className={styles.recommendedProductsContainer}>
                 <p>TE PUEDE INTERESAR!</p>
               </div>
-              <EmblaCarousel items={recommendedProducts} />
+              <EmblaCarousel items={recommendedProducts}/>
             </div>
           ) : (
             <div className={styles.recommendedProductsContainer}>
