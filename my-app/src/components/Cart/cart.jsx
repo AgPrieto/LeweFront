@@ -37,6 +37,7 @@ const Cart = () => {
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
+
     // Evita el scroll
     document.body.style.overflow = "hidden";
   };
@@ -44,6 +45,7 @@ const Cart = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     // Habilita el scroll solo si el ancho de la pantalla es menor a 768px
+    
     if (window.innerWidth < 768) {
       document.body.style.overflow = "auto";
     }
