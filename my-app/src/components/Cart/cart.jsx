@@ -204,22 +204,19 @@ const Cart = () => {
                   window.innerWidth < 790
                     ? {
                         position: "fixed",
-                        width: "300px",
-                        height: "75%",
-                        top: 50,
-                        left: 45,
-                        right: 0,
-                        bottom: 50,
+                        width: "390px",
+                        height: "100%",
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
                         backgroundColor: "transparent",
                         color: "black",
                         zIndex: 2,
-                        backdropFilter: "blur(4px)",
+                        backdropFilter: "blur(10px)",
                         overflowY: "hidden",
                         overflow: "hidden",
                         overflowX: "hidden",
+                        
                       }
                     : window.innerWidth >= 770 && window.innerWidth <= 1024
                     ? {
@@ -274,6 +271,7 @@ const Cart = () => {
                           width: "600px",
                           border: "1px solid",
                           overflowY: "scroll",
+                          marginBottom: "200px"
                         }
                       : window.innerWidth >= 770 && window.innerWidth <= 1024
                       ? {

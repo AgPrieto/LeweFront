@@ -197,6 +197,8 @@ font-size: x-large;
   border-color: white;
 }
 
+
+
 @media (max-width: 1910px) {
   .productItem {
     width: 80%;
