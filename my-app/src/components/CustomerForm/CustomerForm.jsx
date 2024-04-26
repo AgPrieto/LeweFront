@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { validateCustomer } from "../../utils/customerValidation";
 import { sendOrder } from "../../redux/actions/orderActions";
 import { useDispatch } from "react-redux";
@@ -27,6 +27,13 @@ const CustomerForm = (cartArticles) => {
 
   const [errors, setErrors] = useState({});
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, []);
+  
   const handleChange = (e) => {
     setCustomer({
       ...customer,
@@ -51,6 +58,7 @@ articles: cartArticles.cart.map((article) => {
     price: article.price,
   };}),
 }]
+  
 
 const handleSubmit = (e) => {
   e.preventDefault();
