@@ -147,7 +147,9 @@
 }
 
 .recommendedPrice {
-  color: #888;
+  color: #ababab;
+  font-size: large;
+
 }
 
 .recommendedProductsContainer h2 {
