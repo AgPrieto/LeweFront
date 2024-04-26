@@ -66,6 +66,7 @@
     cursor: pointer;
     margin-top: 50px;
     font-size: medium;
+    width: fit-content !important;
   }
   
   .cartButton:hover {
