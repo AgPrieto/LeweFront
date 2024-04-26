@@ -30,14 +30,13 @@ const Cart = () => {
     0
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+console.log(isModalOpen);
   const handleRemoveFromCart = (product) => {
     dispatch(removeFromCart(product));
   };
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
-
     // Evita el scroll
     document.body.style.overflow = "hidden";
   };
@@ -45,7 +44,6 @@ const Cart = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     // Habilita el scroll solo si el ancho de la pantalla es menor a 768px
-    
     if (window.innerWidth < 768) {
       document.body.style.overflow = "auto";
     }
@@ -297,7 +295,6 @@ const Cart = () => {
                           color: "white",
                           height: "auto",
                           maxHeight: "700px",
-                          marginRight: window.innerWidth <= 1900 ? "350px" : "auto",
                           width: "600px",
                           border: "1px solid",
                           overflowY: "auto",
