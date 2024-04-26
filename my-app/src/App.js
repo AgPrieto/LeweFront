@@ -1,6 +1,7 @@
 import img from './assets/carusel3.png';
 import img1 from './assets/carusel4.png'
 import img2 from './assets/carusel12.png';
+import imgMobile2 from './assets/mobileImg2.png';
 
 const data = [
     {
@@ -13,7 +14,7 @@ const data = [
         id: 2,
         name: 'Jane Doe',
         age: 24,
-        image: window.innerWidth <= 768 ? img2 :  img2
+        image: window.innerWidth <= 768 ? imgMobile2 :  img2
     },
     {
         id: 3,
