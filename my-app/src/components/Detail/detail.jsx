@@ -202,6 +202,8 @@ const detail = () => {
         </div>
         <h3>DESCRIPCION</h3>
         <p className={style.description}>{detail.description}</p>
+          
+          <Link to="/cart" style={{ textDecoration: "none", color: "white" }}>
         <button
           className={`${style.cartButton} ${
             isButtonDisabled && window.innerWidth <= 768
@@ -222,13 +224,14 @@ const detail = () => {
                 : isButtonDisabled
                 ? "435px"
                 : "auto",
-            height: isButtonDisabled ? "45px" : "auto",
-          }}
-        >
-          <Link to="/cart" style={{ textDecoration: "none", color: "white" }}>
+                height: isButtonDisabled ? "45px" : "auto",
+              }}
+          >
+          
             AGREGAR AL CARRITO
-          </Link>
         </button>
+        </Link>
+          
         {isButtonDisabled && (
           <p style={{ color: "red", marginLeft: "5px" }}>
             Debes ingresar una cantidad
