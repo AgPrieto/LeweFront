@@ -200,7 +200,7 @@ const detail = () => {
             setSelectedSize={setSelectedSize}
           />
         </div>
-        <h3>DESCRIPCION</h3>
+        <h3>DESCRIPCIÓN</h3>
         <p className={style.description}>{detail.description}</p>
           
           <Link to="/cart" style={{ textDecoration: "none", color: "white" }}>

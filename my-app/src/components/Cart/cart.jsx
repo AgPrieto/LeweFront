@@ -321,7 +321,7 @@ console.log(isModalOpen);
             </div>
           ) : (
             <div className={styles.recommendedProductsContainer}>
-              <h2>TAMBIEN TE PUEDE INTERESAR</h2>
+              <h2>TAMBIÉN TE PUEDE INTERESAR</h2>
               <ul className={styles.recommendedProductsList}>
                 {recommendedProducts.map((item) => (
                   <div data-aos="fade-up" key={item.id}>
