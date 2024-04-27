@@ -22,7 +22,7 @@ const Carrusel = () => {
   const images = data.map((event) => event.image);
 
   return (
-    <Carousel autoplay draggable className={styles.carousel}>
+    <Carousel autoplay draggable fade className={styles.carousel}>
       {images.map((image, index) => (
         <div key={index}>
           <img
