@@ -259,5 +259,20 @@
     margin-left: 20px;
   }
 }
+@media (max-width: 1900px) {
+  .contactForm input[type="text"],
+  .contactForm input[type="email"],
+  .contactForm textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .map{
+    width: 600px;
+    height: 500px;
+    border: 0;
+    margin-top: 20px;
+  }
 
+}
 
