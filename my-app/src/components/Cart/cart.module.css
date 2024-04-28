@@ -418,6 +418,7 @@ font-size: large;
   & p{
     font-size: medium;
   }
+  margin-bottom: 0px;
 }
 .recommendedProductsContainer{
   margin-top: 0px;

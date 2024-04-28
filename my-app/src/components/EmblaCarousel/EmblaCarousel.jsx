@@ -3,7 +3,7 @@ import React from "react";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import styles from "./emblacarousel.module.css";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 
 const EmblaCarousel = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -12,6 +12,8 @@ const EmblaCarousel = (props) => {
   const slides = items;
   // eslint-disable-next-line no-unused-vars
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
+  const location = useLocation();
+  const isCartPage = location.pathname === "/cart";
 
   return (
     <section className={styles.embla}>
@@ -23,7 +25,7 @@ const EmblaCarousel = (props) => {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className={styles.embla__slide__img}
+                  className={!isCartPage ? styles.embla__slide__img : styles.embla__slide__img__cart}
                 />
                 <h3 className={styles.embla__slide__name}>{item.name}</h3>
                 <p className={styles.embla__slide__price}>${item.price}</p>
