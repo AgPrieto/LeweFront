@@ -8,19 +8,22 @@ import { IoCart } from "react-icons/io5";
 import { Badge } from "antd";
 import { useSelector } from "react-redux";
 const MobileNavBar = () => {
-  const handleLogout = () => {
-    dispatch(logoutRequest());
-  };
+  // const handleLogout = () => {
+  //   dispatch(logoutRequest());
+  // };
   const location = useLocation();
   const currentPath = location.pathname;
-  const isLoggedIn = useSelector((state) => state.loginReducer.isLoggedIn);
+  //const isLoggedIn = useSelector((state) => state.loginReducer.isLoggedIn);
   const cart = useSelector((state) => state.cartReducer.cart);
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
     return (
       <div className={styles.navbar}>
         <div className={styles.sidebar}>
         <SideBar/>
         </div>
-        <Link to="/" className={styles.logoContainer}>
+        <Link to="/" className={styles.logoContainer} onClick={scrollToTop}>
           <img src={logoWhite} alt="Logo" className={styles.logo} />
         </Link>
         <div className={styles.rightButton}>
