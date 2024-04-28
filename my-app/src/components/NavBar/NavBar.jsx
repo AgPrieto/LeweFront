@@ -74,10 +74,14 @@ const toggleSubDropdown = () => {
     };
   }, [dropdownOpen, subDropdownOpen]);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const logoImage = isSmallScreen ? logoWhite : leweBlack;
   return (
     <div className={styles.navbar}>
-      <Link to="/"><img src={logoImage} alt="Logo" className={styles.logo} /></Link>
+      <Link to="/" onClick={scrollToTop}><img src={logoImage} alt="Logo" className={styles.logo} /></Link>
       <div className={styles.buttonGroup}>
         <Link to="/"><button onClick={() => handleClick('HOME')} className={location.pathname === '/' ? styles.active : ''}>HOME</button></Link>
         <div className={styles.dropdown} ref={node}>
