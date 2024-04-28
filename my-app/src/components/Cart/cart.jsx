@@ -57,7 +57,7 @@ console.log(isModalOpen);
     <div className={styles.cartContainer}>
       <h1>CARRITO</h1>
       {cart.length === 0 ? (
-        <div>
+        <div style={window.innerWidth < 790 ? {overflowX:'hidden',overflowY:'hidden'}: null}>
           <div className={styles.errorContainer}>
             <MdOutlineError />
             <p>No hay productos en el carrito.</p>
