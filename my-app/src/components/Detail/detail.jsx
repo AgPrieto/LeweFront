@@ -20,6 +20,18 @@ const SizeButtons = ({
 
   const detail1 = useSelector((state) => state.articlesReducer.detail);
 
+  const handleIncrement = () => {
+    // Función para incrementar la cantidad
+    setQuantity(quantity + 1);
+  };
+
+  const handleDecrement = () => {
+    // Función para decrementar la cantidad, asegurándote de no ir por debajo del mínimo
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   const handleSizeClick = (size) => {
     if (selectedSize === size) {
       setSelectedSize(null); // Deselecciona el tamaño si se vuelve a hacer clic en el mismo
@@ -39,14 +51,17 @@ const SizeButtons = ({
   if (noSizeCategories.includes(detail1.CategoryId)) {
     return (
       <div>
-        <label>Cantidad</label>
-        <InputNumber
-          min={1}
-          max={detail1[`stock${selectedSize}`]}
-          value={quantity}
-          onChange={(value) => setQuantity(value)}
-          className={style.cantidadInput}
-        />
+        <div className={style.inputGroup}>
+              <button onClick={handleDecrement} className={style.decIncButtons}>-</button>
+              <InputNumber
+                min={1}
+                max={detail1[`stock${selectedSize}`]}
+                value={quantity}
+                onChange={(value) => setQuantity(value)}
+                className={style.cantidadInput}
+              />
+              <button onClick={handleIncrement} className={style.decIncButtons}>+</button>
+            </div>
       </div>
     );
   } else {
@@ -78,14 +93,17 @@ const SizeButtons = ({
         })}
         {selectedSize && (
           <div>
-            <label className={style.cantidadLabel}>Cantidad</label>
-            <InputNumber
-              min={1}
-              max={detail1[`stock${selectedSize}`]}
-              value={quantity}
-              onChange={(value) => setQuantity(value)}
-              className={style.cantidadInput}
-            />
+            <div className={style.inputGroup}>
+              <button onClick={handleDecrement} className={style.decIncButtons}>-</button>
+              <InputNumber
+                min={1}
+                max={detail1[`stock${selectedSize}`]}
+                value={quantity}
+                onChange={(value) => setQuantity(value)}
+                className={style.cantidadInput}
+              />
+              <button onClick={handleIncrement} className={style.decIncButtons}>+</button>
+            </div>
           </div>
         )}
       </div>
@@ -202,36 +220,33 @@ const detail = () => {
         </div>
         <h3>DESCRIPCIÓN</h3>
         <p className={style.description}>{detail.description}</p>
-          
-          <Link to="/cart" style={{ textDecoration: "none", color: "white" }}>
-        <button
-          className={`${style.cartButton} ${
-            isButtonDisabled && window.innerWidth <= 768
-              ? style.mobileButton
-              : ""
-          }`}
-          onClick={handleAddToCart}
-          disabled={isButtonDisabled}
-          style={{
-            backgroundColor: isButtonDisabled ? "gray" : "red",
-            borderColor: isButtonDisabled ? "gray" : "red",
-            cursor: isButtonDisabled ? "not-allowed" : "pointer",
-            width:
-              window.innerWidth >= 770 && window.innerWidth <= 1024
-                ? isButtonDisabled
-                  ? "330px"
-                  : "auto" // Ajusta el ancho aquí para pantallas entre 770px y 1024px
-                : isButtonDisabled
-                ? "435px"
-                : "auto",
-                height: isButtonDisabled ? "45px" : "auto",
-              }}
+        <Link to="/cart" style={{ textDecoration: "none", color: "white" }}>
+          <button
+            className={`${style.cartButton} ${
+              isButtonDisabled && window.innerWidth <= 768
+                ? style.mobileButton
+                : ""
+            }`}
+            onClick={handleAddToCart}
+            disabled={isButtonDisabled}
+            style={{
+              backgroundColor: isButtonDisabled ? "gray" : "red",
+              borderColor: isButtonDisabled ? "gray" : "red",
+              cursor: isButtonDisabled ? "not-allowed" : "pointer",
+              width:
+                window.innerWidth >= 770 && window.innerWidth <= 1024
+                  ? isButtonDisabled
+                    ? "330px"
+                    : "auto" // Ajusta el ancho aquí para pantallas entre 770px y 1024px
+                  : isButtonDisabled
+                  ? "435px"
+                  : "auto",
+              height: isButtonDisabled ? "45px" : "auto",
+            }}
           >
-          
             AGREGAR AL CARRITO
-        </button>
+          </button>
         </Link>
-          
         {isButtonDisabled && (
           <p style={{ color: "red", marginLeft: "5px" }}>
             Debes ingresar una cantidad
