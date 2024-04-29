@@ -28,7 +28,7 @@ const Contact = () => {
         e.target.reset();
     };
     return (
-      <div className={styles.contactContainer}>
+      <div className={styles.contactContainer} style={window.innerWidth < 790 ? {overflowX:'hidden',overflowY:'hidden'}: null}>
         <div className={styles.contactHeader} data-aos="fade-down"
           data-aos-duration="1000">
             <img src={leweIcon} alt="Lewe Icon" />
