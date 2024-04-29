@@ -83,7 +83,7 @@ const toggleSubDropdown = () => {
     <div className={styles.navbar}>
       <Link to="/" onClick={scrollToTop}><img src={logoImage} alt="Logo" className={styles.logo} /></Link>
       <div className={styles.buttonGroup}>
-        <Link to="/"><button onClick={() => handleClick('HOME')} className={location.pathname === '/' ? styles.active : ''}>HOME</button></Link>
+        <Link to="/" onClick={scrollToTop}><button onClick={() => handleClick('HOME')} className={location.pathname === '/' ? styles.active : ''}>HOME</button></Link>
         <div className={styles.dropdown} ref={node}>
           <button onClick={toggleDropdown} className={location.pathname.startsWith('/category') ? styles.active : ''}>PRODUCTOS <SlArrowDown /> </button>
           {dropdownOpen && (

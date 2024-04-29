@@ -6,7 +6,7 @@ import { getArticlesById } from "../../redux/actions/articlesActions";
 import style from "./detail.module.css";
 import { InputNumber } from "antd";
 import { addToCart } from "../../redux/actions/cartActions";
-import loader from "./loader.gif";
+import loader from "../../assets/logoWhite.png";
 import { useCallback } from "react";
 
 const SizeButtons = ({

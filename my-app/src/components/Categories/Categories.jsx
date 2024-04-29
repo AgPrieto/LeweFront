@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import style from "./categories.module.css";
-import loader from "./loader.gif";
+import loader from "../../assets/logoWhite.png";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getCategoryArticles,

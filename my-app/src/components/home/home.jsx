@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 import HowToBuyContainer from "../Franja/franja.jsx";
 import { getAllArticles } from '../../redux/actions/articlesActions.js'
 import { useDispatch } from 'react-redux';
-import loader from "./loader.gif";
+import loader from "../../assets/logoWhite.png";
 import EmblaCarousel from '../EmblaCarousel/EmblaCarousel.jsx'
 
 
