@@ -128,7 +128,7 @@ const ArticleForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={window.innerWidth < 790 ? {overflowX:'hidden',overflowY:'hidden'}: null}>
       <div className={style.formContainer}>
         <h1>CREAR ARTICULO</h1>
       </div>

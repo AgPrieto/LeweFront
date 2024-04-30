@@ -194,7 +194,7 @@ const Invoice = () => {
   }
 
   return (
-    <div className={style.allContainer}>
+    <div className={style.allContainer} style={window.innerWidth < 790 ? {overflowX:'hidden',overflowY:'hidden'}: null}>
       <form>
         <div>
           <img className={style.logoIcon} src={leweIcon} alt="leweIcon" />
