@@ -49,9 +49,9 @@ const Contact = () => {
           <div className={styles.contactInfo} data-aos="fade-right"
           data-aos-duration="1000">
           <p>
-            <a href="mailto:facurimini@gmail.com">facurimini@gmail.com</a>
+            <a href="mailto:lewesportlife@gmail.com">lewesportlife@gmail.com</a>
             <br />
-            (012) 345 67 89
+            (+54) 3516 98 6262
           </p>
           <FaLocationDot style={{color: "red"}}/>
           <p>
@@ -61,7 +61,7 @@ const Contact = () => {
           </p>
           <ul className={styles.socialLinks}>
             <li>
-            <Link to="https://wa.me/+5493517658536" target="_blank">
+            <Link to="https://wa.me/+5493516986262" target="_blank">
                 <FaWhatsapp style={{ color: "white" }} size={30} />
             </Link>
             </li>
