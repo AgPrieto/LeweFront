@@ -4,11 +4,9 @@ import { Sidebar } from "primereact/sidebar";
 import { Avatar } from "primereact/avatar";
 import styles from "./sidebar.module.css";
 import logoWhite from "../../assets/logoWhite.png";
-import { IoCart } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 import { SlArrowDown } from "react-icons/sl";
-import { Badge } from "antd";
 import { useSelector } from "react-redux";
 import { FaUserTie } from "react-icons/fa";
 import { useDispatch } from "react-redux";
@@ -28,7 +26,6 @@ const SideBar = () => {
   const node = useRef();
   const navigate = useNavigate();
   const location = useLocation();
-  const cart = useSelector((state) => state.cartReducer.cart);
   const isLoggedIn = useSelector((state) => state.loginReducer.isLoggedIn);
   const dispatch = useDispatch();
 
