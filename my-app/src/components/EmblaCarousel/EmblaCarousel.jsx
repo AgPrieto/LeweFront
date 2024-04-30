@@ -21,7 +21,7 @@ const EmblaCarousel = (props) => {
         <div className={styles.embla__container}>
           {slides.map((item, index) => (
             <div className={styles.embla__slide} key={index}>
-              <Link to={`/category/${item.id}`}>
+              <Link to={`/details/${item.id}`}>
                 <img
                   src={item.image}
                   alt={item.name}
